@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTL/LTR Test - Stellar</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .test-section {
+            padding: 40px;
+            margin: 20px 0;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .test-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .visual-indicator {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 40px;" dir="auto">RTL/LTR Direction Test</h1>
+
+            <!-- Current Direction Indicator -->
+            <div class="test-section">
+                <div class="visual-indicator" id="dir-indicator">
+                    Current Direction: <span id="current-dir">LTR</span>
+                </div>
+            </div>
+
+            <!-- Test 1: Text Alignment -->
+            <div class="test-section">
+                <h2 class="test-title">Test 1: Text Alignment (dir="auto")</h2>
+                <p dir="auto">This paragraph should align to the start of the text direction. In LTR it starts from
+                    left, in RTL it starts from right.</p>
+                <p dir="auto">هذه فقرة باللغة العربية. يجب أن تبدأ من اليمين في كلا الاتجاهين.</p>
+            </div>
+
+            <!-- Test 2: Flex Layout -->
+            <div class="test-section">
+                <h2 class="test-title">Test 2: Flex Items (social links style)</h2>
+                <div class="social-links">
+                    <a href="#" class="icon-btn"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="icon-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon-btn"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Test 3: Checkmarks -->
+            <div class="test-section">
+                <h2 class="test-title">Test 3: Check Items</h2>
+                <ul style="list-style: none;">
+                    <li class="check-item" dir="auto"><i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                        First item with checkmark</li>
+                    <li class="check-item" dir="auto"><i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                        Second item with checkmark</li>
+                    <li class="check-item" dir="auto"><i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                        Third item with checkmark</li>
+                </ul>
+            </div>
+
+            <!-- Test 4: Buttons with Icons -->
+            <div class="test-section">
+                <h2 class="test-title">Test 4: Buttons with Icons</h2>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" dir="auto">Continue <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn btn-outline" dir="auto"><i class="fas fa-arrow-left"></i> Go Back</button>
+                </div>
+            </div>
+
+            <!-- Test 5: Info Items -->
+            <div class="test-section">
+                <h2 class="test-title">Test 5: Info Items (Contact Style)</h2>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4 dir="auto">Email Address</h4>
+                        <p class="ltr-content" dir="ltr">hello@stellarclub.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4 dir="auto">Phone Number</h4>
+                        <p class="phone-number" dir="ltr">+1 234 567 890</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test 6: Footer Columns -->
+            <div class="test-section">
+                <h2 class="test-title">Test 6: Footer Columns Alignment</h2>
+                <div class="grid grid-3">
+                    <div class="footer-col">
+                        <h4 dir="auto">Column 1</h4>
+                        <p dir="auto">This should align to start</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 dir="auto">Column 2</h4>
+                        <p dir="auto">This should align to start</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 dir="auto">Column 3</h4>
+                        <p dir="auto">This should align to start</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Update direction indicator
+        function updateDirectionIndicator() {
+            const dir = document.documentElement.getAttribute('dir') || 'ltr';
+            document.getElementById('current-dir').textContent = dir.toUpperCase();
+        }
+
+        // Initial update
+        updateDirectionIndicator();
+
+        // Watch for direction changes
+        const observer = new MutationObserver(updateDirectionIndicator);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['dir']
+        });
+    </script>
+</body>
+
+</html>

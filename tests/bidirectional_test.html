@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bidirectional Text Test</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            padding: 40px;
+        }
+
+        .test-box {
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .rtl-mode {
+            direction: rtl;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bidirectional Text Rendering Test</h1>
+
+    <div class="test-box">
+        <h2>LTR Context (English Main)</h2>
+        <p dir="auto">This is a standard English sentence.</p>
+        <p dir="auto">Mixed content: The Arabic word for star is نجم (Najm).</p>
+        <p dir="auto">Phone number check: Call us at +1 234 567 890.</p>
+        <p dir="auto">Email check: contact@stellar.com</p>
+    </div>
+
+    <div class="test-box rtl-mode">
+        <h2>RTL Context (Arabic/Hebrew Main)</h2>
+        <p dir="auto">هذا نص عربي كامل.</p>
+        <p dir="auto">Mixed content: الكلمة الإنجليزية لـ "star" هي نجم.</p>
+        <p dir="auto">Phone number check: اتصل بنا على +1 234 567 890.</p>
+        <p dir="auto">Email check: راسلنا على contact@stellar.com</p>
+    </div>
+
+    <div class="test-box">
+        <h2>Neutral Characters & Punctuation</h2>
+        <p dir="auto">Does the question mark appear at the end?</p>
+        <p dir="auto">هل تظهر علامة الاستفهام في النهاية؟</p>
+        <p dir="auto">English sentence with (parentheses).</p>
+        <p dir="auto">جملة عربية مع (أقواس).</p>
+    </div>
+
+</body>
+
+</html>

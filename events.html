@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events | Stellar</title>
+    <meta name="description" content="Join our stargazing events, workshops, and solar observations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Observations</a></li>
+                    <li><a href="events.html" class="nav-link active">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn"><i class="fas fa-globe"></i></button>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Log In</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-overlay" class="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" dir="auto">Home</a></li>
+            <li><a href="services.html" dir="auto">Observations</a></li>
+            <li><a href="events.html" dir="auto">Events</a></li>
+            <li><a href="gallery.html" dir="auto">Gallery</a></li>
+            <li><a href="blog.html" dir="auto">Blog</a></li>
+            <li><a href="resources.html" dir="auto">Resources</a></li>
+            <li><a href="about.html" dir="auto">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div class="mobile-settings"
+                    style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                    <button id="mobile-theme-toggle" class="icon-btn"
+                        style="width: 60px; height: 60px; font-size: 1.5rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="mobile-rtl-toggle" class="icon-btn"
+                        style="width: 60px; height: 60px; font-size: 1.5rem;">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0; width: 100%;">
+            </li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="404.html">404 Error Page</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="hero-section page-header"
+            style="background-image: url('assets/images/media__1770703914817.png');">
+            <div class="container hero-content" style="position: relative;">
+                <div class="decoration-blob blob-1"></div>
+                <h1 class="hero-title" dir="auto">Stargazing Calendar</h1>
+                <p class="hero-subtitle" dir="auto">Join our community for unforgettable nights under the stars. Reserve
+                    your spot early as capacity is limited.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text" dir="auto">Upcoming Events</h2>
+                    <p class="section-desc" dir="auto">Filter by event type or location.</p>
+                </div>
+
+                <div class="calendar-grid">
+                    <!-- Event 1 -->
+                    <article class="event-card ">
+                        <span class="event-date" dir="auto">March 15, 2026</span>
+                        <h3 class="event-title" dir="auto">Saturn's Ring Viewing</h3>
+                        <div class="event-location" dir="auto"><i class="fas fa-map-marker-alt"></i> Desert Peak
+                            Observatory</div>
+                        <p dir="auto" style="color: var(--text-muted); margin-bottom: var(--space-lg);">Experience the
+                            majesty of Saturn's rings through our 24-inch telescope. Perfect for beginners and families.
+                        </p>
+                        <div class="event-rsvp"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: var(--primary);" dir="auto">$25 / person</span>
+                            <a href="coming-soon.html" class="btn btn-primary" dir="auto">RSVP Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Event 2 -->
+                    <article class="event-card " style="animation-delay: 0.1s;">
+                        <span class="event-date" dir="auto">March 22, 2026</span>
+                        <h3 class="event-title" dir="auto">Solar Observation Workshop</h3>
+                        <div class="event-location" dir="auto"><i class="fas fa-map-marker-alt"></i> City Science Center
+                        </div>
+                        <p dir="auto" style="color: var(--text-muted); margin-bottom: var(--space-lg);">Safely observe
+                            solar flares and sunspots with our specialized H-alpha telescopes.</p>
+                        <div class="event-rsvp"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: var(--primary);" dir="auto">Free for Members</span>
+                            <a href="coming-soon.html" class="btn btn-primary" dir="auto">RSVP Now</a>
+                        </div>
+                    </article>
+
+                    <!-- Event 3 -->
+                    <article class="event-card " style="animation-delay: 0.2s;">
+                        <span class="event-date" dir="auto">April 05, 2026</span>
+                        <h3 class="event-title" dir="auto">Deep Sky Astrophotography</h3>
+                        <div class="event-location" dir="auto"><i class="fas fa-map-marker-alt"></i> Dark Sky Reserve
+                        </div>
+                        <p dir="auto" style="color: var(--text-muted); margin-bottom: var(--space-lg);">A masterclass on
+                            capturing nebulae and galaxies. Bring your DSLR and tripod.</p>
+                        <div class="event-rsvp"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: var(--primary);" dir="auto">$150 / person</span>
+                            <a href="coming-soon.html" class="btn btn-primary" dir="auto">Book Spot</a>
+                        </div>
+                    </article>
+
+                    <!-- Event 4 -->
+                    <article class="event-card " style="animation-delay: 0.3s;">
+                        <span class="event-date" dir="auto">April 12, 2026</span>
+                        <h3 class="event-title" dir="auto">Meteor Shower Watch Party</h3>
+                        <div class="event-location" dir="auto"><i class="fas fa-map-marker-alt"></i> North Hills Park
+                        </div>
+                        <p dir="auto" style="color: var(--text-muted); margin-bottom: var(--space-lg);">Gather for the
+                            Lyrids meteor shower. Hot cocoa and blankets provided.</p>
+                        <div class="event-rsvp"
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: var(--primary);" dir="auto">Free Event</span>
+                            <a href="coming-soon.html" class="btn btn-primary" dir="auto">Join Us</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-banner"
+            style="background: linear-gradient(135deg, #1e3a8a 0%, #4f46e5 50%, #7c3aed 100%); color: var(--white); text-align: center; position: relative; overflow: hidden;">
+            <div class="decoration-blob blob-1" style="opacity: 0.1;"></div>
+            <div class="container">
+                <h2 dir="auto" class="gradient-text" style="color: white; margin-bottom: var(--space-md);">Host a
+                    Private Star Party?</h2>
+                <p dir="auto" style="margin-bottom: var(--space-xl); opacity: 0.9;">We organize exclusive stargazing
+                    events for schools, companies, and private groups.</p>
+                <a href="contact.html" class="btn btn-primary" style="background: white; color: var(--primary);">Contact
+                    Coordinator</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container grid grid-4">
+            <div class="footer-col">
+                <div class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></div>
+                <p dir="auto">Bringing the cosmos closer to home since 2024.</p>
+                <div class="social-links" style="margin-top: 15px; display: flex; gap: 15px; font-size: 1.2rem;">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html" dir="auto">Home</a></li>
+                    <li><a href="about.html" dir="auto">About Us</a></li>
+                    <li><a href="services.html" dir="auto">Services</a></li>
+                    <li><a href="contact.html" dir="auto">Contact</a></li>
+                    <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
+                    <li><a href="admin-dashboard.html" dir="auto">Admin Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Newsletter</h4>
+                <p dir="auto" style="margin-bottom: var(--space-md);">Get latest astro news directly.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email Address" required dir="auto">
+                    <button type="submit" class="btn btn-primary" dir="auto"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Contact Info</h4>
+                <p dir="auto"><i class="fas fa-map-marker-alt"></i> 123 Galaxy Way, Star City</p>
+                <p class="phone-number" dir="ltr"><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p dir="ltr"><i class="fas fa-envelope"></i> hello@stellarclub.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p dir="auto">&copy; 2026 Stellar Club. All rights reserved. | <a href="404.html" dir="auto">404 Error
+                        Page</a> | <a href="#" dir="auto">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources | Stellar</title>
+    <meta name="description" content="Download stargazing guides, sky maps, and equipment checklists.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li><a href="index.html" class="nav-link" dir="auto">Home</a></li>
+                    <li><a href="services.html" class="nav-link" dir="auto">Observations</a></li>
+                    <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link" dir="auto">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link active" dir="auto">Resources</a></li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn"><i class="fas fa-globe"></i></button>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Log In</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-overlay" class="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" dir="auto">Home</a></li>
+            <li><a href="services.html" dir="auto">Observations</a></li>
+            <li><a href="events.html" dir="auto">Events</a></li>
+            <li><a href="gallery.html" dir="auto">Gallery</a></li>
+            <li><a href="blog.html" dir="auto">Blog</a></li>
+            <li><a href="resources.html" dir="auto">Resources</a></li>
+            <li><a href="about.html" dir="auto">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div class="mobile-settings"
+                    style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                    <button id="mobile-theme-toggle" class="icon-btn"
+                        style="width: 60px; height: 60px; font-size: 1.5rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="mobile-rtl-toggle" class="icon-btn"
+                        style="width: 60px; height: 60px; font-size: 1.5rem;">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </div>
+            </li>
+            <li>
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0; width: 100%;">
+            </li>
+            <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html" dir="auto">Admin Dashboard</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="hero-section page-header"
+            style="background-image: url('assets/images/media__1770701229282.jpg');">
+            <div class="container hero-content" style="position: relative;">
+                <div class="decoration-blob blob-1"></div>
+                <h1 class="hero-title" dir="auto">Astronomer's Toolkit</h1>
+                <p class="hero-subtitle" dir="auto">Free guides, sky charts, and
+                    equipment manuals for every level of
+                    stargazer.</p>
+            </div>
+        </section>
+
+        <!-- New Categories Section -->
+        <section class="section" style="padding-bottom: 0;">
+            <div class="container">
+                <div class="grid grid-3">
+                    <div class="glass-card text-center" style="padding: 2rem;">
+                        <i class="fas fa-book-open"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3 dir="auto">Guides & Manuals</h3>
+                        <p dir="auto" class="mb-lg">Step-by-step tutorials for using your telescope.</p>
+                        <a href="#guides" class="btn btn-outline btn-sm">Browse</a>
+                    </div>
+                    <div class="glass-card text-center" style="padding: 2rem;">
+                        <i class="fas fa-mobile-alt"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3 dir="auto">Software & Apps</h3>
+                        <p dir="auto" class="mb-lg">Recommended apps for night sky navigation.</p>
+                        <a href="#software" class="btn btn-outline btn-sm">View</a>
+                    </div>
+                    <div class="glass-card text-center" style="padding: 2rem;">
+                        <i class="fas fa-tools"
+                            style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+                        <h3 dir="auto">Gear Maintenance</h3>
+                        <p dir="auto" class="mb-lg">Tips to keep your equipment in prime condition.</p>
+                        <a href="#maintenance" class="btn btn-outline btn-sm">Learn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="guides">
+            <div class="container">
+                <h2 class="gradient-text" style="margin-bottom: var(--space-xl);" dir="auto">Featured Downloads</h2>
+                <div class="resources-list" style="display: grid; gap: 20px;">
+                    <!-- Resource 1 -->
+                    <div class="resource-item glass-card"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px;">
+                        <div class="resource-info" style="display: flex; gap: 20px; align-items: center;">
+                            <div class="resource-icon"
+                                style="width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 4px;" dir="auto">Beginner's Guide to
+                                    Telescopes</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" dir="auto">Comprehensive 20-page
+                                    PDF guide on choosing your first scope.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;" dir="auto"><i
+                                class="fas fa-download"></i> Download</a>
+                    </div>
+
+                    <!-- Resource 2 -->
+                    <div class="resource-item glass-card"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px;">
+                        <div class="resource-info" style="display: flex; gap: 20px; align-items: center;">
+                            <div class="resource-icon"
+                                style="width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 4px;" dir="auto">Monthly Sky Map - March
+                                    2026</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" dir="auto">Plot of visible
+                                    planets and constellations for Northern Hemisphere.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;" dir="auto"><i
+                                class="fas fa-download"></i> Download</a>
+                    </div>
+
+                    <!-- Resource 3 -->
+                    <div class="resource-item glass-card"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px;">
+                        <div class="resource-info" style="display: flex; gap: 20px; align-items: center;">
+                            <div class="resource-icon"
+                                style="width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 4px;" dir="auto">Observation Log Template
+                                </h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" dir="auto">Printable sheet to
+                                    record your nightly observations.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;" dir="auto"><i
+                                class="fas fa-download"></i> Download</a>
+                    </div>
+
+                    <!-- Resource 4 -->
+                    <div class="resource-item glass-card"
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 16px;">
+                        <div class="resource-info" style="display: flex; gap: 20px; align-items: center;">
+                            <div class="resource-icon"
+                                style="width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.5rem;">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.1rem; margin-bottom: 4px;" dir="auto">Astrophotography Exposure
+                                    Cheat Sheet</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" dir="auto">Quick reference for
+                                    ISO, aperture, and shutter speeds.</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;" dir="auto"><i
+                                class="fas fa-download"></i> Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Software Section -->
+        <section class="section" id="software" style="background: var(--surface);">
+            <div class="container">
+                <h2 class="gradient-text" style="margin-bottom: var(--space-xl);" dir="auto">Recommended Software</h2>
+                <div class="grid grid-3">
+                    <div class="glass-card" style="padding: var(--space-lg);">
+                        <h3 dir="auto">Stellarium</h3>
+                        <p class="mb-lg" dir="auto">Open source planetarium for your computer. Shows a realistic sky in
+                            3D.</p>
+                        <a href="#" class="btn btn-outline btn-sm" dir="auto">Visit Site</a>
+                    </div>
+                    <div class="glass-card" style="padding: var(--space-lg);">
+                        <h3 dir="auto">Star Walk 2</h3>
+                        <p class="mb-lg" dir="auto">Augmented reality stargazing guide. Point your phone at the sky to
+                            identify stars.</p>
+                        <a href="#" class="btn btn-outline btn-sm" dir="auto">Get App</a>
+                    </div>
+                    <div class="glass-card" style="padding: var(--space-lg);">
+                        <h3 dir="auto">DeepSkyStacker</h3>
+                        <p class="mb-lg" dir="auto">Freeware for astrophotographers that simplifies all dawn and dusk
+                            processing steps.</p>
+                        <a href="#" class="btn btn-outline btn-sm" dir="auto">Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container grid grid-4">
+            <div class="footer-col">
+                <div class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></div>
+                <p dir="auto">Bringing the cosmos closer to home since 2024.</p>
+                <div class="social-links" style="margin-top: 15px; display: flex; gap: 15px; font-size: 1.2rem;">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Quick Links</h4>
+                <ul>
+                    <li><a href="index.html" dir="auto">Home</a></li>
+                    <li><a href="about.html" dir="auto">About Us</a></li>
+                    <li><a href="services.html" dir="auto">Services</a></li>
+                    <li><a href="contact.html" dir="auto">Contact</a></li>
+                    <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
+                    <li><a href="admin-dashboard.html" dir="auto">Admin Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Newsletter</h4>
+                <p dir="auto" style="margin-bottom: var(--space-md);">Get latest astro news directly.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email Address" required dir="auto">
+                    <button type="submit" class="btn btn-primary" dir="auto"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+            <div class="footer-col">
+                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Contact Info</h4>
+                <p dir="auto"><i class="fas fa-map-marker-alt"></i> 123 Galaxy Way, Star City</p>
+                <p class="phone-number" dir="ltr"><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p dir="ltr"><i class="fas fa-envelope"></i> hello@stellarclub.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p dir="auto">&copy; 2026 Stellar Club. All rights reserved. | <a href="404.html" dir="auto">404 Error
+                        Page</a> | <a href="#" dir="auto">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
