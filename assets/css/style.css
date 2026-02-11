@@ -36,6 +36,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -45,6 +46,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    position: relative;
 }
 
 h1,
@@ -79,6 +82,13 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* RTL Support - Ensure proper alignment */
+[dir="rtl"] .container,
+[dir="ltr"] .container {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }
 
 /* Typography Utilities */
@@ -186,7 +196,7 @@ ul {
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     z-index: 1000;
     padding: 20px 0;
@@ -401,7 +411,7 @@ ul {
 .mobile-menu {
     position: fixed;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100vh;
     background: var(--background);
@@ -409,7 +419,11 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
     transform: translateY(-100%);
     transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     opacity: 0;
@@ -425,12 +439,20 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    padding: 0 20px;
 }
 
 .mobile-nav-list a {
     font-size: 1.5rem;
     font-weight: 700;
     font-family: 'Outfit', sans-serif;
+    transition: color 0.3s;
+}
+
+.mobile-nav-list a:hover {
+    color: var(--primary);
 }
 
 /* Hero Section */
@@ -607,24 +629,451 @@ ul {
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Responsive Design - Mobile First Approach */
+
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* Container adjustments */
+    .container {
+        width: 92%;
+        padding: 0 var(--space-md);
+    }
+
+    /* Grid adjustments for tablet */
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Hero section tablet optimization */
+    .hero-section {
+        padding: 120px 0 50px;
+        min-height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    /* Section spacing reduction */
+    .section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .section-header {
+        margin-bottom: var(--space-2xl);
+    }
+
+    /* Feature cards tablet padding */
+    .feature-card {
+        padding: var(--space-lg);
+    }
+
+    /* Image stack adjustment for tablet */
+    .image-stack {
+        height: 400px !important;
+    }
+}
+
+/* Desktop and Tablet - Hide hamburger, show nav menu */
+@media (min-width: 1025px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-menu {
+        display: block;
+    }
+}
+
+/* Tablet and Mobile - Navigation adjustments */
 @media (max-width: 1024px) {
+
+    /* Hide desktop navigation */
     .nav-menu {
         display: none;
     }
 
+    /* Show hamburger menu */
     .hamburger {
         display: flex;
     }
 
+    /* Hide desktop action buttons on mobile/tablet */
+    .nav-actions .btn {
+        display: none;
+    }
+
+    /* Keep icon buttons visible */
+    .nav-actions {
+        gap: 10px;
+    }
+
+    /* Grid collapse for smaller screens */
     .grid-2,
     .grid-3,
     .grid-4 {
         grid-template-columns: 1fr;
     }
 
+    /* Hero adjustments */
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Mobile Styles (< 768px) */
+@media (max-width: 767px) {
+
+    /* Root spacing variables for mobile */
+    :root {
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+    }
+
+    /* Container mobile optimization */
+    .container {
+        width: 95%;
+        padding: 0 var(--space-sm);
+    }
+
+    /* Typography scaling for mobile */
+    .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .section-desc {
+        font-size: 1rem;
+    }
+
+    /* Hero section mobile optimization */
+    .hero-section {
+        padding: 100px 0 40px;
+        min-height: auto;
+        background-attachment: scroll;
+        /* Fix mobile rendering issue */
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: var(--space-md);
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-btns {
+        gap: 15px;
+    }
+
+    .hero-btns .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    /* Section spacing mobile */
+    .section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    /* Feature cards mobile */
+    .feature-card {
+        padding: var(--space-lg);
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        margin-bottom: var(--space-md);
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Image stack mobile - stack vertically */
+    .image-stack {
+        height: auto !important;
+        min-height: 400px;
+    }
+
+    .image-stack .img-wrapper:first-child {
+        position: relative !important;
+        width: 100% !important;
+        height: 250px !important;
+        margin-bottom: var(--space-md);
+    }
+
+    .image-stack .img-wrapper:last-child {
+        position: relative !important;
+        width: 100% !important;
+        height: 250px !important;
+        inset-block-end: auto !important;
+        inset-inline-end: auto !important;
+    }
+
+    /* Grid always single column on mobile */
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* CTA section mobile */
+    .cta-content h2 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    }
+
+    .cta-content p {
+        font-size: 1rem !important;
+    }
+
+    .cta-content .btn {
+        font-size: 1rem !important;
+        padding: 14px 32px !important;
+    }
+
+    /* Footer mobile optimization */
+    .footer {
+        padding: var(--space-2xl) 0 0;
+    }
+
+    .footer-col {
+        margin-bottom: var(--space-lg);
+    }
+
+    .footer-col h4 {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-md);
+    }
+
+    /* Service cards mobile */
+    .service-img-wrapper {
+        height: 200px;
+    }
+
+    .service-content {
+        padding: var(--space-md);
+    }
+
+    /* Gallery mobile */
+    .gallery-item {
+        height: 250px;
+    }
+
+    /* Navbar mobile */
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .logo i {
+        font-size: 1.5rem;
+    }
+
+    /* Mobile menu improvements */
+    .mobile-nav-list {
+        gap: 15px;
+    }
+
+    .mobile-nav-list a {
+        font-size: 1.3rem;
+    }
+
+    .mobile-settings {
+        margin-top: 30px !important;
+    }
+
+    /* Button sizing mobile */
+    .btn {
+        padding: 10px 24px;
+        font-size: 0.95rem;
+    }
+
+    .btn-sm {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .btn-lg {
+        padding: 14px 32px;
+        font-size: 1rem;
+    }
+
+    /* Icon buttons mobile */
+    .icon-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Footer bottom mobile */
+    .footer-bottom {
+        font-size: 0.85rem;
+        padding: var(--space-md) 0;
+    }
+
+    .footer-bottom p {
+        line-height: 1.8;
+    }
+
+    /* Blog featured card mobile */
+    .blog-featured-card {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .blog-featured-card>div:first-child {
+        height: 250px !important;
+    }
+
+    .blog-featured-card h2 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Resources list mobile */
+    .resource-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    .resource-info {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .resource-item .btn {
+        width: 100% !important;
+    }
+
+    /* Contact page mobile - fix grid-2 layout */
+    .container.grid.grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-2xl) !important;
+    }
+
+    /* Contact info items mobile */
+    .info-item {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    /* Booking widget mobile */
+    .booking-widget .grid.grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .booking-widget .image-wrapper {
+        height: 250px !important;
+    }
+
+    /* Admin dashboard mobile */
+    .grid.grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-md) !important;
+    }
+
+    .stat-card {
+        padding: var(--space-lg) !important;
+    }
+
+    .dashboard-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dashboard-table {
+        min-width: 600px;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+        padding: 12px 16px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Reduce dashboard padding on mobile */
+    div[style*="padding: var(--space-3xl)"] {
+        padding: var(--space-lg) !important;
+    }
+}
+
+/* Very small mobile devices (< 375px) */
+@media (max-width: 374px) {
+    .container {
+        width: 98%;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .feature-card {
+        padding: var(--space-md);
+    }
+
+    /* Mobile menu for very small screens */
+    .mobile-nav-list {
+        gap: 12px;
+    }
+
+    .mobile-nav-list a {
+        font-size: 1.2rem;
+    }
+
+    .mobile-settings {
+        margin-top: 25px !important;
+        gap: 15px !important;
+    }
+
+    .mobile-settings .icon-btn {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.2rem !important;
     }
 }
 
