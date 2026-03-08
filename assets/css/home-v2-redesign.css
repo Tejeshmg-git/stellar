@@ -1,0 +1,1035 @@
+/* Home Page V2 Redesign - Astronomy & Stargazing Club */
+
+:root {
+    /* Color Palette - Updated to Dark Theme (Space) */
+    --bg-dark: #0f172a;
+    --surface-dark: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #6366F1;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+
+    /* Spacing - Reduced */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Navbar Overrides removed to align with Global Style (style.css) */
+
+/* Uniform Section Padding */
+section {
+    padding: 100px 0;
+}
+
+/* Reset tweaks for V2 specific */
+body.home-v2 {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* V2 Unique Layout Objects */
+.container-v2 {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+    .container-v2 {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+/* Asymmetrical Grid for V2 */
+.grid-v2-asymmetric {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.grid-v2-asymmetric.reverse {
+    grid-template-columns: 1fr 1.5fr;
+}
+
+@media (max-width: 992px) {
+
+    .grid-v2-asymmetric,
+    .grid-v2-asymmetric.reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
+
+/* Buttons - Outline & Minimal */
+.btn-v2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.5rem;
+    /* Reduced padding */
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    /* More technical/square look */
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-v2-primary {
+    background-color: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-v2-primary:hover {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.btn-v2-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-v2-outline:hover {
+    border-color: var(--accent);
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--text-primary);
+}
+
+
+/* 1. HERO SECTION - REDESIGNED UNIQUELY */
+.hero-v2-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 200px 0 120px;
+    /* Deep Space Gradient - Unique to V2 */
+    background: radial-gradient(circle at 10% 20%, #000000 0%, #0c0a1a 40%, #1a103c 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .hero-v2-section {
+        padding: 140px 0 80px;
+        text-align: center;
+        min-height: auto;
+    }
+}
+
+/* 3D Planet Element for V2 Hero */
+.hero-v2-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle at 30% 30%, #4f46e5, #000 60%);
+    border-radius: 50%;
+    box-shadow: -20px -20px 100px rgba(79, 70, 229, 0.2);
+    opacity: 0.8;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Stars/Sparkles */
+.hero-v2-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, white, transparent),
+        radial-gradient(1px 1px at 20% 20%, white, transparent),
+        radial-gradient(2px 2px at 30% 70%, white, transparent),
+        radial-gradient(1px 1px at 40% 40%, white, transparent),
+        radial-gradient(2px 2px at 50% 60%, white, transparent),
+        radial-gradient(1px 1px at 60% 80%, white, transparent),
+        radial-gradient(1px 1px at 70% 30%, white, transparent),
+        radial-gradient(2px 2px at 80% 50%, white, transparent),
+        radial-gradient(1px 1px at 90% 10%, white, transparent);
+    background-size: 550px 550px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Ensure footer logo is visible */
+body.home-v2 footer .logo span {
+    color: var(--text-primary);
+}
+
+[data-theme='light'] body.home-v2 footer .logo span {
+    color: #1A202C !important;
+}
+
+.hero-v2-content {
+    max-width: 650px;
+    z-index: 2;
+    padding-left: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-v2-content {
+        padding-left: 0;
+        margin: 0 auto;
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(5%, 5%);
+    }
+}
+
+/* V2 Unique Stats Counter Styling */
+.hero-v2-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    background: linear-gradient(to right, #ffffff, #a5b4fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero-v2-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    color: var(--text-secondary);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-v2-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .hero-v2-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-v2-buttons {
+        justify-content: center;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 2. ABOUT THE CLUB */
+.about-v2-section,
+.event-v2-section,
+.resources-v2-section,
+.gallery-v2-section,
+.testimonial-v2-section,
+.benefits-v2-section,
+.news-v2-section,
+.faq-v2-section,
+.cta-v2-section {
+    padding: 6rem 0;
+    /* Uniform spacing */
+}
+
+/* Specific background colors maintained */
+.about-v2-section {
+    background-color: var(--bg-dark);
+}
+
+.event-v2-section {
+    background-color: var(--surface-dark);
+}
+
+.resources-v2-section {
+    background-color: var(--bg-dark);
+}
+
+.gallery-v2-section {
+    background-color: var(--surface-dark);
+}
+
+.benefits-v2-section {
+    background-color: var(--surface-dark);
+}
+
+.news-v2-section {
+    background-color: var(--surface-dark);
+}
+
+.faq-v2-section {
+    background-color: var(--bg-dark);
+}
+
+.cta-v2-section {
+    background-color: var(--surface-dark);
+}
+
+.stats-v2-section {
+    background-color: var(--bg-dark);
+}
+
+.testimonial-v2-section {
+    background-color: var(--bg-dark);
+}
+
+.about-v2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-v2-image img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+}
+
+
+/* 3. UPCOMING EVENT HIGHLIGHT */
+/* .event-v2-section defined in group */
+
+.event-highlight-card {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-date-box {
+    background-color: var(--surface-dark);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 120px;
+    border: 1px solid var(--border-subtle);
+}
+
+.event-date-box .day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.event-date-box .month {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.event-info h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.event-meta {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* 4. EDUCATION & RESOURCES */
+/* .resources-v2-section defined in group */
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.resource-card {
+    background-color: var(--surface-dark);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: transform 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.resource-card p {
+    flex-grow: 1;
+}
+
+.resource-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 1rem;
+}
+
+.resource-link:hover {
+    text-decoration: underline;
+}
+
+/* 5. COMMUNITY GALLERY PREVIEW */
+/* .gallery-v2-section defined in group */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-overlay h4 {
+    margin: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover h4 {
+    transform: translateY(0);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 6. CLUB STATS - REDESIGNED UNIQUELY */
+/* V2 Unique Glassmorphism Stats */
+.stats-v2-section {
+    position: relative;
+    margin-top: -100px;
+    /* Overlap Hero */
+    z-index: 10;
+    padding: 0;
+}
+
+.stats-flex {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.stat-item-v2 {
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item-v2:last-child {
+    border-right: none;
+}
+
+.stat-item-v2 h3 {
+    font-size: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.stat-descriptor {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .stats-v2-section {
+        margin-top: 0;
+        padding: 50px 0;
+        background: var(--bg-dark);
+        /* Ensure it has a background if not overlapping */
+    }
+
+    .stats-flex {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .stat-item-v2 {
+        border-right: none;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-flex {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 2.5 WHY JOIN US (BENEFITS) */
+/* .benefits-v2-section defined in group */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-subtle);
+    padding: 2.5rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    text-align: start;
+    height: 100%;
+}
+
+.benefit-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    background: rgba(99, 102, 241, 0.1);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.benefit-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* 6.5 LATEST NEWS */
+/* .news-v2-section defined in group */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.news-card {
+    background-color: var(--bg-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.news-img-wrapper {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.news-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.news-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.news-card .btn-link {
+    margin-top: auto;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 7. TESTIMONIAL */
+/* .testimonial-v2-section defined in group */
+.testimonial-v2-section {
+    text-align: center;
+}
+
+.testimonial-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.testimonial-quote {
+    font-size: 2rem;
+    font-style: italic;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /* Override wrapper alignment */
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--accent);
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    display: inline-block;
+    /* Allow it to sit naturally */
+}
+
+/* 7.5 FAQ SECTION */
+/* .faq-v2-section defined in group */
+
+.faq-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    display: block;
+}
+
+/* 8. CALL TO ACTION */
+/* .cta-v2-section defined in group */
+.cta-v2-section {
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Responsive Updates for New Sections */
+@media (max-width: 768px) {
+    .container-v2 {
+        padding: 0 1rem;
+    }
+
+    .hero-v2-title {
+        font-size: 2.5rem;
+    }
+
+    .about-v2-grid,
+    .benefits-grid,
+    .news-grid,
+    .event-highlight-card,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-highlight-card {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .event-meta {
+        justify-content: center;
+    }
+
+    .stats-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .benefit-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .benefit-icon {
+        margin-inline: auto;
+    }
+
+    .testimonial-quote {
+        font-size: 1.5rem;
+    }
+}
+
+/* Light Mode Support */
+/* Light Mode Support */
+[data-theme='light'] body.home-v2 {
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+[data-theme='light'] .hero-v2-section {
+    background: radial-gradient(circle at 10% 20%, #e0e7ff 0%, #f3f4f6 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .hero-v2-section::before {
+    /* Planet for light mode */
+    background: radial-gradient(circle at 30% 30%, #4f46e5, #ddd6fe 60%);
+    box-shadow: -20px -20px 60px rgba(79, 70, 229, 0.15);
+    opacity: 0.6;
+}
+
+[data-theme='light'] .hero-v2-section::after {
+    /* Stars for light mode - inverted to barely visible noise or removed */
+    background-image: none;
+}
+
+[data-theme='light'] .hero-v2-title {
+    background: linear-gradient(to right, #1e293b, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] .hero-v2-subtitle {
+    color: #475569;
+}
+
+[data-theme='light'] .stats-v2-section {
+    background: transparent;
+}
+
+[data-theme='light'] .stats-flex {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .stat-item-v2 {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .stat-item-v2 h3 {
+    color: #1e293b;
+}
+
+[data-theme='light'] .stat-descriptor {
+    color: #64748b;
+}
+
+[data-theme='light'] .about-v2-section,
+[data-theme='light'] .resources-v2-section,
+[data-theme='light'] .faq-v2-section {
+    background-color: #f8fafc;
+}
+
+[data-theme='light'] .event-v2-section,
+[data-theme='light'] .gallery-v2-section,
+[data-theme='light'] .cta-v2-section,
+[data-theme='light'] .benefits-v2-section,
+[data-theme='light'] .news-v2-section {
+    background-color: #ffffff;
+}
+
+[data-theme='light'] h2,
+[data-theme='light'] h3,
+[data-theme='light'] h4,
+[data-theme='light'] .faq-question {
+    color: #1e293b;
+}
+
+[data-theme='light'] p,
+[data-theme='light'] .faq-answer {
+    color: #475569;
+}
+
+/* Specific Fix for Testimonials in Light Mode (keep white on dark bg) */
+[data-theme='light'] .testimonial-quote,
+[data-theme='light'] .testimonial-author {
+    color: #ffffff;
+}
+
+[data-theme='light'] .btn-v2-outline {
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+[data-theme='light'] .btn-v2-outline:hover {
+    background-color: #f1f5f9;
+    border-color: #4f46e5;
+    color: #4f46e5;
+}
+
+[data-theme='light'] .event-highlight-card,
+[data-theme='light'] .benefit-card,
+[data-theme='light'] .news-card,
+[data-theme='light'] .resource-card {
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .event-date-box {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+[data-theme='light'] .benefit-card:hover,
+[data-theme='light'] .news-card:hover,
+[data-theme='light'] .resource-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border-color: #4f46e5;
+}
+
+@media (max-width: 992px) {
+    [data-theme='light'] .stats-v2-section {
+        background: #f8fafc;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  RTL Support for Home V2                                                    */
+/* -------------------------------------------------------------------------- */
+
+/* Hero V2 – title and description always centered in RTL and LTR */
+[dir="rtl"] .hero-v2-section,
+[dir="ltr"] .hero-v2-section {
+    text-align: center;
+}
+
+[dir="rtl"] .hero-v2-content,
+[dir="ltr"] .hero-v2-content {
+    text-align: center !important;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+[dir="rtl"] .hero-v2-title,
+[dir="rtl"] .hero-v2-subtitle {
+    text-align: center !important;
+}
+
+[dir="rtl"] .hero-v2-buttons {
+    justify-content: center !important;
+}
+
+[dir="rtl"] .hero-v2-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[dir="rtl"] .stat-item-v2 {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .hero-v2-section {
+        text-align: center !important;
+    }
+
+    [dir="rtl"] .hero-v2-buttons {
+        justify-content: center !important;
+    }
+
+    [dir="rtl"] .about-v2-text,
+    [dir="rtl"] .benefit-card,
+    [dir="rtl"] .resource-card,
+    [dir="rtl"] .news-card {
+        text-align: center;
+    }
+
+    [dir="rtl"] .faq-v2-section,
+    [dir="rtl"] .cta-v2-section,
+    [dir="rtl"] .event-v2-section {
+        text-align: center;
+    }
+}
+
+/* RTL – FAQ question text wrap fix */
+[dir="rtl"] .faq-question span[dir="auto"] {
+    flex: 1;
+}

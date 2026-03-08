@@ -4,20 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar | Astronomy & Stargazing Club Template</title>
+    <title>Stellar | Astronomy & Stargazing Club</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Stellar is a premium astronomy and stargazing club template. Explore the universe with our community-driven events and expert guides.">
-    <meta name="keywords" content="astronomy, stargazing, space, club, telescopes, events">
-    <meta name="author" content="Antigravity AI">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Stellar | Astronomy & Stargazing Club">
-    <meta property="og:description"
-        content="Discover the wonders of the night sky with Stellar. Join our club for exclusive stargazing events.">
-    <meta property="og:image" content="assets/images/og-image.webp">
-    <meta property="og:url" content="https://stellarclub.com">
+        content="Welcome to Stellar, the premier astronomy and stargazing club. Join our community to explore the cosmos through expert-led events and high-end observations.">
+    <meta name="keywords" content="astronomy, stargazing, space, telescopes, solar observation, dark sky safari">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,258 +20,556 @@
 
     <!-- Core Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Stellar Astronomy Club",
-      "url": "https://stellarclub.com",
-      "logo": "https://stellarclub.com/assets/images/logo.png",
-      "description": "A community for astronomy enthusiasts to explore and learn about the universe.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "123 Galaxy Way",
-        "addressLocality": "Star City",
-        "addressRegion": "Universe",
-        "postalCode": "00000",
-        "addressCountry": "US"
-      }
-    }
-    </script>
+    <link rel="icon" href="assets/images/img21.png" type="image/png">
 </head>
 
 <body>
 
-    <!-- Header / Navbar -->
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo" id="main-logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-meteor"></i>
                 <span>Stellar</span>
             </a>
-
             <nav class="nav-menu">
                 <ul class="nav-menu-list">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="services.html" class="nav-link">Observations</a></li>
-                    <li><a href="events.html" class="nav-link">Events</a></li>
-                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="resources.html" class="nav-link">Resources</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="index.html" class="nav-link active">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Home Version 01</a></li>
+                            <li><a href="pages/index-v2.html">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pages/observations.html" class="nav-link">Observations</a></li>
+                    <li><a href="pages/events.html" class="nav-link">Events</a></li>
+                    <li><a href="pages/gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="pages/blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="pages/resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="pages/about.html" class="nav-link">About Us</a></li>
+                    <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-
             <div class="nav-actions">
-                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle LTR/RTL Layout">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
                     <i class="fas fa-globe"></i>
                 </button>
-                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Log In</a>
-                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
-                <div class="hamburger" aria-label="Open Mobile Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <a href="pages/member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="pages/login.html" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu -->
     <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
         <ul class="mobile-nav-list">
-            <li><a href="index.html" dir="auto">Home</a></li>
-            <li><a href="services.html" dir="auto">Observations</a></li>
-            <li><a href="events.html" dir="auto">Events</a></li>
-            <li><a href="gallery.html" dir="auto">Gallery</a></li>
-            <li><a href="blog.html" dir="auto">Blog</a></li>
-            <li><a href="resources.html" dir="auto">Resources</a></li>
-            <li><a href="about.html" dir="auto">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li>
-                <div class="mobile-settings"
-                    style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
-                    <button id="mobile-theme-toggle" class="icon-btn"
-                        style="width: 60px; height: 60px; font-size: 1.5rem;" aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button id="mobile-rtl-toggle" class="icon-btn"
-                        style="width: 60px; height: 60px; font-size: 1.5rem;" aria-label="Toggle LTR/RTL Layout">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                </div>
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="index.html">Home Version 01</a></li>
+                    <li><a href="pages/index-v2.html">Home Version 02</a></li>
+                </ul>
             </li>
-            <li>
-                <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0; width: 100%;">
-            </li>
-            <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
-            <li><a href="admin-dashboard.html" dir="auto">Admin Dashboard</a></li>
-            <li><a href="404.html" dir="auto">404 Error Page</a></li>
+            <li><a href="pages/observations.html">Observations</a></li>
+            <li><a href="pages/events.html">Events</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/resources.html">Resources</a></li>
+            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+            <li><a href="pages/member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="pages/admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="pages/login.html">Login</a></li>
         </ul>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section" id="hero"
-            style="background-image: url('assets/images/media__1770701229282.jpg');">
-            <div class="container hero-content">
-                <div class="" style="position: relative;">
-                    <div class="decoration-blob blob-1"></div>
-                    <h1 class="hero-title" dir="auto">Behold the Infinite Symphony of Space</h1>
-                    <p class="hero-subtitle" dir="auto">Join a community of stargazers and expert astronomers. Discover
-                        deep-space
-                        secrets through our high-end observatory gear and guided cosmic tours.</p>
-                    <div class="hero-btns">
-                        <a href="services.html" class="btn btn-primary" dir="auto">Start Your Journey</a>
-                        <a href="index-v2.html" class="btn btn-outline" style="background: rgba(255,255,255,0.1);"
-                            dir="auto">Try
-                            V2 Design</a>
+        <section class="hero-section">
+            <div class="container hero-content text-center">
+                <h1 class="hero-title" dir="auto">Unfolding the Infinite <br><span class="gradient-text">Beauty of the
+                        Stars</span></h1>
+                <p class="hero-subtitle" dir="auto">A global community of explorers dedicated to the wonders of our
+                    universe. From amateur stargazing to professional research expeditions.</p>
+                <div class="hero-buttons">
+                    <a href="pages/login.html" class="btn btn-primary btn-lg">Join the Club</a>
+                    <a href="pages/events.html" class="btn btn-outline btn-lg">Find Events</a>
+                </div>
+
+                <div class="hero-highlights">
+                    <div class="hero-stat-box">
+                        <h4>15K+</h4>
+                        <span>Members</span>
                     </div>
+                    <div class="hero-stat-box">
+                        <h4>200+</h4>
+                        <span>Expeditions</span>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>45K</h4>
+                        <span>Captures</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down fa-2x"></i>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section">
+            <div class="container stats-grid">
+                <div class="stat-item text-center">
+                    <h3>15K+</h3>
+                    <p>Community Members</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>200+</h3>
+                    <p>Annual Events</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>45K</h3>
+                    <p>Celestial Photos</p>
+                </div>
+                <div class="stat-item text-center">
+                    <h3>12</h3>
+                    <p>Research Sites</p>
                 </div>
             </div>
         </section>
 
-        <!-- Key Features Section -->
-        <section class="section features" id="features">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title gradient-text" dir="auto">Our Astronomical Curations</h2>
-                    <p class="section-desc" dir="auto">From beginner-friendly moon walks to advanced deep-sky photograpy
-                        workshops.
-                    </p>
+        <!-- About Preview -->
+        <section class="home-section">
+            <div class="container grid grid-2">
+                <div>
+                    <span class="section-tag">About Stellar</span>
+                    <h2 class="mb-lg" dir="auto">Dedicated to the <br>Deep Sky Pursuits</h2>
+                    <p class="mb-lg" dir="auto" style="color: var(--text-muted); font-size: 1.1rem;">Founded in 2024,
+                        Stellar has
+                        grown from a handful of backyard astronomers into a massive global community. We are committed
+                        to making space accessible to everyone, regardless of their equipment or knowledge level.</p>
+                    <ul style="margin-bottom: var(--space-lg); display: flex; flex-direction: column; gap: 15px;">
+                        <li style="display: flex; gap: 12px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--primary);"></i> <span>Global network of dark-sky observation
+                                sites</span></li>
+                        <li style="display: flex; gap: 12px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--primary);"></i> <span>Expert mentorship for novice stargazers</span>
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: center;"><i class="fas fa-check-circle"
+                                style="color: var(--primary);"></i> <span>Professional astrophotography workshops</span>
+                        </li>
+                    </ul>
+                    <a href="pages/about.html" class="btn btn-outline" dir="auto">Learn More About Us</a>
                 </div>
+                <div style="position: relative;">
+                    <img src="assets/images/media__1770703914817.png" alt="Stargazing Session"
+                        style="border-radius: 32px; box-shadow: var(--shadow); position: relative; z-index: 2;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Preview -->
+        <section class="home-section" style="background: var(--surface);">
+            <div class="container">
+                <div class="section-header text-center mb-3xl">
+                    <span class="section-tag">Expeditions & Gatherings</span>
+                    <h2 style="font-size: 2.75rem;" dir="auto">Join Our Next Voyage</h2>
+                    <a href="pages/events.html" class="btn btn-outline mt-md" dir="auto">Explore Full Calendar <i
+                            class="fas fa-calendar-alt" style="margin-left: 10px;"></i></a>
+                </div>
+
                 <div class="grid grid-3">
-                    <div class="feature-card ">
-                        <div class="card-icon"><i class="fas fa-telescope"></i></div>
-                        <h3 dir="auto">Elite Equipment</h3>
-                        <p dir="auto">Access our research-grade telescopes and cooled planetary cameras for unparalleled
-                            clarity.
-                        </p>
+                    <!-- Featured Event -->
+                    <div class="preview-card featured">
+                        <div class="card-badge">Featured Event</div>
+                        <img src="assets/images/img23.png" alt="Planetary Alignment">
+                        <div class="preview-card-content">
+                            <div class="event-meta">
+                                <i class="fas fa-calendar-day"></i> FEB 15, 2026
+                            </div>
+                            <h3 dir="auto">Planetary Alignment Night</h3>
+                            <p dir="auto">Witness the rare alignment of five planets from our premier high-altitude dark
+                                sky site.
+                            </p>
+                            <a href="pages/events.html" class="btn btn-primary btn-sm" style="margin-top: auto;"
+                                dir="auto">Reserve
+                                Spot</a>
+                        </div>
                     </div>
-                    <div class="feature-card " style="animation-delay: 0.1s;">
-                        <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
-                        <h3 dir="auto">Expert Guidance</h3>
-                        <p dir="auto">Learn from certified astronomers who bring the mythology and science of the stars
-                            to life.
-                        </p>
+
+                    <!-- Event 2 -->
+                    <div class="preview-card">
+                        <img src="assets/images/media__1770701229282.jpg" alt="Lunar Workshop">
+                        <div class="preview-card-content">
+                            <div class="event-meta">
+                                <i class="fas fa-calendar-day"></i> FEB 22, 2026
+                            </div>
+                            <h3 dir="auto">Lunar Photography Class</h3>
+                            <p dir="auto">Master the art of high-resolution lunar imaging using standard DSLR equipment.
+                            </p>
+                            <a href="pages/events.html" dir="auto"
+                                style="margin-top: auto; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px;">View
+                                Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="feature-card " style="animation-delay: 0.2s;">
-                        <div class="card-icon"><i class="fas fa-camera-retro"></i></div>
-                        <h3 dir="auto">Astrophotography</h3>
-                        <p dir="auto">Capture your own celestial masterpieces with our guided imaging and processing
-                            workshops.</p>
+
+                    <!-- Event 3 -->
+                    <div class="preview-card">
+                        <img src="assets/images/media__1770701229289.jpg" alt="Nebula Safari">
+                        <div class="preview-card-content">
+                            <div class="event-meta">
+                                <i class="fas fa-calendar-day"></i> MAR 05, 2026
+                            </div>
+                            <h3 dir="auto">Deep Sky Nebula Safari</h3>
+                            <p dir="auto">An immersive guided tour of the winter nebulae using our club's observatory
+                                gear.</p>
+                            <a href="pages/events.html" dir="auto"
+                                style="margin-top: auto; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px;">View
+                                Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Dynamic Stargazing Grid (Visual Enhancement) -->
-        <section class="section" style="background: var(--surface); overflow: hidden;">
-            <div class="container">
-                <div class="grid grid-2" style="align-items: center; gap: var(--space-3xl);">
-                    <div class="image-stack" style="position: relative; height: 500px; width: 100%;">
-                        <div class="img-wrapper"
-                            style="width: 85%; height: 90%; position: absolute; inset-block-start: 0; inset-inline-start: 0; z-index: 1;">
-                            <img src="assets/images/media__1770702374443.png" alt="Celestial Star Map"
-                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow);">
+        <!-- Observations Preview -->
+        <section class="home-section">
+            <div class="container grid grid-2">
+                <div style="order: 2;">
+                    <span class="section-tag">Celestial Observations</span>
+                    <h2 class="mb-lg" dir="auto">Access Research-Grade <br>Space Telemetry</h2>
+                    <p class="mb-lg" dir="auto" style="color: var(--text-muted); font-size: 1.1rem;">We provide our
+                        members with
+                        remote access to research-grade equipment, including motorized mounts, cooled deep-space
+                        cameras, and large aperture telescopes at multiple sites worldwide.</p>
+                    <div class="grid grid-2 mb-lg">
+                        <div class="glass-card" style="padding: 15px; border-radius: 15px;">
+                            <i class="fas fa-satellite-dish" style="color: var(--primary); margin-bottom: 10px;"></i>
+                            <h4 style="font-size: 0.9rem;" dir="auto">Live Telemetry</h4>
                         </div>
-                        <div class="img-wrapper"
-                            style="width: 65%; height: 75%; position: absolute; inset-block-end: 0; inset-inline-end: 0; z-index: 2;">
-                            <img src="assets/images/media__1770701229282.jpg" alt="Deep Sky Nebula"
-                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px; border: 8px solid var(--background); box-shadow: var(--shadow);">
+                        <div class="glass-card" style="padding: 15px; border-radius: 15px;">
+                            <i class="fas fa-microscope" style="color: var(--primary); margin-bottom: 10px;"></i>
+                            <h4 style="font-size: 0.9rem;" dir="auto">Citizen Science</h4>
                         </div>
                     </div>
-                    <div class="" style="padding-inline-start: var(--space-xl);">
-                        <h2 dir="auto" class="gradient-text"
-                            style="font-size: 2.5rem; margin-bottom: var(--space-lg); line-height: 1.2;">
-                            Discover Deep Sky Wonders</h2>
-                        <p class="mb-lg" dir="auto" style="font-size: 1.1rem; color: var(--text-muted);">From the
-                            craters of the
-                            Moon to the rings of Saturn, the solar system is closer
-                            than you think. Our weekend expeditions at the Dark Sky Reserve offer views you won't find
-                            anywhere else.</p>
-                        <a href="services.html" class="btn btn-outline" dir="auto">Explore expeditions <i
-                                class="fas fa-arrow-right"></i></a>
+                    <a href="pages/observations.html" class="btn btn-primary" dir="auto">Enter Observatory Portal</a>
+                </div>
+                <div style="order: 1;">
+                    <img src="assets/images/media__1770701229282.jpg" alt="Observatory Gear"
+                        style="border-radius: 32px; box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Highlights -->
+        <section class="home-section" style="background: var(--surface);">
+            <div class="container">
+                <div class="section-header text-center mb-xl">
+                    <span class="section-tag">Captured Skies</span>
+                    <h2 style="font-size: 2.5rem;" dir="auto">Gallery Highlights</h2>
+                </div>
+                <div class="grid grid-4" style="gap: var(--space-md);">
+                    <img src="assets/images/media__1770701229282.jpg" alt="Gallery 1"
+                        style="border-radius: 12px; height: 300px; object-fit: cover;">
+                    <img src="assets/images/media__1770702374443.png" alt="Gallery 2"
+                        style="border-radius: 12px; height: 300px; object-fit: cover;">
+                    <img src="assets/images/media__1770703914817.png" alt="Gallery 3"
+                        style="border-radius: 12px; height: 300px; object-fit: cover;">
+                    <img src="assets/images/media__1770701229289.jpg" alt="Gallery 4"
+                        style="border-radius: 12px; height: 300px; object-fit: cover;">
+                </div>
+                <div class="text-center mt-xl">
+                    <a href="pages/gallery.html" class="btn btn-outline" dir="auto">Explore Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning & Resources Preview -->
+        <section class="home-section">
+            <div class="container">
+                <div class="grid grid-3">
+                    <div>
+                        <span class="section-tag">Astro Academy</span>
+                        <h2 class="mb-lg" dir="auto">Master the <br>Infinite Sky</h2>
+                        <p class="mb-lg" style="color: var(--text-muted);" dir="auto">From fundamental optics to
+                            advanced spectral
+                            analysis, we provide a complete learning path for every stellar explorer.</p>
+                        <a href="pages/resources.html" class="btn btn-outline" dir="auto">Explore All Guides</a>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-card-content text-center">
+                            <i class="fas fa-atlas mb-lg" style="font-size: 2.5rem; color: var(--primary);"></i>
+                            <h3 dir="auto">Sky Atlas 2026</h3>
+                            <p dir="auto">Complete seasonal maps for both hemispheres, optimized for dark site
+                                navigation.</p>
+                            <a href="pages/resources.html" style="color: var(--primary); font-weight: 600;"
+                                dir="auto">Download PDF</a>
+                        </div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-card-content text-center">
+                            <i class="fas fa-camera-retro mb-lg" style="font-size: 2.5rem; color: var(--primary);"></i>
+                            <h3 dir="auto">Astrophoto 101</h3>
+                            <p dir="auto">The definitive guide to capturing your first nebula using only a DSLR and
+                                tripod.</p>
+                            <a href="pages/resources.html" style="color: var(--primary); font-weight: 600;"
+                                dir="auto">Read
+                                Tutorial</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="section cta-banner"
-            style="background: linear-gradient(135deg, #1e3a8a 0%, #4f46e5 50%, #7c3aed 100%); color: var(--white); position: relative;">
+        <!-- Blog Preview -->
+        <section class="home-section" style="background: var(--surface);">
             <div class="container">
-                <div class="cta-content " style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <h2 dir="auto" class="gradient-text"
-                        style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: var(--space-md); color: var(--white); line-height: 1.1;">
-                        The Universe Awaits</h2>
-                    <p dir="auto" style="font-size: 1.25rem; margin-bottom: var(--space-2xl); opacity: 0.9;">Secure your
-                        spot in our limited-capacity Dark Sky Expedition today and start your cosmic journey.</p>
-                    <a href="coming-soon.html" class="btn" dir="auto"
-                        style="background: var(--white); color: var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.15); font-size: 1.1rem; padding: 16px 40px; border-radius: 100px;">Reserve
-                        Your Spot</a>
+                <div class="section-header mb-xl text-center">
+                    <span class="section-tag">Cosmic News</span>
+                    <h2>The Stellar Journal</h2>
+                </div>
+                <div class="grid grid-3" style="gap: var(--space-lg);">
+                    <article class="preview-card">
+                        <img src="assets/images/img17.png" alt="Blog Post">
+                        <div class="preview-card-content">
+                            <div class="event-meta" style="color: var(--text-muted); font-size: 0.8rem;"><i
+                                    class="fas fa-clock"></i> FEB 08, 2026</div>
+                            <h3 style="font-size: 1.25rem;">The James Webb: One Year On</h3>
+                            <p>Analyzing the most breathtaking deep field images captured so far by the JWST.</p>
+                            <a href="pages/blog.html" class="btn btn-outline btn-sm" style="margin-top: auto;">Read
+                                Article</a>
+                        </div>
+                    </article>
+                    <article class="preview-card">
+                        <img src="assets/images/img21.png" alt="Blog Post">
+                        <div class="preview-card-content">
+                            <div class="event-meta" style="color: var(--text-muted); font-size: 0.8rem;"><i
+                                    class="fas fa-clock"></i> FEB 05, 2026</div>
+                            <h3 style="font-size: 1.25rem;">Solar Maximum Approaching</h3>
+                            <p>What to expect as we head towards the peak of Solar Cycle 25 this year.</p>
+                            <a href="pages/blog.html" class="btn btn-outline btn-sm" style="margin-top: auto;">Read
+                                Article</a>
+                        </div>
+                    </article>
+                    <article class="preview-card">
+                        <img src="assets/images/img10.png" alt="Blog Post">
+                        <div class="preview-card-content">
+                            <div class="event-meta" style="color: var(--text-muted); font-size: 0.8rem;"><i
+                                    class="fas fa-clock"></i> JAN 28, 2026</div>
+                            <h3 style="font-size: 1.25rem;">Ancient Egyptian Sky Maps</h3>
+                            <p>How the Pharaos navigated using the alignment of Sirius and the pyramids.</p>
+                            <a href="pages/blog.html" class="btn btn-outline btn-sm" style="margin-top: auto;">Read
+                                Article</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials -->
+        <section class="home-section">
+            <div class="container">
+                <div class="section-header text-center mb-xl">
+                    <span class="section-tag">Member Experiences</span>
+                    <h2 dir="auto">Voices from the Dark Sky</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text" dir="auto">"The depth of knowledge in this club is staggering. I
+                            went from
+                            barely finding the Moon to capturing the Andromeda Galaxy in just six months."</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/astro1.png" alt="Sarah J.">
+                            <div>
+                                <strong style="display: block; color: var(--white);" dir="auto">Sarah Jenkins</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);" dir="auto">Astrography
+                                    Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text" dir="auto">"Being part of the Solar Eclipse expedition was a
+                            life-altering
+                            experience. The logistics were flawless and the community vibes were electric."</p>
+                        <div class="testimonial-author">
+                            <img src="assets/images/ppl2.png" alt="David K.">
+                            <div>
+                                <strong style="display: block; color: var(--white);" dir="auto">David Koresh</strong>
+                                <span style="font-size: 0.8rem; color: var(--text-muted);" dir="auto">Senior
+                                    Explorer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Membership Preview -->
+        <section class="container home-section">
+            <div class="membership-preview">
+                <h2 style="font-size: 3rem; margin-bottom: 20px;" dir="auto">Ready for Liftoff?</h2>
+                <p style="font-size: 1.25rem; font-weight: 400; color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;"
+                    dir="auto">
+                    Unlock high-res downloads, equipment discounts, and priority event booking by joining our club.</p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <a href="pages/login.html" class="btn btn-primary btn-lg" dir="auto">Join Stellar Today</a>
+                    <a href="pages/about.html#plans" class="btn btn-outline btn-lg" dir="auto">View Benefits</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Preview -->
+        <section class="home-section" style="background: var(--surface);">
+            <div class="container contact-preview-grid">
+                <div>
+                    <span class="section-tag">Ground Control</span>
+                    <h2 class="mb-lg" dir="auto">Visit Our Local <br>Observatory Hub</h2>
+                    <p class="mb-lg" style="color: var(--text-muted);" dir="auto">Come visit our headquarters for
+                        equipment trials,
+                        membership signups, and monthly indoor presentations.</p>
+                    <ul style="display: flex; flex-direction: column; gap: 24px; margin-bottom: var(--space-xl);">
+                        <li style="display: flex; gap: 15px;">
+                            <div class="icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <strong style="display: block; margin-bottom: 4px;" dir="auto">Location</strong>
+                                <span style="color: var(--text-muted); font-size: 0.95rem;" dir="auto">123 Galaxy Way,
+                                    Star City,
+                                    Celestial Region</span>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <div class="icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <strong style="display: block; margin-bottom: 4px;" dir="auto">Email Support</strong>
+                                <span style="color: var(--text-muted); font-size: 0.95rem;"
+                                    dir="ltr">hq@stellarclub.space</span>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <div class="icon-box">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <strong style="display: block; margin-bottom: 4px;" dir="auto">Open Hours</strong>
+                                <span style="color: var(--text-muted); font-size: 0.95rem;" dir="auto">Tue - Sat: 10:00
+                                    AM - 9:00
+                                    PM</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="pages/contact.html" class="btn btn-outline btn-lg w-100" dir="auto">View Full Contact
+                        Details</a>
+                </div>
+                <div>
+                    <div class="map-box" style="background-image: url('assets/images/map.png');">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container grid grid-4">
-            <div class="footer-col">
-                <div class="logo">
-                    <i class="fas fa-meteor"></i>
-                    <span>Stellar</span>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
-                <p dir="auto">Bringing the cosmos closer to home since 2024.</p>
-                <div class="social-links" style="margin-top: 15px; display: flex; gap: 15px; font-size: 1.2rem;">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="index.html">Home Version 01</a></li>
+                                    <li><a href="pages/index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="pages/observations.html">Observations</a></li>
+                        <li><a href="pages/events.html">Events</a></li>
+                        <li><a href="pages/gallery.html">Gallery</a></li>
+                        <li><a href="pages/blog.html">Blog</a></li>
+                        <li><a href="pages/resources.html">Resources</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="pages/coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="pages/admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="pages/member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4 dir="auto">Quick Links</h4>
-                <ul>
-                    <li><a href="index.html" dir="auto">Home</a></li>
-                    <li><a href="about.html" dir="auto">About Us</a></li>
-                    <li><a href="services.html" dir="auto">Services</a></li>
-                    <li><a href="contact.html" dir="auto">Contact</a></li>
-                    <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
-                    <li><a href="admin-dashboard.html" dir="auto">Admin Dashboard</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 dir="auto" style="margin-bottom: var(--space-lg);">Newsletter</h4>
-                <p dir="auto" style="margin-bottom: var(--space-md);">Get latest astro news directly.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Email Address" required dir="auto">
-                    <button type="submit" class="btn btn-primary" dir="auto" aria-label="Subscribe"><i
-                            class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
-            <div class="footer-col">
-                <h4 dir="auto">Contact Info</h4>
-                <p dir="auto"><i class="fas fa-map-marker-alt"></i> 123 Galaxy Way, Star City</p>
-                <p class="phone-number" dir="ltr"><i class="fas fa-phone"></i> +1 234 567 890</p>
-                <p class="ltr-content" dir="ltr"><i class="fas fa-envelope"></i> hello@stellarclub.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p dir="auto">&copy; 2026 Stellar Club. All rights reserved. | <a href="404.html" dir="auto">404 Error
-                        Page</a> | <a href="#" dir="auto">Privacy Policy</a>
-                </p>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="pages/404.html">404 Page</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll Top -->
+    <div id="scroll-top" aria-label="Scroll to Top"><i class="fas fa-arrow-up"></i></div>
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>

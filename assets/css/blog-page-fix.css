@@ -1,0 +1,150 @@
+/* Blog Page - Sleek Toolbar Redesign */
+
+.blog-filters-container {
+    background: rgba(var(--surface-rgb), 0.4) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border) !important;
+    padding: 12px 24px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    min-height: 72px !important;
+    gap: 20px !important;
+}
+
+[data-theme="light"] .blog-filters-container {
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.sidebar-widget {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+[data-theme="light"] .sidebar-widget {
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .sidebar-widget h4,
+[data-theme="light"] .sidebar-widget h5,
+[data-theme="light"] .sidebar-widget p,
+[data-theme="light"] .sidebar-widget span:not([class*="badge"]) {
+    color: var(--text-main) !important;
+}
+
+
+.category-filter {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+}
+
+.filter-pill {
+    white-space: nowrap !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: var(--text-muted) !important;
+    padding: 8px 16px !important;
+    border-radius: 10px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    cursor: pointer !important;
+    text-transform: none !important;
+    /* Remove uppercase for more modern feel */
+}
+
+.filter-pill i {
+    font-size: 0.9rem !important;
+    opacity: 0.7 !important;
+}
+
+.filter-pill:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--white) !important;
+}
+
+.filter-pill.active {
+    background: rgba(99, 102, 241, 0.15) !important;
+    color: var(--primary) !important;
+    border-color: rgba(99, 102, 241, 0.3) !important;
+    box-shadow: none !important;
+}
+
+.filter-pill.active i {
+    opacity: 1 !important;
+}
+
+/* Sort Select Container */
+.sort-select-container {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+    padding: 2px 12px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.sort-select {
+    background: transparent !important;
+    color: var(--text-main) !important;
+    border: none !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 8px 0 !important;
+    outline: none !important;
+}
+
+/* Horizontal Scroll for Mobile */
+@media (max-width: 991px) {
+    .blog-filters-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 15px !important;
+        gap: 15px !important;
+        border-radius: 20px !important;
+    }
+
+    .category-filter {
+        overflow-x: auto !important;
+        padding-bottom: 5px !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+        scrollbar-width: none !important;
+        /* Hide scrollbar Firefox */
+    }
+
+    .category-filter::-webkit-scrollbar {
+        display: none !important;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .blog-controls {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+        padding-top: 12px !important;
+    }
+
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-pill {
+        padding: 10px 14px !important;
+        font-size: 0.75rem !important;
+    }
+}

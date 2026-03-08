@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | Stellar Member</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <div id="mobile-overlay" class="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li><a href="../index.html" dir="auto">Home Version 01</a></li>
+            <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
+            <li><a href="observations.html" dir="auto">Observations</a></li>
+            <li><a href="events.html" dir="auto">Events</a></li>
+            <li><a href="gallery.html" dir="auto">Gallery</a></li>
+            <li><a href="resources.html" dir="auto">Resources</a></li>
+            <li><a href="about.html" dir="auto">About Us</a></li>
+            <li><a href="contact.html" dir="auto">Contact</a></li>
+            <li>
+                <div class="mobile-settings"
+                    style="display: flex; gap: 15px; justify-content: center; margin-top: 40px;">
+                    <button id="mobile-theme-toggle" class="icon-btn" style="width: 50px; height: 50px;"><i
+                            class="fas fa-moon"></i></button>
+                    <button id="mobile-rtl-toggle" class="icon-btn" style="width: 50px; height: 50px;"><i
+                            class="fas fa-globe"></i></button>
+                </div>
+            </li>
+            <li>
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+            </li>
+            <li><a href="member-dashboard.html" dir="auto">Member Dashboard</a></li>
+        </ul>
+    </div>
+
+    </header>
+
+    <div
+        style="max-width: 800px; background: var(--surface); padding: var(--space-2xl); border-radius: var(--radius); border: 1px solid var(--border);">
+        <form>
+            <div style="display: flex; align-items: center; gap: var(--space-xl); margin-bottom: var(--space-2xl);">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=150"
+                    alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <button type="button" class="btn btn-outline" style="margin-bottom: 8px;">Change
+                        Avatar</a>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">JPG, GIF or PNG. Max size 800K</p>
+                </div>
+            </div>
+
+            <div class="grid grid-2" style="margin-bottom: var(--space-lg);">
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">First Name</label>
+                    <input type="text" class="form-control" value="Astro" style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">Last Name</label>
+                    <input type="text" class="form-control" value="Pilot" style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: var(--space-lg);">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Email Address</label>
+                <input type="email" class="form-control" value="astro.pilot@example.com" style="width: 100%;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: var(--space-lg);">
+                <label style="display: block; margin-bottom: 8px; font-weight: 500;">Bio</label>
+                <textarea class="form-control" rows="4"
+                    style="width: 100%;">Enthusiast stargazer since 2015. Especially interest in planetary observation and astrophotography.</textarea>
+            </div>
+
+            <h3 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); font-size: 1.2rem;">Account
+                Notifications</h3>
+
+            <div style="margin-bottom: var(--space-md);">
+                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                    <input type="checkbox" checked style="width: 18px; height: 18px;">
+                    <span>Email me about new events</span>
+                </label>
+            </div>
+            <div style="margin-bottom: var(--space-xl);">
+                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                    <input type="checkbox" checked style="width: 18px; height: 18px;">
+                    <span>Email me about forum replies</span>
+                </label>
+            </div>
+
+            <div
+                style="display: flex; gap: var(--space-md); border-top: 1px solid var(--border); padding-top: var(--space-xl);">
+                <button type="submit" class="btn btn-primary">Save Changes</a>
+                    <button type="button" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+    </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

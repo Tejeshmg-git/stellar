@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Blog | Astronomy News & Insights</title>
+    <meta name="description"
+        content="Stay updated with the latest in astronomy, club news, astrophotography tips, and educational articles.">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/navigation-fix.css">
+    <link rel="stylesheet" href="../assets/css/blog-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link" dir="auto">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html" dir="auto">Home Version 01</a></li>
+                            <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
+                    <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link" dir="auto">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link active" dir="auto">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link" dir="auto">Resources</a></li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Redesigned Hero Section -->
+        <section class="blog-hero">
+            <div class="container text-center">
+                <span class="badge"
+                    style="background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 100px; font-weight: 700; margin-bottom: 20px; display: inline-block;">COSMIC
+                    CHRONICLES</span>
+                <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 15px;" dir="auto">
+                    Latest From The Deep <span class="gradient-text">Sky</span></h1>
+                <p class="hero-subtitle" style="max-width: 600px; margin: 0 auto; opacity: 0.8;" dir="auto">Exploring
+                    the mysteries of the universe through expert articles, stargazing tips, and community breakthroughs.
+                </p>
+
+                <!-- Enhanced Search Bar -->
+                <div class="blog-search-container">
+                    <form action="#" method="GET">
+                        <input type="text" class="blog-search-input"
+                            placeholder="Search for galaxies, gear, or guides..." dir="auto">
+                        <button type="submit" class="search-icon-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="section">
+            <div class="blog-main-container">
+
+                <!-- Futuristic Stellar Command Strip Redesign -->
+                <div class="blog-filters-container glass-card mb-3xl"
+                    style="border-radius: 20px; padding: 12px 15px 12px 30px; display: flex; justify-content: space-between; align-items: center; min-height: 80px;">
+                    <div class="category-filter" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="filter-pill active"><i class="fas fa-layer-group"></i> ALL CHRONICLES</button>
+                        <button class="filter-pill"><i class="fas fa-satellite"></i> DISCOVERIES</button>
+                        <button class="filter-pill"><i class="fas fa-microscope"></i> TECHNIQUES</button>
+                        <button class="filter-pill"><i class="fas fa-telescope"></i> GEAR</button>
+                        <button class="filter-pill"><i class="fas fa-rocket"></i> EXPEDITIONS</button>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 24px;">
+                        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.1);" class="hide-tablet">
+                        </div>
+
+                        <div class="blog-controls" style="display: flex; align-items: center; gap: 15px;">
+                            <span
+                                style="font-size: 0.65rem; color: var(--primary); font-weight: 800; letter-spacing: 2px; white-space: nowrap;">SORT
+                                BY:</span>
+                            <div class="sort-select-container">
+                                <select class="sort-select"
+                                    style="background: transparent; color: var(--text-main); border: none; font-size: 0.75rem; font-weight: 700; cursor: pointer; outline: none; padding: 5px;">
+                                    <option style="background: var(--surface);">CHRONOLOGICAL</option>
+                                    <option style="background: var(--surface);">GRAVITATIONAL</option>
+                                    <option style="background: var(--surface);">ANCIENT DATA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    @media (max-width: 1100px) {
+                        .blog-filters-container {
+                            border-radius: 40px;
+                            padding: 25px;
+                            justify-content: center;
+                        }
+
+                        .hide-tablet {
+                            display: none !important;
+                        }
+                    }
+                </style>
+
+                <div class="blog-layout-grid">
+
+                    <!-- Left: Blog Feed -->
+                    <div>
+                        <!-- Featured Hero Post -->
+                        <div class="featured-hero-card">
+                            <img src="../assets/images/red planet.png" loading="lazy" class="featured-img"
+                                alt="Red Planet">
+                            <div class="featured-content">
+                                <span class="badge mb-lg" style="background: var(--secondary); color: white;">MUST
+                                    READ</span>
+                                <h2 class="post-title" style="font-size: 2rem;" dir="auto">The Red Planet's Frontiers:
+                                    New Geological Findings</h2>
+                                <p class="post-excerpt" dir="auto">Latest imaging from the Valles Marineris region
+                                    reveals unexpected seismic activity. What does this mean for future manned missions
+                                    and long-term habitats?</p>
+                                <div class="post-meta mb-xl">
+                                    <span><i class="far fa-user"></i> Comm. Sarah J.</span>
+                                    <span><i class="far fa-calendar"></i> Feb 10, 2026</span>
+                                    <span><i class="far fa-clock"></i> 8 min read</span>
+                                </div>
+                                <a href="coming-soon.html" class="btn btn-primary">Read Full Story</a>
+                            </div>
+                        </div>
+
+                        <!-- Grid of Primary Posts -->
+                        <div class="blog-grid">
+                            <!-- Post 1 -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/media__1770701229282.jpg" loading="lazy"
+                                        alt="Carina Nebula">
+                                    <span
+                                        style="position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">GUIDE</span>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Feb 05, 2026</span>
+                                        <span><i class="far fa-clock"></i> 12 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">Capturing The Carina Nebula in Narrowband</h3>
+                                    <p class="post-excerpt" dir="auto">A comprehensive technical guide to long-exposure
+                                        imaging using H-Alpha and OIII filters from light-polluted skies.</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline"
+                                            style="border:none; padding: 0;">Learn More <i class="fas fa-arrow-right"
+                                                style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 2 -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/media__1770703914823.png" loading="lazy" alt="Telescopes">
+                                    <span
+                                        style="position: absolute; top: 15px; right: 15px; background: var(--secondary); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">REVIEW</span>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Jan 28, 2026</span>
+                                        <span><i class="far fa-clock"></i> 6 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">Best Starter Scopes for the 2026 Season</h3>
+                                    <p class="post-excerpt" dir="auto">We review the top 5 entry-level telescopes that
+                                        balance aperture, portability, and ease of use for new astronomers.</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline" style="border:none; padding: 0;">Read
+                                            Review <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 3: Research Summary -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/img21.png" loading="lazy" alt="Exoplanet">
+                                    <span
+                                        style="position: absolute; top: 15px; right: 15px; background: var(--blog-accent); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">RESEARCH</span>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Jan 15, 2026</span>
+                                        <span><i class="far fa-clock"></i> 10 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">The Goldilocks Zone: Redefining Habitability</h3>
+                                    <p class="post-excerpt" dir="auto">New spectral data from the James Webb Telescope
+                                        suggests that water might be more common on rocky worlds than we thought.</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline" style="border:none; padding: 0;">Read
+                                            Summary <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+
+
+
+                            <!-- Post 4 -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/media__1770702374442.png" loading="lazy"
+                                        alt="Winter Star Party">
+                                    <span
+                                        style="position: absolute; top: 15px; right: 15px; background: var(--primary); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">EVENT</span>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Jan 02, 2026</span>
+                                        <span><i class="far fa-clock"></i> 4 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">Winter Star Party: A Frozen Night of Magic</h3>
+                                    <p class="post-excerpt" dir="auto">Highlights and gallery from our sub-zero
+                                        expedition to the Northern Plateau. Clear skies and hot cocoa!</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline" style="border:none; padding: 0;">View
+                                            Gallery <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 5 -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/img11.png" loading="lazy" alt="Astro Software">
+                                    <span
+                                        style="position: absolute; top: 15px; right: 15px; background: var(--blog-accent); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;">SOFTWARE</span>
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Dec 20, 2025</span>
+                                        <span><i class="far fa-clock"></i> 15 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">Mastering PixInsight: A Pro's Workflow</h3>
+                                    <p class="post-excerpt" dir="auto">Take your post-processing to the next level with
+                                        our deep dive into the Weighted Batch Pre-Processing script.</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline" style="border:none; padding: 0;">Read
+                                            Tutorial <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 6 -->
+                            <article class="post-card">
+                                <div class="post-img-wrapper">
+                                    <img src="../assets/images/img12.png" loading="lazy" alt="Supernova Discovery">
+                                </div>
+                                <div class="post-content">
+                                    <div class="post-meta">
+                                        <span><i class="far fa-calendar"></i> Dec 15, 2025</span>
+                                        <span><i class="far fa-clock"></i> 5 min</span>
+                                    </div>
+                                    <h3 class="post-title" dir="auto">New Supernova Discovered in the Whirlpool Galaxy
+                                    </h3>
+                                    <p class="post-excerpt" dir="auto">Amateur astronomers at Stellar Club were among
+                                        the first to confirm a Type Ia supernova in M51 last night.</p>
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border);">
+                                        <a href="#" class="btn btn-sm btn-outline"
+                                            style="border:none; padding: 0;">Learn More <i class="fas fa-arrow-right"
+                                                style="margin-left: 5px;"></i></a>
+                                        <button
+                                            style="background:none; border:none; color: var(--text-muted); cursor:pointer;"><i
+                                                class="far fa-bookmark"></i></button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Right: Sticky Sidebar -->
+                    <aside class="sticky-sidebar">
+                        <!-- New Sidebar Widget: Celestial Forecast -->
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-telescope"></i> Celestial Forecast
+                            </h4>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(var(--white-rgb), 0.03); border-radius: 12px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600;">Moon Phase</span>
+                                    <span style="color: var(--secondary); font-size: 0.85rem;">Waxing Gibbous
+                                        (84%)</span>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(var(--white-rgb), 0.03); border-radius: 12px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600;">Next Meteor Shower</span>
+                                    <span style="color: var(--primary); font-size: 0.85rem;">Lyrids (Apr 22)</span>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(var(--white-rgb), 0.03); border-radius: 12px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600;">Sky Condition</span>
+                                    <span style="color: #22c55e; font-size: 0.85rem;">Optimal (9/10)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Author Widget -->
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-user-pen"></i> About The Editor</h4>
+                            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 25px;">
+                                <div style="position: relative;">
+                                    <img src="../assets/images/ppl5.png"
+                                        style="width: 75px; height: 75px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px;">
+                                    <div
+                                        style="position: absolute; bottom: 4px; right: 4px; width: 20px; height: 20px; background: #22c55e; border-radius: 50%; border: 4px solid var(--surface);">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--text-main);"
+                                        dir="auto">Sarah J.</h5>
+                                    <span style="font-size: 0.9rem; color: var(--primary); font-weight: 600;">Club
+                                        President</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;" dir="auto">
+                                NASA consultant turned science communicator. Dedicated to bringing the wonders of the
+                                cosmos to everyone.</p>
+                            <div style="margin-top: 25px; display: flex; gap: 15px;">
+                                <a href="#" class="icon-btn" style="width:40px; height:40px; font-size: 1rem;"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#" class="icon-btn" style="width:40px; height:40px; font-size: 1rem;"><i
+                                        class="fab fa-linkedin"></i></a>
+                                <a href="#" class="icon-btn" style="width:40px; height:40px; font-size: 1rem;"><i
+                                        class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Trending Widget -->
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-fire"></i> Viral Discoveries</h4>
+                            <div style="display: flex; flex-direction: column; gap: 25px;">
+                                <a href="#" style="display: flex; gap: 18px; text-decoration: none;">
+                                    <div
+                                        style="flex-shrink: 0; width: 70px; height: 70px; border-radius: 16px; overflow: hidden;">
+                                        <img src="../assets/images/img16.png"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div>
+                                        <h5
+                                            style="color: var(--text-main); font-size: 1rem; margin-bottom: 6px; line-height: 1.4; font-weight: 600;">
+                                            2026 Meteor Calendar Released</h5>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="far fa-eye"
+                                                style="margin-right: 5px;"></i> 4.5k Views</span>
+                                    </div>
+                                </a>
+                                <a href="#" style="display: flex; gap: 18px; text-decoration: none;">
+                                    <div
+                                        style="flex-shrink: 0; width: 70px; height: 70px; border-radius: 16px; overflow: hidden;">
+                                        <img src="../assets/images/img18.png"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div>
+                                        <h5
+                                            style="color: var(--text-main); font-size: 1rem; margin-bottom: 6px; line-height: 1.4; font-weight: 600;">
+                                            New Hubble Patch Images</h5>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="far fa-eye"
+                                                style="margin-right: 5px;"></i> 2.1k Views</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Popular Topics Section -->
+                        <div class="sidebar-widget">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-tags"></i> Popular Topics</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">Black
+                                    Holes</a>
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">JWST
+                                    Updates</a>
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">Deep
+                                    Space</a>
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">Planet
+                                    Hunting</a>
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">Astrology
+                                    Ethics</a>
+                                <a href="#" class="filter-pill" style="padding: 6px 14px; font-size: 0.85rem;">Mars
+                                    2030</a>
+                                <a href="#" class="filter-pill"
+                                    style="padding: 6px 14px; font-size: 0.85rem;">Cosmology</a>
+                            </div>
+                        </div>
+
+                        <!-- New Sidebar Widget: Stellar Inspiration -->
+                        <div class="sidebar-widget" style="border: 1px dashed var(--border);">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-quote-left"></i> Cosmic Wisdom</h4>
+                            <blockquote style="margin: 0;">
+                                <p style="font-size: 1.1rem; color: var(--text-main); font-style: italic; line-height: 1.6; margin-bottom: 15px;"
+                                    dir="auto">
+                                    "Somewhere, something incredible is waiting to be known."
+                                </p>
+                                <cite
+                                    style="font-size: 0.85rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-style: normal;">—
+                                    Carl Sagan</cite>
+                            </blockquote>
+                        </div>
+
+                        <!-- Community Pulse -->
+                        <div class="sidebar-widget"
+                            style="background: linear-gradient(to bottom right, rgba(99, 102, 241, 0.15), rgba(15, 23, 42, 0.5));">
+                            <h4 class="sidebar-title" dir="auto"><i class="fas fa-satellite"></i> Join The Pulse</h4>
+                            <p
+                                style="font-size: 1rem; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">
+                                Get real-time
+                                space alerts and celestial event reminders directly to your inbox.</p>
+                            <form>
+                                <input type="email" placeholder="Your space mail..."
+                                    style="width: 100%; padding: 15px 20px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); color: var(--text-main); margin-bottom: 15px; font-size: 1rem;">
+                                <button type="submit" class="btn btn-primary w-100"
+                                    style="border-radius: 16px; padding: 18px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);">Subscribe
+                                    Now</button>
+                            </form>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="cta-separator"></div>
+
+                <!-- Redesigned CTA Banner -->
+                <div class="blog-cta-banner">
+                    <div style="position: relative; z-index: 1;">
+                        <h2 dir="auto">Share Your Cosmic Vision</h2>
+                        <p style="max-width: 650px; margin: 0 auto 30px; font-size: 1.1rem;" dir="auto">Are you an
+                            observer, researcher, or photographer? We're looking for passionate
+                            stargazers to contribute to the Chronicles.</p>
+                        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                            <a href="contact.html" class="btn"
+                                style="background: white; color: var(--primary); font-weight: 700; padding: 14px 32px; border-radius: 12px;">Become
+                                a Contributor</a>
+                            <a href="gallery.html" class="btn btn-outline"
+                                style="border-color: white; color: white; padding: 14px 32px; border-radius: 12px;">Explore
+                                All Posts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // DEBUG: Navigation links check for blog.html
+        console.log('%c🔍 BLOG PAGE: Debugging Navigation', 'color: #00ff00; font-size: 16px; font-weight: bold');
+        document.querySelectorAll('.nav-link').forEach((link, index) => {
+            console.log(`Link ${index}: "${link.textContent.trim()}" -> ${link.href}`);
+            link.addEventListener('click', function (e) {
+                console.log(`%c✓ CLICKED: ${this.textContent.trim()} -> ${this.href}`, 'color: yellow; font-weight: bold');
+            });
+        });
+    </script>
+
+    <script src="../assets/js/navigation-fix.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

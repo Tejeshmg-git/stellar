@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Stellar | Our Story & Vision</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Discover the journey of Stellar Astronomy Club - from our humble beginnings to becoming a leading community for stargazers and scientists.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/about-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html">Home Version 01</a></li>
+                            <li><a href="index-v2.html">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link">Observations</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="about.html" class="nav-link active">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section page-header">
+            <div class="container hero-content">
+                <h1 class="hero-title" dir="auto">Explorers of the <span class="gradient-text">Infinite</span></h1>
+                <p class="hero-subtitle" dir="auto" style="max-width: 800px;">From humble backyard gazing to
+                    professional deep-space research, we
+                    are united by one passion: The Stars.</p>
+            </div>
+        </section>
+
+        <!-- Our Story & Journey -->
+        <section class="section">
+            <div class="container grid grid-2" style="align-items: center; gap: var(--space-3xl);">
+                <div class="image-stack" style="height: 450px;">
+                    <div class="img-wrapper"
+                        style="width: 100%; height: 100%; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow);">
+                        <img src="../assets/images/media__1770702374442.png" alt="Club Origins"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div>
+                    <h4 dir="auto"
+                        style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">
+                        Our Story</h4>
+                    <h2 class="gradient-text" dir="auto" style="font-size: 2.5rem; margin-bottom: var(--space-lg);">
+                        From A Single Lens To A Galaxy of Minds</h2>
+                    <p class="mb-lg" dir="auto" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted);">
+                        Stellar began in 2024 as a small gathering of five friends on a rooftop, sharing a single 4-inch
+                        refractor telescope. We faced the challenge of light pollution and limited resources, but our
+                        curiosity was boundless.</p>
+                    <p class="mb-lg" dir="auto" style="font-size: 1.1rem; line-height: 1.6; color: var(--text-muted);">
+                        Today, we have grown into a vibrant community of over 1,200 members, managing our own dark-sky
+                        observational site and partnering with global institutions. Our journey proves that you don't
+                        need a PhD to contribute to science—just a willingness to look up.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision, Mission, Values -->
+        <section class="section" style="background: var(--surface);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" dir="auto">Our Core Principle</h2>
+                    <p class="section-desc" dir="auto">Guided by scientific integrity and a passion for discovery.</p>
+                </div>
+                <div class="grid grid-3 vision-grid">
+                    <div class="glass-card" style="padding: var(--space-xl); border-radius: 24px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto var(--space-lg);"><i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 dir="auto" style="margin-bottom: var(--space-md);">Mission</h3>
+                        <p dir="auto" style="color: var(--text-muted);">To provide access to professional astronomical
+                            equipment and education, fostering a community where anyone can explore the universe.</p>
+                    </div>
+                    <div class="glass-card" style="padding: var(--space-xl); border-radius: 24px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto var(--space-lg);"><i class="fas fa-eye"></i></div>
+                        <h3 dir="auto" style="margin-bottom: var(--space-md);">Vision</h3>
+                        <p dir="auto" style="color: var(--text-muted);">A future where scientific literacy is universal,
+                            and the night sky is preserved as a heritage for generations to come.</p>
+                    </div>
+                    <div class="glass-card" style="padding: var(--space-xl); border-radius: 24px; text-align: center;">
+                        <div class="card-icon" style="margin: 0 auto var(--space-lg);"><i class="fas fa-heart"></i>
+                        </div>
+                        <h3 dir="auto" style="margin-bottom: var(--space-md);">Values</h3>
+                        <p dir="auto" style="color: var(--text-muted);">Inclusivity in science, preservation of dark
+                            skies, and mentorship for the next generation of astronomers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities & Equipment -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text" dir="auto">Our Arsenal of Discovery</h2>
+                    <p class="section-desc" dir="auto">State-of-the-art technology available to all our members.</p>
+                </div>
+                <div class="grid grid-4 arsenal-grid">
+                    <div class="feature-card" style="padding: var(--space-lg);">
+                        <i class="fas fa-microscope"
+                            style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                        <h4 dir="auto">Celestron EdgeHD 14"</h4>
+                        <p dir="auto" style="font-size: 0.9rem; color: var(--text-muted);">Our flagship telescope for
+                            deep-sky imaging and planetary observation.</p>
+                    </div>
+                    <div class="feature-card" style="padding: var(--space-lg);">
+                        <i class="fas fa-camera"
+                            style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;"></i>
+                        <h4 dir="auto">ZWO ASI6200MM</h4>
+                        <p dir="auto" style="font-size: 0.9rem; color: var(--text-muted);">Full-frame cooled monochrome
+                            camera for professional astrophotography.</p>
+                    </div>
+                    <div class="feature-card" style="padding: var(--space-lg);">
+                        <i class="fas fa-laptop-code"
+                            style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                        <h4 dir="auto">PixInsight Lab</h4>
+                        <p dir="auto" style="font-size: 0.9rem; color: var(--text-muted);">Dedicated processing
+                            workstations with full software licenses.</p>
+                    </div>
+                    <div class="feature-card" style="padding: var(--space-lg);">
+                        <i class="fas fa-house-user"
+                            style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;"></i>
+                        <h4 dir="auto">Dark Sky Site</h4>
+                        <p dir="auto" style="font-size: 0.9rem; color: var(--text-muted);">A Bortle 2 private
+                            observatory located 2 hours from the city.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats & Impact -->
+        <section class="section" style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9));">
+            <div class="container">
+                <div class="grid grid-4" style="text-align: center;">
+                    <div style="padding: var(--space-lg);">
+                        <h2 style="color: var(--primary); font-size: 3.5rem; font-weight: 800; margin-bottom: 5px;">
+                            1,248</h2>
+                        <p dir="auto" style="font-size: 1.1rem; font-weight: 600;">Registered Members</p>
+                    </div>
+                    <div style="padding: var(--space-lg);">
+                        <h2 style="color: var(--secondary); font-size: 3.5rem; font-weight: 800; margin-bottom: 5px;">
+                            150+</h2>
+                        <p dir="auto" style="font-size: 1.1rem; font-weight: 600;">Public Events Hosted</p>
+                    </div>
+                    <div style="padding: var(--space-lg);">
+                        <h2 style="color: var(--primary); font-size: 3.5rem; font-weight: 800; margin-bottom: 5px;">3
+                        </h2>
+                        <p dir="auto" style="font-size: 1.1rem; font-weight: 600;">Research Papers Published</p>
+                    </div>
+                    <div style="padding: var(--space-lg);">
+                        <h2 style="color: var(--secondary); font-size: 3.5rem; font-weight: 800; margin-bottom: 5px;">
+                            5k+</h2>
+                        <p dir="auto" style="font-size: 1.1rem; font-weight: 600;">Students Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="section">
+            <div class="container" style="max-width: 900px;">
+                <div class="section-header">
+                    <h2 class="section-title" dir="auto">Our Orbital Path</h2>
+                </div>
+                <div style="position: relative; padding-left: 30px; border-left: 2px solid var(--border);">
+                    <div style="margin-bottom: 40px; position: relative;">
+                        <div
+                            style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; background: var(--primary); border-radius: 50%;">
+                        </div>
+                        <h5 style="color: var(--primary); font-weight: 700;">2024</h5>
+                        <h3 dir="auto" style="margin-bottom: 10px;">Ignition</h3>
+                        <p dir="auto" style="color: var(--text-muted);">The club is founded. First "Sidewalk Astronomy"
+                            event held in the city center.</p>
+                    </div>
+                    <div style="margin-bottom: 40px; position: relative;">
+                        <div
+                            style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; background: var(--secondary); border-radius: 50%;">
+                        </div>
+                        <h5 style="color: var(--secondary); font-weight: 700;">2025</h5>
+                        <h3 dir="auto" style="margin-bottom: 10px;">Expansion</h3>
+                        <p dir="auto" style="color: var(--text-muted);">Acquired our first 14" Observatory Telescope.
+                            Launched the "Stellar Schools" program.</p>
+                    </div>
+                    <div style="margin-bottom: 0; position: relative;">
+                        <div
+                            style="position: absolute; left: -36px; top: 0; width: 14px; height: 14px; background: var(--primary); border-radius: 50%;">
+                        </div>
+                        <h5 style="color: var(--primary); font-weight: 700;">2026</h5>
+                        <h3 dir="auto" style="margin-bottom: 10px;">Global Reach</h3>
+                        <p dir="auto" style="color: var(--text-muted);">Partnered with IAU. Currently developing a
+                            remote-access observatory for members worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Mentors -->
+        <section class="section" style="background: var(--surface);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text" dir="auto">Flight Crew</h2>
+                </div>
+                <div class="grid grid-3">
+                    <!-- Team Member 1 -->
+                    <div class="team-card glass-card" style="border-radius: 28px; overflow: hidden; height: 100%;">
+                        <div class="team-img"
+                            style="background: url('../assets/images/ppl3.png') top/cover; height: 300px;">
+                        </div>
+                        <div class="team-info" style="padding: var(--space-xl);">
+                            <h3 dir="auto">Sarah J.</h3>
+                            <p dir="auto"
+                                style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">
+                                Club President</p>
+                            <p dir="auto" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Former
+                                NASA consultant focused on outreach and education strategy.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="team-card glass-card" style="border-radius: 28px; overflow: hidden; height: 100%;">
+                        <div class="team-img"
+                            style="background: url('../assets/images/ppl4.png') top/cover; height: 300px;">
+                        </div>
+                        <div class="team-info" style="padding: var(--space-xl);">
+                            <h3 dir="auto">Dr. Ray Vance</h3>
+                            <p dir="auto"
+                                style="color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">
+                                Lead Scientist</p>
+                            <p dir="auto" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">
+                                Astrophysicist guiding our research projects and data analysis.</p>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="team-card glass-card" style="border-radius: 28px; overflow: hidden; height: 100%;">
+                        <div class="team-img"
+                            style="background: url('../assets/images/ppl5.png') top/cover; height: 300px;">
+                        </div>
+                        <div class="team-info" style="padding: var(--space-xl);">
+                            <h3 dir="auto">Alex Rivera</h3>
+                            <p dir="auto"
+                                style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.9rem;">
+                                Outreach Coordinator</p>
+                            <p dir="auto" style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">Manages
+                                school programs and public star parties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards & Collaborations -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid-1" style="gap: var(--space-3xl); max-width: 800px; margin: 0 auto;">
+                    <div>
+                        <h2 class="section-title" dir="auto"
+                            style="text-align: center; margin-bottom: var(--space-lg);">
+                            Awards & Recognition</h2>
+                        <ul class="awards-list" style="display: flex; flex-direction: column; gap: 20px;">
+                            <li class="glass-card"
+                                style="padding: 20px; border-radius: 16px; display: flex; gap: 15px; align-items: center;">
+                                <i class="fas fa-trophy" style="color: #fbbf24; font-size: 1.5rem;"></i>
+                                <div>
+                                    <h4 dir="auto" style="margin: 0;">Best Community Science Program</h4>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">International
+                                        Astronomical Union (2025)</span>
+                                </div>
+                            </li>
+                            <li class="glass-card"
+                                style="padding: 20px; border-radius: 16px; display: flex; gap: 15px; align-items: center;">
+                                <i class="fas fa-certificate" style="color: var(--secondary); font-size: 1.5rem;"></i>
+                                <div>
+                                    <h4 dir="auto" style="margin: 0;">Dark Sky Defender</h4>
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">IDA Regional Award
+                                        (2024)</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="section-title" dir="auto"
+                            style="text-align: center; margin-bottom: var(--space-lg);">
+                            Partners & Networks</h2>
+                        <div class="partners-grid"
+                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                            <div class="glass-card"
+                                style="padding: 30px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted); font-size: 1.2rem; gap: 15px;">
+                                <i class="fas fa-satellite"></i> NASA JPL
+                            </div>
+                            <div class="glass-card"
+                                style="padding: 30px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted); font-size: 1.2rem; gap: 15px;">
+                                <i class="fas fa-telescope"></i> CELESTRON
+                            </div>
+                            <div class="glass-card"
+                                style="padding: 30px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted); font-size: 1.2rem; gap: 15px;">
+                                <i class="fas fa-university"></i> CALTECH
+                            </div>
+                            <div class="glass-card"
+                                style="padding: 30px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--text-muted); font-size: 1.2rem; gap: 15px;">
+                                <i class="fas fa-globe-americas"></i> NAT GEO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Vision -->
+        <section class="section" style="background: var(--surface);">
+            <div class="container" style="text-align: center; max-width: 800px;">
+                <h2 class="gradient-text" style="font-size: 2.5rem; margin-bottom: var(--space-lg);">The Next Horizon
+                </h2>
+                <p dir="auto"
+                    style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: var(--space-xl);">
+                    Our future is as vast as the universe itself. In 2027, we aim to launch "StellarConnect", a network
+                    of remotely operated telescopes allowing members to capture images from the other side of the world,
+                    and break ground on our public Planetarium project.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="glass-card"
+                    style="padding: var(--space-3xl); border-radius: 32px; text-align: center; border: 1px solid var(--border);">
+                    <h2 class="section-title" dir="auto" style="margin-bottom: var(--space-md);">Ready for Liftoff?</h2>
+                    <p dir="auto"
+                        style="color: var(--text-muted); margin-bottom: var(--space-xl); max-width: 600px; margin-inline: auto;">
+                        Join our community of explorers today. Whether you are a beginner or a pro, there is a place for
+                        you among the stars.</p>
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html#join" class="btn btn-primary btn-lg">Join Club Now</a>
+                        <a href="events.html" class="btn btn-outline btn-lg">View Upcoming Events</a>
+                        <a href="contact.html" class="btn btn-outline btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

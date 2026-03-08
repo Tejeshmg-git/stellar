@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Gallery | The Universe in Focus</title>
+    <meta name="description"
+        content="Explore stunning high-resolution astrophotography, process comparisons, and featured member work.">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/navigation-fix.css">
+    <link rel="stylesheet" href="../assets/css/gallery-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link" dir="auto">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html" dir="auto">Home Version 01</a></li>
+                            <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
+                    <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link active" dir="auto">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link" dir="auto">Resources</a></li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Super Hero Section -->
+        <section class="hero-section page-header">
+            <div class="container hero-content">
+                <span class="badge mb-lg"
+                    style="background: rgba(var(--white-rgb), 0.1); backdrop-filter: blur(10px); border: 1px solid var(--border); padding: 8px 16px; border-radius: 50px; display: inline-block; color: var(--secondary);">
+                    <i class="fas fa-star"></i> Featured Collection V.2.0
+                </span>
+                <h1 class="hero-title" dir="auto">The Universe in Focus</h1>
+                <p class="hero-subtitle" dir="auto">
+                    Explore high-resolution captures, witness raw vs. processed transformations, and discover the
+                    stories behind our members' greatest shots.
+                </p>
+
+                <!-- Advanced Stats -->
+                <div class="hero-highlights" style="border-top: 1px solid var(--border-light); padding-top: 20px;">
+                    <div class="hero-stat-box">
+                        <h4>2.5K+</h4>
+                        <span>Deep Sky Objects</span>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>500GB</h4>
+                        <span>Scientific Data</span>
+                    </div>
+                    <div class="hero-stat-box">
+                        <h4>150+</h4>
+                        <span>Contributors</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; background: linear-gradient(to top, var(--background), transparent);">
+            </div>
+        </section>
+
+        <!-- Featured Photo & Story -->
+        <section class="section">
+            <div class="container">
+                <div class="glass-card overflow-hidden gallery-featured-grid"
+                    style="display: grid; gap: var(--space-xl); padding: 0;">
+                    <div style="position: relative; padding: 0; height: 100%;">
+                        <img src="../assets/images/img27.png" alt="Photo of the Month"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
+                        <div
+                            style="position: absolute; bottom: 40px; left: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+                            <span class="badge"
+                                style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); color: white; padding: 8px 18px; border-radius: 12px; font-size: 0.75rem; border: 1px solid var(--border); font-weight: 700;"><i
+                                    class="fas fa-expand-alt" style="margin-right: 8px;"></i> VIEW FULL RES</span>
+                            <span class="badge"
+                                style="background: rgba(var(--primary-rgb), 0.2); backdrop-filter: blur(10px); color: var(--primary); padding: 8px 18px; border-radius: 12px; font-size: 0.75rem; border: 1px solid rgba(var(--primary-rgb), 0.3); font-weight: 700;"><i
+                                    class="fas fa-download" style="margin-right: 8px;"></i> ACQUIRE RAW</span>
+                        </div>
+                    </div>
+                    <div style="padding: 40px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div class="pulse-badge"
+                                style="display: flex; align-items: center; gap: 8px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">
+                                <span
+                                    style="display: block; width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 10px var(--secondary);"></span>
+                                Photo of the Month
+                            </div>
+                            <div style="font-size: 1.1rem; color: var(--text-muted); display: flex; gap: 15px;">
+                                <span><i class="far fa-eye"></i> 1.2k</span>
+                                <span style="color: var(--primary);"><i class="fas fa-heart"></i> 245</span>
+                            </div>
+                        </div>
+
+                        <h2 dir="auto" class="gradient-text mb-sm" style="font-size: 2.5rem;">The Eye of God</h2>
+                        <h3 class="mb-lg" style="font-size: 1.1rem; color: var(--primary);">Helix Nebula (NGC 7293)</h3>
+
+                        <div class="glass-card mb-md"
+                            style="padding: 20px; border-left: 3px solid var(--secondary); text-align: start;">
+                            <h4 class="mb-sm" style="font-size: 1rem; color: white;"><i class="fas fa-book-open"></i>
+                                Story Behind the Shot</h4>
+                            <p class="mb-md" dir="auto"
+                                style="line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+                                "This image was a test of patience. We had unusually high humidity for three consecutive
+                                nights, causing the guider to struggle with the faint guide stars. I had to throw away
+                                nearly 30% of the subs. However, on the final night, the seeing stabilized to
+                                sub-arcsecond levels, allowing me to resolve the fine cometary knots in the inner ring."
+                            </p>
+                        </div>
+
+                        <!-- Improved Tech Specs -->
+                        <div class="glass-card mb-md" style="padding: 20px; text-align: start;">
+                            <div
+                                style="display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid var(--border);">
+                                <i class="fas fa-info-circle" style="color: var(--primary); margin-right: 10px;"></i>
+                                <h4 dir="auto"
+                                    style="margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);">
+                                    Technical Details</h4>
+                            </div>
+
+                            <div class="tech-specs-grid" style="display: grid; gap: 15px 40px;">
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-binoculars" style="color: var(--primary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Optics</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">Celestron C11</strong>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-history" style="color: var(--secondary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Integration</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">18.5 Hours</strong>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-camera" style="color: var(--primary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Camera</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">ASI2600MM</strong>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-laptop" style="color: var(--secondary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Soft</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">PixInsight</strong>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-cog" style="color: var(--primary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Mount</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">EQ6-R Pro</strong>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>
+                                    <span style="color: var(--text-muted); font-size: 0.9rem;">Location</span>
+                                    <strong dir="auto" style="font-size: 0.9rem;">Bortle 2</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card mb-md" style="padding: 20px; border-style: dashed; text-align: start;">
+                            <h4 class="mb-sm"
+                                style="font-size: 0.9rem; color: white; text-transform: uppercase; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-microscope" style="color: var(--secondary);"></i> Scientific
+                                Intelligence
+                            </h4>
+                            <p dir="auto"
+                                style="line-height: 1.6; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0;">
+                                Located 650 light-years away in Aquarius, the Helix is a planetary nebula created at the
+                                end of a Sun-like star's life. The outer gases are being ionized by the exposed hot
+                                stellar core, or white dwarf.
+                            </p>
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <img src="../assets/images/ppl2.png"
+                                    style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); padding: 2px;">
+                                <div>
+                                    <h5 style="margin: 0; font-size: 1rem;">Alex Rivera</h5>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted);">Expedition Lead | ★ Top
+                                        Contributor</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+                                <button class="btn btn-primary btn-sm">FAVORITE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Before & After Comparison -->
+        <section class="section" style="background: linear-gradient(to bottom, var(--background), var(--surface));">
+            <div class="container text-center">
+                <span class="badge"
+                    style="background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 50px; margin-bottom: 20px; display: inline-block;">Interactive
+                    Processing</span>
+                <h2 class="gradient-text" style="font-size: 2.5rem; margin-bottom: 10px;">The Art of Post-Processing
+                </h2>
+                <p dir="auto" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px;">Slide to reveal
+                    the magic.
+                    See how we transform raw linear telescope data into a vibrant, scientifically accurate image.</p>
+
+                <div class="comparison-container" id="comparisonSlider">
+                    <!-- Base Image (Processed) -->
+                    <img src="../assets/images/media__1770701229282.jpg" alt="Processed" class="comparison-img">
+
+                    <!-- Overlay Image (Raw) in a clipped div -->
+                    <!-- Note: Using same image grayscale/dimmed to simulate 'Raw' for this demo since we don't have a matching raw pair -->
+                    <div class="comparison-overlay" id="overlayDiv">
+                        <img src="../assets/images/media__1770701229282.jpg" alt="Raw Data" class="comparison-img"
+                            style="filter: grayscale(100%) contrast(1.2) brightness(0.7);">
+                        <div class="comparison-label" style="left: 20px;">RAW DATA (LINEAR)</div>
+                        <div class="comparison-label" style="right: 20px; left: auto;">FINAL PROCESSED</div>
+                    </div>
+
+                    <!-- Draggable Handle -->
+                    <div class="comparison-handle" id="sliderHandle">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Gallery -->
+        <section class="section">
+            <div class="container">
+                <div class="mb-2xl"
+                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <h2 dir="auto" class="gradient-text" style="font-size: 2.5rem; margin-bottom: 5px;">Explore
+                            Collection</h2>
+                        <p dir="auto" style="color: var(--text-muted);">Browse through our universe.</p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div style="position: relative;">
+                        <input type="text" placeholder="Search objects, stars..."
+                            style="padding: 12px 20px 12px 45px; border-radius: 50px; background: rgba(var(--white-rgb), 0.05); border: 1px solid var(--border); color: white; width: 300px; outline: none;">
+                        <i class="fas fa-search"
+                            style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-bar">
+                    <button class="filter-btn active">All Photos</button>
+                    <button class="filter-btn">Deep Sky</button>
+                    <button class="filter-btn">Planetary</button>
+                    <button class="filter-btn">Milky Way</button>
+                    <button class="filter-btn">Events</button>
+                    <button class="filter-btn"><i class="fas fa-crown" style="color: #FFD700; margin-right: 5px;"></i>
+                        Winners</button>
+                </div>
+
+                <!-- Grid -->
+                <div class="gallery-grid" style="gap: 20px;">
+                    <!-- Item 1 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770703914817.png" alt="Planet Earth">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Blue Marble</h4>
+                            <div class="gallery-meta">
+                                <span>Sarah J.</span>
+                                <span><i class="far fa-heart"></i> 124</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770702374450.png" alt="Mars Landscape">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Martian Surface</h4>
+                            <div class="gallery-meta">
+                                <span>NASA / JPL</span>
+                                <span><i class="far fa-heart"></i> 856</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770701229282.jpg" alt="Nebula">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Orion Core</h4>
+                            <div class="gallery-meta">
+                                <span>Dr. Ray V.</span>
+                                <span><i class="far fa-heart"></i> 342</span>
+                            </div>
+                        </div>
+                        <span class="gallery-badge">
+                            <i class="fas fa-trophy" style="color: #FFD700;"></i> <span>Highly Commended</span>
+                        </span>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770703914823.png" alt="Telescope Equipment">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Setup Night</h4>
+                            <div class="gallery-meta">
+                                <span>Club Event</span>
+                                <span><i class="far fa-heart"></i> 98</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770703914824.png" alt="Star Map">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Constellation Map</h4>
+                            <div class="gallery-meta">
+                                <span>Resource</span>
+                                <span><i class="far fa-heart"></i> 56</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770702374442.png" alt="Group Photo">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Star Party 2025</h4>
+                            <div class="gallery-meta">
+                                <span>Event Team</span>
+                                <span><i class="far fa-heart"></i> 210</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770701229289.jpg" alt="Stellar Stream">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Stellar Stream</h4>
+                            <div class="gallery-meta">
+                                <span>Mark T.</span>
+                                <span><i class="far fa-heart"></i> 145</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 8 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/img27.png" alt="Deep Space">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Deep Space Horizon</h4>
+                            <div class="gallery-meta">
+                                <span>Elena G.</span>
+                                <span><i class="far fa-heart"></i> 189</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 9 -->
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770701229282.jpg" alt="Galaxy Core">
+                        <div class="gallery-overlay">
+                            <h4 class="gallery-title" dir="auto">Galaxy Core</h4>
+                            <div class="gallery-meta">
+                                <span>Astro Team</span>
+                                <span><i class="far fa-heart"></i> 320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: var(--space-2xl);">
+                    <button class="btn btn-outline btn-lg">Load More Photos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Member Spotlight -->
+        <section class="section" style="background: var(--surface);">
+            <div class="container">
+                <h2 class="gradient-text text-center" style="font-size: 2.5rem; margin-bottom: 40px;">Featured
+                    Contributors</h2>
+                <div class="grid grid-4" style="gap: 20px;">
+                    <div class="spotlight-card">
+                        <img src="../assets/images/ppl1.png" class="spotlight-avatar">
+                        <h4>Alex Rivera</h4>
+                        <p style="color: var(--primary); font-size: 0.9rem;">Deep Sky Specialist</p>
+                        <div
+                            style="display: flex; justify-content: center; gap: 10px; margin-top: 15px; color: var(--text-muted);">
+                            <span><i class="fas fa-camera"></i> 45</span>
+                            <span><i class="fas fa-heart"></i> 2.1k</span>
+                        </div>
+                    </div>
+                    <div class="spotlight-card">
+                        <img src="../assets/images/ppl3.png" class="spotlight-avatar">
+                        <h4>Dr. Sarah Chen</h4>
+                        <p style="color: var(--primary); font-size: 0.9rem;">Planetary Imager</p>
+                        <div
+                            style="display: flex; justify-content: center; gap: 10px; margin-top: 15px; color: var(--text-muted);">
+                            <span><i class="fas fa-camera"></i> 32</span>
+                            <span><i class="fas fa-heart"></i> 1.8k</span>
+                        </div>
+                    </div>
+                    <div class="spotlight-card">
+                        <img src="../assets/images/ppl5.png" class="spotlight-avatar">
+                        <h4>James Volt</h4>
+                        <p style="color: var(--primary); font-size: 0.9rem;">Wide Field</p>
+                        <div
+                            style="display: flex; justify-content: center; gap: 10px; margin-top: 15px; color: var(--text-muted);">
+                            <span><i class="fas fa-camera"></i> 56</span>
+                            <span><i class="fas fa-heart"></i> 3.2k</span>
+                        </div>
+                    </div>
+                    <div class="spotlight-card"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 2px dashed var(--border); background: transparent; text-align: center;">
+                        <i class="fas fa-plus-circle"
+                            style="font-size: 3rem; color: var(--text-muted); margin-bottom: 10px;"></i>
+                        <h4>Join Them</h4>
+                        <a href="#" style="color: var(--primary);">Become a Member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="glass-card text-center"
+                    style="padding: var(--space-3xl); border-radius: 32px; max-width: 900px; margin: 0 auto; border: 1px solid rgba(var(--primary-rgb), 0.3); background: var(--surface);">
+                    <i class="fas fa-cloud-upload-alt"
+                        style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h2 class="gradient-text" style="font-size: 2rem; margin-bottom: 10px;">Share Your Best Shot</h2>
+                    <p class="mb-lg" style="color: var(--text-muted);">Join our community of 150+ astrophotographers.
+                        Get feedback, win awards, and inspire others.</p>
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <a href="member-dashboard.html" class="btn btn-primary">Upload Photo</a>
+                        <a href="resources.html" class="btn btn-outline"><i class="fas fa-download"></i> Download
+                            Submission Guide</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);"><i
+                            class="fas fa-shield-alt"></i> All submissions are moderated for quality and scientific
+                        accuracy.</p>
+                </div>
+            </div>
+        </section>
+    </main>    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/navigation-fix.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+
+
+        // Comparison Slider Script
+        const container = document.getElementById('comparisonSlider');
+        const overlay = document.getElementById('overlayDiv');
+        const handle = document.getElementById('sliderHandle');
+        let isDragging = false;
+
+        container.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const rect = container.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const percentage = (x / rect.width) * 100;
+
+            overlay.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        });
+
+        // Touch support for mobile
+        container.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        container.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const rect = container.getBoundingClientRect();
+            let x = e.touches[0].clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const percentage = (x / rect.width) * 100;
+
+            overlay.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        });
+
+        // DEBUG: Check navigation links on gallery page
+        console.log('Gallery page: Checking navigation links');
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            console.log(`Link: "${link.textContent.trim()}" -> ${link.href}`);
+        });
+
+        // Intersection Observer for Gallery Reveal (Mobile Support)
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            galleryObserver.observe(item);
+        });
+    </script>
+    <style>
+        @media (max-width: 992px) {
+            .gallery-item.reveal .gallery-overlay {
+                opacity: 1 !important;
+                transition: opacity 0.6s ease !important;
+            }
+
+            .gallery-item.reveal .gallery-overlay h4,
+            .gallery-item.reveal .gallery-overlay .gallery-title {
+                transform: translateY(0) !important;
+                transition: transform 0.5s ease 0.1s !important;
+            }
+
+            .gallery-item.reveal .gallery-overlay .gallery-meta {
+                opacity: 1 !important;
+                transition: opacity 0.5s ease 0.2s !important;
+            }
+
+            /* Initially hide meta on mobile until revealed */
+            .gallery-overlay .gallery-meta {
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+
+</html>

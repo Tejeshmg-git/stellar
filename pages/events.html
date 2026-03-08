@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Events | Calendar & Workshops</title>
+    <meta name="description" content="Discover upcoming stargazing events, workshops, and solar observations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/events-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link" dir="auto">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html" dir="auto">Home Version 01</a></li>
+                            <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
+                    <li><a href="events.html" class="nav-link active" dir="auto">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link" dir="auto">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link" dir="auto">Resources</a></li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+
+
+    <main>
+        <!-- Super Hero Banner Section -->
+        <section class="hero-section page-header">
+            <div class="container hero-content">
+                <div class="banner-content">
+                    <div
+                        style="display: flex; gap: 15px; margin-bottom: 30px; align-items: center; justify-content: center;">
+                        <span class="badge"
+                            style="background: var(--grad-secondary); color: black; padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);">EXTREME
+                            EVENT</span>
+                        <div class="hero-separator"></div>
+                        <span class="hero-meta-text"><i class="fas fa-signal" style="color: var(--secondary);"></i> Live
+                            Broadcasting
+                            Available</span>
+                    </div>
+
+                    <h1 dir="auto" class="hero-title"
+                        style="font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; font-weight: 800;">
+                        The Great <br><span class="gradient-text">Planetary
+                            Alignment</span>
+                    </h1>
+
+                    <p dir="auto" class="hero-subtitle mb-2xl" style="max-width: 650px;">
+                        Join our master astronomers for a rare celestial parade of Mercury, Venus, Mars, Jupiter, and
+                        Saturn. A perfectly synchronized observation experience.
+                    </p>
+
+                    <!-- Floating Stats Cards -->
+                    <div class="stats-row"
+                        style="display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center;">
+                        <div class="glass-card stat-card"
+                            style="padding: 15px 20px; border-radius: 16px; flex: 1; min-width: 140px;">
+                            <span class="stat-label">Location</span>
+                            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-map-pin" style="color: var(--secondary); font-size: 1rem;"></i>
+                                <span class="stat-value">Summit Site A</span>
+                            </div>
+                        </div>
+                        <div class="glass-card stat-card"
+                            style="padding: 15px 20px; border-radius: 16px; flex: 1; min-width: 140px;">
+                            <span class="stat-label">Date</span>
+                            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-calendar-check" style="color: var(--primary); font-size: 1rem;"></i>
+                                <span class="stat-value">MAR 24, 2026</span>
+                            </div>
+                        </div>
+                        <div class="glass-card stat-card"
+                            style="padding: 15px 20px; border-radius: 16px; flex: 1; min-width: 140px;">
+                            <span class="stat-label">Expert</span>
+                            <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-user-astronaut" style="color: #10b981; font-size: 1rem;"></i>
+                                <span class="stat-value">Dr. Hayes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions"
+                        style="display: flex; gap: 25px; align-items: center; justify-content: center;">
+                        <button onclick="handleAction('reserve')" class="btn btn-primary"
+                            style="padding: 20px 45px; font-size: 1.2rem; border-radius: 100px; box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);">Secure
+                            Your Seat</button>
+                        <button onclick="window.location.href='404.html'" class="btn btn-ghost"
+                            style="font-size: 1.1rem; font-weight: 600; text-decoration: underline;">Explore
+                            Full Details <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Decorations Removed for Clarity -->
+        </section>
+
+        <!-- Main Workspace -->
+        <section class="container calendar-section">
+            <!-- Main Dynamic Content -->
+            <div class="main-content">
+                <!-- Personalized Recommendation Feed -->
+                <div class="feed-card"
+                    style="padding: 40px; border-left: 5px solid var(--secondary); margin-top: 50px; background: var(--surface); border-radius: 24px; border: 1px solid var(--border);">
+                    <div style="flex: 1;">
+                        <span
+                            style="color: var(--secondary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;">Recommended
+                            for You</span>
+                        <h3 class="text-main-responsive" style="margin: 15px 0 10px; font-size: 2.2rem;">Advanced
+                            Astrophotography Camp
+                        </h3>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">
+                            Based on your
+                            interest in <strong>Nebulae</strong> and your <strong>Level 4</strong> status, this 3-day
+                            deep desert trip is perfect for your portfolio.</p>
+                        <div class="feed-actions" style="display: flex; gap: 20px;">
+                            <button onclick="window.location.href='404.html'" class="btn btn-primary"
+                                style="padding: 12px 30px;">More
+                                Info</button>
+                            <button onclick="handleAction('dismiss')" class="btn btn-ghost"
+                                style="padding: 12px 30px; border-radius: 12px;">Dismiss</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event List Header -->
+                <div class="discovery-header-main">
+                    <div class="discovery-title-group">
+                        <h2 class="gradient-text" dir="auto">Discover Activities</h2>
+                        <p dir="auto">Upcoming sessions curated for the community.</p>
+                    </div>
+                </div>
+
+                <!-- Premium List Item 1 (Featured) -->
+                <div class="event-list-item featured-item card-lift">
+                    <div class="event-date-box">
+                        <span class="event-month">MAR</span>
+                        <span class="event-day-num">15</span>
+                    </div>
+                    <div class="event-content-main">
+                        <div style="display: flex; gap: 10px; margin-bottom: 12px; align-items: center;">
+                            <span class="badge"
+                                style="background: var(--primary); color: white; padding: 4px 12px; font-size: 0.7rem;">FEATURED
+                                SESSION</span>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-clock"></i>
+                                20:00 - 02:00</span>
+                        </div>
+                        <h3 class="text-main-responsive" dir="auto" style="font-size: 1.8rem; margin-bottom: 12px;">
+                            Saturn & Jupiter Dual Feature
+                            Night</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; line-height: 1.6;">
+                            An intensive observation night focusing on the gas giants. Using the 24-inch
+                            Planewave for high-resolution planetary imaging demos.
+                        </p>
+
+                        <div
+                            style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                            <h5
+                                style="font-size: 0.8rem; text-transform: uppercase; color: var(--secondary); margin-bottom: 10px;">
+                                <i class="fas fa-clipboard-list"></i> Recommended for this event:
+                            </h5>
+                            <ul
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; list-style: none; font-size: 0.85rem; color: var(--text-muted);">
+                                <li><i class="fas fa-check" style="color: #10b981;"></i> High-speed MicroSD</li>
+                                <li><i class="fas fa-check" style="color: #10b981;"></i> 2x Barlow Lens</li>
+                                <li><i class="fas fa-check" style="color: #10b981;"></i> Warm Gloves</li>
+                                <li><i class="fas fa-check" style="color: #10b981;"></i> Planetary Filter</li>
+                            </ul>
+                        </div>
+
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted);">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                                <span>Summit High-Ground</span>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted);">
+                                <i class="fas fa-users"></i>
+                                <span>26 Attending</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-actions-panel">
+                        <div class="price-info">
+                            <span class="price-label">Entry Fee</span>
+                            <strong class="price-value">$25</strong>
+                        </div>
+                        <button onclick="handleAction('rsvp')" class="btn btn-secondary rsvp-btn">RSVP Fast</button>
+                        <a href="404.html" class="itinerary-link">View Itinerary</a>
+                    </div>
+                </div>
+
+                <!-- Premium List Item 2 -->
+                <div class="event-list-item">
+                    <div class="event-date-box date-box-alt">
+                        <span class="event-month">MAR</span>
+                        <span class="event-day-num">22</span>
+                    </div>
+                    <div class="event-content-main">
+                        <div style="display: flex; gap: 10px; margin-bottom: 12px; align-items: center;">
+                            <span class="tag tag-workshop">Workshop</span>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fas fa-clock"></i>
+                                10:00 - 15:00</span>
+                            <span style="font-size: 0.85rem; color: #10b981;"><i class="fas fa-check-circle"></i>
+                                Certified Session</span>
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Solar Dynamics & Sunspot Tracking</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; line-height: 1.5;">
+                            Learn the physics of our nearest star. This workshop includes hands-on experience with
+                            Lunt solar telescopes and specialized monochromatic processing software.
+                        </p>
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted);">
+                                <i class="fas fa-building" style="color: var(--primary);"></i>
+                                <span>Science Center Hub</span>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted);">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Gear Provided</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-actions-panel">
+                        <div class="price-info">
+                            <span class="price-label">Status</span>
+                            <strong class="price-value status-free">FREE</strong>
+                        </div>
+                        <button onclick="handleAction('register')" class="btn btn-primary register-btn">Register
+                            Now</button>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="btn btn-outline" style="padding: 15px 40px; font-size: 1.1rem; border-radius: 50px;">
+                        Load More Activities
+                    </button>
+                </div>
+            </div>
+
+            <!-- Advanced Sidebar -->
+            <aside class="calendar-sidebar">
+                <!-- User Progress Status -->
+                <div class="sidebar-widget">
+                    <h4 style="margin-bottom: 20px;"><i class="fas fa-award" style="color: #FFD700;"></i> My Progress
+                    </h4>
+                    <div
+                        style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+                        <span>Event Completion</span>
+                        <span>Level 4</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <span title="Attended 5 Star Parties"
+                            style="background: rgba(255,255,255,0.05); padding: 5px; border-radius: 8px;"><i
+                                class="fas fa-certificate" style="color: var(--primary);"></i></span>
+                        <span title="Photography Master"
+                            style="background: rgba(255,255,255,0.05); padding: 5px; border-radius: 8px;"><i
+                                class="fas fa-camera" style="color: var(--secondary);"></i></span>
+                        <span
+                            style="background: rgba(255,255,255,0.05); padding: 5px; border-radius: 8px; color: var(--text-muted); font-size: 0.8rem; display: flex; align-items: center;">+3
+                            more</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Calendar Widget -->
+                <div class="sidebar-widget" id="calendar">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h4 style="margin: 0;" id="calendar-month-year">March 2026</h4>
+                        <div style="display: flex; gap: 8px;">
+                            <div class="calendar-nav-btn" onclick="prevMonth()"><i class="fas fa-chevron-left"
+                                    style="font-size: 0.8rem;"></i></div>
+                            <div class="calendar-nav-btn" onclick="nextMonth()"><i class="fas fa-chevron-right"
+                                    style="font-size: 0.8rem;"></i></div>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-header">S</div>
+                        <div class="calendar-header">M</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">W</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">F</div>
+                        <div class="calendar-header">S</div>
+                    </div>
+                    <div class="calendar-grid" id="calendar-days-container">
+                        <!-- Days injected by JS -->
+                    </div>
+                    <div
+                        style="margin-top: 15px; font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px;">
+                        <span style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%;"></span>
+                        Event Scheduled
+                    </div>
+                </div>
+
+                <!-- Sky Conditions Module -->
+                <div class="sidebar-widget">
+                    <h4 style="margin-bottom: 20px;"><i class="fas fa-meteor" style="color: var(--secondary);"></i> Sky
+                        Dashboard</h4>
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 16px; margin-bottom: 20px;">
+                        <i class="fas fa-moon"
+                            style="font-size: 2.5rem; color: #fbbf24; filter: drop-shadow(0 0 10px #fbbf24);"></i>
+                        <div style="margin-left: 15px;">
+                            <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">Tonight's
+                                Phase</span>
+                            <strong style="font-size: 1.1rem;">Waxing Crescent</strong>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div
+                            style="padding: 12px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Transparency</span>
+                            <strong style="display: block; color: #10b981;">Excellent</strong>
+                        </div>
+                        <div
+                            style="padding: 12px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Darkness</span>
+                            <strong style="display: block; color: var(--primary);">21.8 SQM</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Reservation Mini -->
+                <div class="sidebar-widget"
+                    style="border: 1px solid var(--glass-border); background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), transparent); margin-top: 40px;">
+                    <h4 style="margin-bottom: 20px;"><i class="fas fa-tools" style="color: var(--primary);"></i> Gear
+                        Booking</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border);">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-microscope" style="color: var(--primary);"></i>
+                                <span style="font-size: 0.9rem;">8" Newtonian</span>
+                            </div>
+                            <span class="badge"
+                                style="background: rgba(16, 185, 129, 0.1); color: #10b981; font-size: 0.65rem; padding: 2px 8px;">Available</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border);">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-video" style="color: var(--secondary);"></i>
+                                <span style="font-size: 0.9rem;">ZWO Camera</span>
+                            </div>
+                            <span class="badge"
+                                style="background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.65rem; padding: 2px 8px;">Reserved</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-primary" style="width: 100%; padding: 10px; border-radius: 10px;">Book
+                        Equipment</button>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section-divider"></section>
+
+        <!-- Why Attend Section -->
+        <section class="section" id="impact">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <h2 class="gradient-text" style="font-size: 3rem;">Why Join Our Sessions?</h2>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Beyond simple observation,
+                        our events are engineered for deep learning and community growth.</p>
+                </div>
+                <div class="grid grid-3" style="gap: 40px;">
+                    <div class="sidebar-widget card-lift text-center">
+                        <i class="fas fa-graduation-cap"
+                            style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>Hands-on Learning</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Master telescope handling and
+                            astrophotography with expert guidance in every session.</p>
+                    </div>
+                    <div class="sidebar-widget card-lift text-center">
+                        <i class="fas fa-network-wired"
+                            style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                        <h3>Expert Networking</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Connect with professional astronomers
+                            and seasoned hobbyists in an immersive environment.</p>
+                    </div>
+                    <div class="sidebar-widget card-lift text-center">
+                        <i class="fas fa-rocket" style="font-size: 3rem; color: #10b981; margin-bottom: 20px;"></i>
+                        <h3>Scientific Contribution</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Participate in citizen science projects
+                            including solar tracking and meteor logging.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-4" style="margin-top: 80px; text-align: center;">
+                    <div>
+                        <h2 style="font-size: 3.5rem; color: var(--primary);">250+</h2>
+                        <p
+                            style="text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px;">
+                            Events Organized</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 3.5rem; color: var(--secondary);">15k+</h2>
+                        <p
+                            style="text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px;">
+                            Active Members</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 3.5rem; color: #10b981;">100%</h2>
+                        <p
+                            style="text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px;">
+                            Satisfaction</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 3.5rem; color: #f59e0b;">12</h2>
+                        <p
+                            style="text-transform: uppercase; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 2px;">
+                            Legacy Sites</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-divider"></section>
+
+        <!-- Live Observation Tracker -->
+        <section class="section" id="live"
+            style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+            <div class="container">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <span
+                            style="color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;"><i
+                                class="pulse"></i> Active Now</span>
+                        <h2 class="gradient-text" style="font-size: 2.8rem; margin-top: 10px;">Live Observation Tracker
+                        </h2>
+                        <p style="color: var(--text-muted); max-width: 600px; margin-top: 10px;">Real-time status of
+                            members currently out in the field. Join a nearby cluster or track their targets.</p>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <button class="btn btn-sm btn-outline"><i class="fas fa-map-marked-alt"></i> Interactive
+                            Map</button>
+                        <button class="btn btn-sm btn-primary">Check-In My Site</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-3" style="gap: 25px;">
+                    <div class="sidebar-widget live-card-glow live-user-card" style="margin-bottom: 0;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <img src="../assets/images/ppl4.png"
+                                style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);">
+                            <div>
+                                <h4 style="margin: 0;">Mark D. <span class="tag"
+                                        style="font-size: 0.6rem; vertical-align: middle;">Moderator</span></h4>
+                                <span style="font-size: 0.8rem; color: #10b981;">Observing for 2h 45m</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Target:</span>
+                                <strong>Andromeda (M31)</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Site:</span>
+                                <strong>North Hills Dark Site</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Visibility:</span>
+                                <span style="color: #10b981;">Perfect Clear</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline" style="width: 100%; margin-top: 20px;">View Field
+                            Notes</button>
+                    </div>
+
+                    <div class="sidebar-widget live-user-card" style="margin-bottom: 0;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <img src="../assets/images/ppl1.png"
+                                style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid #10b981;">
+                            <div>
+                                <h4 style="margin: 0;">Sarah Chen</h4>
+                                <span style="font-size: 0.8rem; color: #10b981;">Observing for 1h 12m</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Target:</span>
+                                <strong>Jupiter & Moons</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Site:</span>
+                                <strong>City South Park</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                                <span style="color: var(--text-muted);">Cluster Size:</span>
+                                <strong>4 Members</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline" style="width: 100%; margin-top: 20px;">Join
+                            Cluster</button>
+                    </div>
+
+                    <div
+                        style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05)); border: 2px dashed var(--border); border-radius: 24px; padding: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                        <div
+                            style="width: 60px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-satellite-dish" style="font-size: 1.5rem; color: var(--primary);"></i>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Going out tonight?</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Broadcast your
+                            location to find fellow observers and share equipment.</p>
+                        <button class="btn btn-primary btn-sm">Start Live Session</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparation & Gear Guide -->
+        <section class="section" id="safety">
+            <div class="container">
+                <div class="grid grid-2" style="gap: 50px; align-items: center;">
+                    <div class="expedition-card" style="padding: 40px;">
+                        <span class="badge"
+                            style="background: rgba(16, 185, 129, 0.1); color: #10b981; margin-bottom: 15px; display: inline-block;">PRO
+                            GUIDE</span>
+                        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Expedition Readiness</h2>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6;">A
+                            successful night under the stars requires more than just a telescope. We've compiled a
+                            comprehensive guide to help you prepare for our upcoming expeditions.</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div style="display: flex; gap: 20px;">
+                                <div
+                                    style="width: 50px; height: 50px; min-width: 50px; background: rgba(99, 102, 241, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin-bottom: 5px;">Dress Layers</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">Expect temperatures to drop
+                                        significantly. Bring thermal layers even in summer.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 20px;">
+                                <div
+                                    style="width: 50px; height: 50px; min-width: 50px; background: rgba(239, 68, 68, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #ef4444;">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin-bottom: 5px; color: #ef4444;">Red Light Only</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted);">Protect your night vision.
+                                        White light is strictly prohibited at our observation sites.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" style="margin-top: 40px;">Download Full PDF Guide</button>
+                    </div>
+                    <div class="sidebar-widget"
+                        style="padding: 40px; background: var(--surface); border: 2px solid var(--primary); margin-bottom: 0;">
+                        <h3 style="margin-bottom: 25px;"><i class="fas fa-clipboard-check"></i> Event Packing Checklist
+                        </h3>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" checked style="accent-color: var(--primary);">
+                                <span>Thermal Wear & Gloves</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--primary);">
+                                <span>Telescope/Binoculars</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--primary);">
+                                <span>Red Headlamp</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--primary);">
+                                <span>Portable Charger/Power Bank</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                                <input type="checkbox" style="accent-color: var(--primary);">
+                                <span>Star Map/App (Offline Mode)</span>
+                            </label>
+                        </div>
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Need to rent something on the list?
+                                <a href="#" style="color: var(--primary);">Visit Gear Shop</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA: Personalized Feed -->
+        <section class="section" style="background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.05));">
+            <div class="container text-center">
+                <!-- Testimonials -->
+                <section class="section">
+                    <div class="container section-divider" style="margin-bottom: 60px;"></div>
+                    <div class="container">
+                        <div class="text-center" style="margin-bottom: 50px;">
+                            <h2 class="gradient-text" style="font-size: 2.5rem;">Stories from the Summit</h2>
+                        </div>
+                        <div class="grid grid-2" style="gap:30px;">
+                            <div class="sidebar-widget">
+                                <p
+                                    style="font-style: italic; color: var(--text-muted); font-size: 1.1rem; border-left: 4px solid var(--primary); padding-left: 20px;">
+                                    "The Planetary Alignment event was life-changing. Never did I imagine seeing five
+                                    planets so clearly with professional gear. The experts were incredibly patient."</p>
+                                <div style="display: flex; gap: 15px; align-items: center; margin-top: 20px;">
+                                    <img src="../assets/images/astro1.png"
+                                        style="width: 50px; height: 50px; border-radius: 50%;">
+                                    <div>
+                                        <h4 style="margin: 0;">James Wilson</h4>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);">Gold Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget">
+                                <p
+                                    style="font-style: italic; color: var(--text-muted); font-size: 1.1rem; border-left: 4px solid var(--secondary); padding-left: 20px;">
+                                    "The astrophotography workshop took my skills from blurry moon shots to detailed
+                                    nebula captures in just one weekend. Worth every second!"</p>
+                                <div style="display: flex; gap: 15px; align-items: center; margin-top: 20px;">
+                                    <img src="../assets/images/astro2.png"
+                                        style="width: 50px; height: 50px; border-radius: 50%;">
+                                    <div>
+                                        <h4 style="margin: 0;">Elena Rodriguez</h4>
+                                        <span style="font-size: 0.8rem; color: var(--text-muted);">Silver Member</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Final CTA: Personalized Feed -->
+                <section class="section"
+                    style="background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.1));">
+                    <div class="container text-center">
+                        <h2 style="font-size: 3rem; margin-bottom: 20px;">The Universe is Calling</h2>
+                        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem;">
+                            Sync our calendar and get automated weather alerts 24 hours before any major event.</p>
+                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-primary btn-lg"><i class="fab fa-apple"></i> Sync Apple</button>
+                            <button class="btn btn-primary btn-lg"><i class="fab fa-google"></i> Sync Google</button>
+                            <button class="btn btn-ghost btn-lg">Custom RSS</button>
+                        </div>
+                    </div>
+                </section>
+    </main>    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Scroll Progress & Sticky Nav Active State
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progress = document.getElementById("scroll-progress");
+            if (progress) progress.style.width = scrolled + "%";
+
+            // Active Nav Logic
+            const sections = ['calendar', 'discovery', 'live', 'safety', 'impact'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top <= 250) {
+                        document.querySelectorAll('.mini-nav a').forEach(a => {
+                            a.classList.remove('active');
+                            if (a.getAttribute('href') === `#${id}`) a.classList.add('active');
+                        });
+                    }
+                }
+            });
+
+            // Discovery Bar shadow
+            const discBar = document.querySelector('.discovery-bar');
+            if (discBar) {
+                if (window.scrollY > 100) discBar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+                else discBar.style.boxShadow = 'none';
+            }
+        });
+
+        // Calendar Logic
+        let currentYear = 2026;
+        let currentMonth = 2; // March (0-indexed)
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function renderCalendar() {
+            const container = document.getElementById('calendar-days-container');
+            const title = document.getElementById('calendar-month-year');
+            if (!container || !title) return;
+            title.innerText = `${monthNames[currentMonth]} ${currentYear}`;
+            container.innerHTML = '';
+
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Empty slots
+            for (let i = 0; i < firstDay; i++) {
+                const div = document.createElement('div'); div.className = 'calendar-day-box empty'; container.appendChild(div);
+            }
+            // Actual days
+            for (let d = 1; d <= daysInMonth; d++) {
+                const div = document.createElement('div'); div.className = 'calendar-day-box';
+                if (d === 24 && currentMonth === 2 && currentYear === 2026) div.classList.add('active');
+                if ([3, 10, 15, 24].includes(d) && currentMonth === 2) {
+                    div.classList.add('has-event');
+                    div.setAttribute('data-tooltip', 'Stargazing Event Planned');
+                }
+                div.innerText = d;
+                div.onclick = () => showToast(`Deep session planned for ${monthNames[currentMonth]} ${d}`);
+                container.appendChild(div);
+            }
+        }
+        function nextMonth() { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderCalendar(); }
+        function prevMonth() { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderCalendar(); }
+
+        function handleAction(type) {
+            if (['reserve', 'rsvp', 'register'].includes(type)) {
+                showToast(`System initializing payment gateway...`);
+                setTimeout(() => window.location.href = '404.html', 1500);
+            } else if (type === 'dismiss') { showToast('Notification cleared.'); }
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div'); toast.className = 'toast';
+            toast.innerHTML = `<i class="fas fa-satellite-dish" style="color: var(--primary)"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0'; toast.style.transform = 'translateX(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        document.addEventListener('DOMContentLoaded', renderCalendar);
+    </script>
+</body>
+
+</html>

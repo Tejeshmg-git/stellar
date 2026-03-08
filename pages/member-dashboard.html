@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar | The Observer's Observatory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Palette Update */
+            --void: #020617;
+            --starlight: #e2e8f0;
+            --nebula-blue: #3b82f6;
+            --nebula-purple: #8b5cf6;
+            --supernova: #fbbf24;
+            --signal-green: #10b981;
+            --alert-red: #ef4444;
+
+            /* Glass System */
+            --glass-surface: rgba(15, 23, 42, 0.7);
+            --glass-hightlight: rgba(255, 255, 255, 0.05);
+            --glass-stroke: rgba(255, 255, 255, 0.08);
+            --blur-strength: 20px;
+        }
+
+        [data-theme="light"] {
+            --void: #f8fafc;
+            --starlight: #1e293b;
+            --glass-surface: rgba(255, 255, 255, 0.7);
+            --glass-stroke: rgba(0, 0, 0, 0.1);
+            --glass-hightlight: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            background-color: var(--void);
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 50%);
+            color: var(--starlight);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* -------------------------------------------
+           Structure & Layout 
+           ------------------------------------------- */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Command Sidebar */
+        .sidebar-command {
+            background: var(--glass-surface);
+            backdrop-filter: blur(var(--blur-strength));
+            border-right: 1px solid var(--glass-stroke);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            z-index: 1001;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-stroke);
+            position: sticky;
+            bottom: -30px;
+            /* Aligns with sidebar padding */
+            background: var(--glass-surface);
+            backdrop-filter: blur(30px);
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            z-index: 10;
+        }
+
+        .sidebar-command.active {
+            transform: translateX(0);
+        }
+
+        /* Mobile Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--starlight);
+            padding-left: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-section h5 {
+            color: var(--nebula-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            margin-bottom: 15px;
+            padding-left: 15px;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .menu-link:hover,
+        .menu-link.active {
+            background: var(--glass-hightlight);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .menu-link.active {
+            border-left: 3px solid var(--nebula-blue);
+        }
+
+        /* Main Mission Control */
+        .mission-control {
+            padding: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* -------------------------------------------
+           Components 
+           ------------------------------------------- */
+
+        /* Top Header */
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+            font-size: 1.5rem;
+            font-family: 'Outfit', sans-serif;
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            margin-right: 15px;
+        }
+
+        .mobile-brand-admin {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: var(--starlight);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.25rem;
+            font-family: 'Outfit', sans-serif;
+            margin-inline-end: auto;
+        }
+
+        .user-profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-inline-start: 1px solid var(--border);
+            padding-inline-start: 15px;
+            margin-inline-start: 5px;
+        }
+
+        @media (max-width: 992px) {
+            .admin-header {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: inline-flex;
+                margin-inline-end: 10px;
+            }
+
+            .mobile-brand-admin {
+                display: flex;
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                display: none;
+            }
+
+            .header-right {
+                gap: 5px;
+            }
+
+            .icon-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
+
+            .user-profile-nav {
+                padding-inline-start: 10px;
+                margin-inline-start: 2px;
+            }
+
+            .avatar {
+                width: 32px !important;
+                height: 32px !important;
+            }
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-stroke);
+            padding: 10px 20px;
+            border-radius: 50px;
+            width: 350px;
+            color: white;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 100%;
+            margin-left: 10px;
+        }
+
+        /* Hero ID Card */
+        .observer-id-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--glass-stroke);
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .observer-id-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .observer-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .observer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .observer-id-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: skewX(-20deg) translateX(-150%);
+            animation: shine 6s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: skewX(-20deg) translateX(-150%);
+            }
+
+            20% {
+                transform: skewX(-20deg) translateX(150%);
+            }
+
+            100% {
+                transform: skewX(-20deg) translateX(150%);
+            }
+        }
+
+        .avatar-holo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(from 0deg, var(--nebula-blue), var(--nebula-purple), var(--nebula-blue));
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-holo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--void);
+        }
+
+        .lvl-badge {
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--void);
+            border: 1px solid var(--supernova);
+            color: var(--supernova);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 25px;
+            grid-auto-rows: minmax(180px, auto);
+        }
+
+        .bento-box {
+            background: var(--glass-surface);
+            border: 1px solid var(--glass-stroke);
+            border-radius: 20px;
+            padding: 25px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .bento-box:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .box-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Widgets */
+        .night-planner-list {
+            list-style: none;
+        }
+
+        .planner-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--glass-stroke);
+        }
+
+        .planner-item:last-child {
+            border-bottom: none;
+        }
+
+        .vis-score {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--signal-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .cert-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--glass-stroke);
+        }
+
+        /* Buttons & Badges */
+        .btn-action {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--nebula-blue);
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .obs-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-box {
+                grid-column: span 1 !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-command {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 280px;
+                transform: translateX(-100%);
+            }
+
+            .sidebar-command.active {
+                transform: translateX(0);
+            }
+
+            .mission-control {
+                padding: 20px;
+            }
+
+            .observer-id-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 25px;
+            }
+
+            .avatar-holo {
+                margin: 0 auto;
+            }
+
+            .observer-stats {
+                justify-content: center;
+            }
+
+            .observer-tags {
+                justify-content: center;
+            }
+
+            .observer-id-card div:last-child {
+                text-align: center !important;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+                border-radius: 15px;
+            }
+
+            .toolbar>div {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .bento-box {
+                padding: 20px;
+            }
+
+            .box-title {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            #theme-toggle,
+            #rtl-toggle {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* Mobile Toolbar Styles */
+        .mobile-brand {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-right: auto;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .toolbar-left,
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toolbar-left {
+            flex: 1;
+        }
+
+        .btn-action.icon-only {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        @media (max-width: 992px) {
+            .sidebar-command {
+                transform: translateX(-100%);
+            }
+
+            .sidebar-command.active {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mission-control {
+                padding: 15px;
+            }
+
+            .observer-id-card h1 {
+                font-size: 1.6rem !important;
+            }
+
+            .avatar-holo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Light Theme Overrides */
+        [data-theme="light"] {
+            --glass-surface: #ffffff;
+            --glass-stroke: #e2e8f0;
+            --starlight: #0f172a;
+            --void: #f8fafc;
+            --background: #f1f5f9;
+            --glass-hightlight: rgba(99, 102, 241, 0.1);
+        }
+
+        [data-theme="light"] body {
+            background-color: #f8fafc;
+            background-image: none !important;
+        }
+
+        [data-theme="light"] .sidebar-command {
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.02);
+        }
+
+        [data-theme="light"] .menu-link {
+            color: #64748b !important;
+        }
+
+        [data-theme="light"] .menu-link i {
+            color: #94a3b8;
+        }
+
+        [data-theme="light"] .menu-link:hover,
+        [data-theme="light"] .menu-link.active {
+            background: #eff6ff !important;
+            color: #2563eb !important;
+        }
+
+        [data-theme="light"] .menu-link.active i,
+        [data-theme="light"] .menu-link:hover i {
+            color: #2563eb;
+        }
+
+        [data-theme="light"] .nav-section h5 {
+            color: #475569;
+            font-weight: 800;
+        }
+
+        [data-theme="light"] .box-title,
+        [data-theme="light"] .observer-id-content h1,
+        [data-theme="light"] .stat-value,
+        [data-theme="light"] .planner-item strong,
+        [data-theme="light"] .cert-card h4,
+        [data-theme="light"] .lvl-badge {
+            color: #1e293b !important;
+            font-weight: 700;
+        }
+
+        [data-theme="light"] .box-title i {
+            color: #3b82f6 !important;
+        }
+
+        [data-theme="light"] .planner-item span,
+        [data-theme="light"] .observer-stats span,
+        [data-theme="light"] .observer-id-content p,
+        [data-theme="light"] .bento-box div,
+        [data-theme="light"] .observer-id-card div {
+            color: #475569 !important;
+        }
+
+        [data-theme="light"] .mobile-brand,
+        [data-theme="light"] .btn-action.icon-only,
+        [data-theme="light"] .mobile-menu-btn {
+            color: #1e293b !important;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+        }
+
+        [data-theme="light"] .search-bar {
+            background: #ffffff;
+            border-color: #cbd5e1;
+        }
+
+        [data-theme="light"] .search-bar input {
+            color: #1e293b;
+        }
+
+        [data-theme="light"] .vis-score {
+            background: #ecfdf5;
+            color: #059669;
+            border-color: #6ee7b7;
+        }
+
+        [data-theme="light"] .obs-tag {
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        [data-theme="light"] .observer-id-card {
+            background: #ffffff;
+            border-color: #f1f5f9;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .status-value {
+            color: #1e293b !important;
+        }
+
+        [data-theme="light"] .bento-box {
+            background: #ffffff;
+            border-color: #f1f5f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="platform-grid">
+        <!-- Command Sidebar -->
+        <aside class="sidebar-command">
+            <a href="../index.html" class="logo-block" style="text-decoration: none;">
+                <div
+                    style="width: 40px; height: 40px; background: var(--nebula-blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(59,130,246,0.5);">
+                    <i class="fas fa-meteor"></i>
+                </div>
+                <span>Stellar<span style="color: var(--nebula-blue);">OS</span></span>
+            </a>
+
+            <nav class="nav-section">
+                <h5>Core Command</h5>
+                <a href="observations.html" class="menu-link active"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="coming-soon.html" class="menu-link"><i class="fas fa-map-marked-alt"></i> Sky Atlas</a>
+                <a href="coming-soon.html" class="menu-link"><i class="fas fa-clipboard-list"></i> Planner</a>
+                <a href="resources.html" class="menu-link"><i class="fas fa-book"></i> Resources</a>
+            </nav>
+
+            <nav class="nav-section">
+                <h5>Observation Hub</h5>
+                <a href="#" class="menu-link"><i class="fas fa-microscope"></i> Research Log</a>
+                <a href="#" class="menu-link"><i class="fas fa-satellite"></i> Sat-Track</a>
+                <a href="#" class="menu-link"><i class="fas fa-camera"></i> Imaging</a>
+            </nav>
+
+            <nav class="nav-section">
+                <h5>Community</h5>
+                <a href="#" class="menu-link"><i class="fas fa-user-friends"></i> Clusters</a>
+                <a href="#" class="menu-link"><i class="fas fa-medal"></i> Leaderboard</a>
+            </nav>
+
+            <nav class="nav-section">
+                <h5>Discovery</h5>
+                <a href="../index.html" class="menu-link"><i class="fas fa-home"></i> Main Site</a>
+                <a href="events.html" class="menu-link"><i class="fas fa-calendar-alt"></i> Events</a>
+                <a href="gallery.html" class="menu-link"><i class="fas fa-images"></i> Gallery</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="menu-link" style="margin-bottom: 10px;">
+                    <i class="fas fa-cog"></i> Site Settings
+                </a>
+                <a href="../index.html" class="menu-link" style="color: #ff4d4d;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="mission-control">
+            <!-- Admin Styled Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="icon-btn mobile-menu-btn" onclick="toggleSidebar()" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <!-- Mobile Brand -->
+                    <a href="../index.html" class="mobile-brand-admin">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span>Stellar</span>
+                    </a>
+                    <h2 class="section-title">Member Dashboard</h2>
+                </div>
+
+                <div class="header-right">
+                    <button id="rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+
+                    <!-- Notifications -->
+                    <button class="icon-btn" style="position: relative;">
+                        <i class="fas fa-bell"></i>
+                        <span
+                            style="position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: var(--secondary); border-radius: 50%;"></span>
+                    </button>
+
+                    <!-- User Profile -->
+                    <div class="user-profile-nav">
+                        <div style="text-align: right; margin-inline-end: 5px;" class="d-md-block">
+                            <span style="display: block; font-weight: 600; font-size: 0.9rem;">Captain AstroPilot</span>
+                            <span style="display: block; font-size: 0.75rem; color: var(--text-muted);">Commander</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100"
+                            alt="Admin" class="avatar"
+                            style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--primary);">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Identity Card -->
+            <section class="observer-id-card card-lift">
+                <div class="avatar-holo">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=300"
+                        alt="Profile">
+                    <div class="lvl-badge">RANK 04</div>
+                </div>
+
+                <div class="observer-id-content">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Captain AstroPilot</h1>
+                    <div class="observer-stats" style="margin-bottom: 25px;">
+                        <span><i class="fas fa-map-marker-alt" style="color: var(--nebula-blue);"></i> Sector 7 (North
+                            Hem)</span>
+                        <span><i class="fas fa-star" style="color: var(--supernova);"></i> Reputation: 98.4</span>
+                        <span><i class="fas fa-clock"></i> 450 Hrs Logged</span>
+                    </div>
+                    <div class="observer-tags">
+                        <span class="obs-tag"
+                            style="border: 1px solid var(--nebula-purple); color: var(--nebula-purple);">Deep Sky
+                            Specialist</span>
+                        <span class="obs-tag">Astrophotographer</span>
+                        <span class="obs-tag">Mentor</span>
+                    </div>
+                </div>
+
+                <div style="text-align: right; min-width: 200px;">
+                    <div style="margin-bottom: 20px;">
+                        <span
+                            style="display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 5px;">CURRENT
+                            MISSION</span>
+                        <strong style="font-size: 1.2rem; color: var(--signal-green);">Messier Marathon</strong>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <span
+                            style="display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 5px;">STATUS</span>
+                        <strong style="font-size: 1.2rem;" class="status-value">Online & Tracking</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bento Dashboard Grid -->
+            <div class="bento-grid">
+                <!-- Night Planner Widget -->
+                <div class="bento-box" style="grid-column: span 4;">
+                    <div class="box-title"><i class="fas fa-calendar-night" style="color: var(--nebula-blue);"></i>
+                        Tonight's Intelligence</div>
+                    <div style="margin-bottom: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6);">Conditions are
+                        excellent. Seeing is stable at 4.2/5.</div>
+                    <ul class="night-planner-list">
+                        <li class="planner-item">
+                            <div>
+                                <strong style="display: block;">Andromeda Galaxy</strong>
+                                <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Transit: 22:45</span>
+                            </div>
+                            <div class="vis-score">98</div>
+                        </li>
+                        <li class="planner-item">
+                            <div>
+                                <strong style="display: block;">Whirlpool Galaxy</strong>
+                                <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Transit: 00:15</span>
+                            </div>
+                            <div class="vis-score"
+                                style="color: var(--supernova); border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.1);">
+                                85</div>
+                        </li>
+                    </ul>
+                    <button class="btn-action"
+                        style="width: 100%; margin-top: 20px; justify-content: center; background: rgba(255,255,255,0.05); color: white;">Generate
+                        Full Plan</button>
+                </div>
+
+                <!-- Live Activity Feed -->
+                <div class="bento-box" style="grid-column: span 5;">
+                    <div class="box-title"><i class="fas fa-satellite-dish" style="color: var(--alert-red);"></i> Live
+                        Cluster Activity</div>
+                    <div style="padding: 10px 0;">
+                        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                            <img src="../assets/images/astro1.png"
+                                style="width: 40px; height: 40px; border-radius: 50%; opacity: 0.8;">
+                            <div>
+                                <span style="font-size: 0.9rem; font-weight: 600;">Dr. Sarah J.</span>
+                                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">uploaded a new spectrum
+                                    analysis of Betelgeuse.</p>
+                                <img src="../assets/images/img14.png"
+                                    style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px; margin-top: 10px; opacity: 0.7;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill & Certs -->
+                <div class="bento-box" style="grid-column: span 3;">
+                    <div class="box-title"><i class="fas fa-certificate" style="color: var(--supernova);"></i> Academy
+                    </div>
+                    <div class="cert-card" style="margin-bottom: 15px;">
+                        <i class="fas fa-award"
+                            style="font-size: 2rem; color: var(--supernova); margin-bottom: 10px;"></i>
+                        <h4 style="font-size: 1rem;">Solar Master</h4>
+                        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Certified: Jan 2026</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); border-radius: 10px; padding: 15px;">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px;">
+                            <span>Next: Deep Field</span>
+                            <span>75%</span>
+                        </div>
+                        <div style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;">
+                            <div style="width: 75%; height: 100%; background: var(--nebula-blue);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Chart -->
+                <div class="bento-box" style="grid-column: span 8;">
+                    <div class="box-title"><i class="fas fa-chart-area" style="color: var(--nebula-purple);"></i>
+                        Observation Volume</div>
+                    <canvas id="obsChart" height="250" style="max-height: 250px;"></canvas>
+                </div>
+
+                <!-- Equipment Status -->
+                <div class="bento-box" style="grid-column: span 4;">
+                    <div class="box-title"><i class="fas fa-server" style="color: var(--signal-green);"></i> Gear Status
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div
+                                    style="width: 8px; height: 8px; background: var(--signal-green); border-radius: 50%;">
+                                </div>
+                                <span>Main Scope</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Connected</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 8px; height: 8px; background: var(--alert-red); border-radius: 50%;">
+                                </div>
+                                <span>Guiderscope</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Offline</span>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div
+                                    style="width: 8px; height: 8px; background: var(--signal-green); border-radius: 50%;">
+                                </div>
+                                <span>Dew Heaters</span>
+                            </div>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Auto (20%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Theme & Sidebar Logic -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function toggleMobileDropdown(element, event) {
+            event.preventDefault();
+            const menu = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            menu.classList.toggle('active');
+            menu.style.display = menu.classList.contains('active') ? 'flex' : 'none';
+            icon.classList.toggle('fa-chevron-up');
+            icon.classList.toggle('fa-chevron-down');
+        }
+
+        function toggleSidebar() {
+            document.querySelector('.sidebar-command').classList.toggle('active');
+            document.querySelector('.sidebar-overlay').classList.toggle('active');
+        }
+
+        function checkResize() {
+            if (window.innerWidth > 900) {
+                document.querySelector('.sidebar-command').classList.remove('active');
+                document.querySelector('.sidebar-overlay').classList.remove('active');
+            }
+        }
+
+        window.addEventListener('resize', checkResize);
+        checkResize();
+
+        const ctx = document.getElementById('obsChart').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Hours Logged',
+                    data: [12, 19, 15, 25, 32, 28],
+                    borderColor: '#3b82f6',
+                    backgroundColor: gradient,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#1e293b',
+                    pointBorderColor: '#3b82f6',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.05)' },
+                        ticks: { color: 'rgba(255,255,255,0.5)' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: 'rgba(255,255,255,0.5)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

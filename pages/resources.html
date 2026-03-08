@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Resources | Astronomy Learning Hub</title>
+    <meta name="description"
+        content="Access the ultimate hub for astronomy learning. Beginner guides, equipment tutorials, sky maps, and professional research resources.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/navigation-fix.css">
+    <link rel="stylesheet" href="../assets/css/resources-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link" dir="auto">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html" dir="auto">Home Version 01</a></li>
+                            <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
+                    <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link" dir="auto">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link active" dir="auto">Resources</a></li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+                <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section page-header">
+            <div class="container hero-content">
+                <span class="badge mb-lg"
+                    style="background: rgba(var(--primary-rgb), 0.1); color: var(--primary); padding: 8px 16px; border-radius: 100px; font-weight: 700; display: inline-block;">LEARNING
+                    HUB</span>
+                <h1 class="hero-title" dir="auto">Unlock The <span class="gradient-text">Cosmos</span></h1>
+                <p class="hero-subtitle mb-xl" dir="auto" style="max-width: 650px; margin-inline: auto;">A comprehensive
+                    collection of guides, tools, and research materials to elevate your journey through the stars.</p>
+
+                <div class="resource-search" style="max-width: 500px; margin-inline: auto;">
+                    <input type="text" placeholder="Search guides, tools, or charts..." dir="auto">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Nav -->
+        <nav class="resource-nav">
+            <div class="container-nav"
+                style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; width: 100%;">
+                <a href="#beginner" class="nav-pill active">Beginner Guides</a>
+                <a href="#equipment" class="nav-pill">Equipment</a>
+                <a href="#skymaps" class="nav-pill">Sky Maps</a>
+                <a href="#software" class="nav-pill">Apps & Software</a>
+                <a href="#tutorials" class="nav-pill">Tutorials</a>
+                <a href="#advanced" class="nav-pill">Advanced</a>
+                <a href="#downloads" class="nav-pill">Downloads</a>
+            </div>
+        </nav>
+
+        <div class="blog-main-container">
+
+            <!-- Beginner Guides -->
+            <section id="beginner" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px;">
+                        <h2 class="section-title" dir="auto" style="padding-left: 0; display: inline-block;">Beginner
+                            Guides</h2>
+                        <style>
+                            #beginner .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Essential starting points for
+                            every aspiring astronomer.</p>
+                    </div>
+                </div>
+                <div class="grid grid-3">
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fas fa-binoculars"></i></div>
+                        <span class="card-meta">Interactive</span>
+                        <h3 dir="auto">Stargazing 101: Your First Night</h3>
+                        <p dir="auto">Everything you need to know about finding your way around the night sky without
+                            expensive gear.</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">15 min read</span>
+                            <a href="#" class="download-btn-minimal">Launch Guide <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fas fa-moon"></i></div>
+                        <span class="card-meta">Downloadable</span>
+                        <h3 dir="auto">Moon Phases & Observation</h3>
+                        <p dir="auto">A guide to identifying major lunar craters and understanding the best times for
+                            lunar photography.</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">PDF - 4.2 MB</span>
+                            <a href="#" class="download-btn-minimal">Download <i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon"><i class="fas fa-compass"></i></div>
+                        <span class="card-meta">Tool</span>
+                        <h3 dir="auto">Understanding Celestial Coordinates</h3>
+                        <p dir="auto">RA, Dec, Alt-Az? We break down the grid systems used to map and navigate the
+                            universe.</p>
+                        <div class="card-footer">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Cheat Sheet</span>
+                            <a href="#" class="download-btn-minimal">View Poster <i class="fas fa-image"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Equipment Section -->
+            <section id="equipment" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px;">
+                        <h2 class="section-title" dir="auto" style="padding-left: 0; display: inline-block;">Equipment &
+                            Gear</h2>
+                        <style>
+                            #equipment .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Master your tools and optimize
+                            your observation rig.</p>
+                    </div>
+                </div>
+                <div class="grid grid-2">
+                    <div class="resource-card equipment-card">
+                        <img src="../assets/images/media__1770703914823.png" loading="lazy" class="equipment-img">
+                        <div class="equipment-content">
+                            <span class="card-meta" style="margin-bottom: 10px;">Deep Dive</span>
+                            <h3 style="margin-bottom: 10px;" dir="auto">Telescope collimation 2026</h3>
+                            <p style="margin-bottom: 20px;" dir="auto">The ultimate technical guide to perfecting your
+                                mirror alignment for razor-sharp views.</p>
+                            <a href="#" class="btn btn-sm btn-outline">Read Technical Guide</a>
+                        </div>
+                    </div>
+                    <div class="resource-card equipment-card">
+                        <img src="../assets/images/img14.png" loading="lazy" class="equipment-img">
+                        <div class="equipment-content">
+                            <span class="card-meta" style="margin-bottom: 10px;">Workshop</span>
+                            <h3 style="margin-bottom: 10px;" dir="auto">Camera Sensor Cooling Tips</h3>
+                            <p style="margin-bottom: 20px;" dir="auto">Reduce noise in your astrophotography by
+                                controlling sensor heat during long exposures.</p>
+                            <a href="#" class="btn btn-sm btn-outline">Watch Session</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sky Maps -->
+            <section id="skymaps" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Sky Maps &
+                            Star Charts</h2>
+                        <style>
+                            #skymaps .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Navigational charts for every
+                            hemisphere and season.</p>
+                    </div>
+                </div>
+                <div class="chart-grid" style="justify-content: center;">
+                    <div class="resource-card" style="padding: 25px; text-align: center;">
+                        <div
+                            style="background: #000; height: 180px; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border); position: relative;">
+                            <img src="../assets/images/media__1770701229289.jpg" loading="lazy"
+                                style="opacity: 0.5; width: 100%; height: 100%; object-fit: cover;">
+                            <span class="chart-label"
+                                style="position: absolute; font-size: 0.75rem; font-weight: 800; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); padding: 6px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); color: white; letter-spacing: 1px;">NORTHERN
+                                SKY</span>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Feb 2026 Night Map</h4>
+                        <div class="card-footer" style="padding-top: 15px; justify-content: center; gap: 20px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">PDF (Print Ready)</span>
+                            <a href="#" style="color: var(--primary); font-size: 1.2rem;"><i
+                                    class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card" style="padding: 25px; text-align: center;">
+                        <div
+                            style="background: #000; height: 180px; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border); position: relative;">
+                            <img src="../assets/images/media__1770701229282.jpg" loading="lazy"
+                                style="opacity: 0.5; width: 100%; height: 100%; object-fit: cover;">
+                            <span class="chart-label"
+                                style="position: absolute; font-size: 0.75rem; font-weight: 800; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); padding: 6px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); color: white; letter-spacing: 1px;">SOUTHERN
+                                SKY</span>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Feb 2026 Night Map</h4>
+                        <div class="card-footer" style="padding-top: 15px; justify-content: center; gap: 20px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">PDF (Print Ready)</span>
+                            <a href="#" style="color: var(--primary); font-size: 1.2rem;"><i
+                                    class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card" style="padding: 25px; text-align: center;">
+                        <div
+                            style="background: #000; height: 180px; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border); position: relative;">
+                            <img src="../assets/images/img21.png" loading="lazy"
+                                style="opacity: 0.5; width: 100%; height: 100%; object-fit: cover;">
+                            <span class="chart-label"
+                                style="position: absolute; font-size: 0.75rem; font-weight: 800; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); padding: 6px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); color: white; letter-spacing: 1px;">DEEP
+                                SKY</span>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Messier Catalog Map</h4>
+                        <div class="card-footer" style="padding-top: 15px; justify-content: center; gap: 20px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">PDF (Hi-Res)</span>
+                            <a href="#" style="color: var(--primary); font-size: 1.2rem;"><i
+                                    class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                    <!-- New Lunar Card -->
+                    <div class="resource-card" style="padding: 25px; text-align: center;">
+                        <div
+                            style="background: #000; height: 180px; border-radius: 15px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid var(--border); position: relative;">
+                            <img src="../assets/images/map.png" loading="lazy"
+                                style="opacity: 0.5; width: 100%; height: 100%; object-fit: cover;">
+                            <span class="chart-label"
+                                style="position: absolute; font-size: 0.75rem; font-weight: 800; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); padding: 6px 15px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.1); color: white; letter-spacing: 1px;">LUNAR
+                                MAP</span>
+                        </div>
+                        <h4 style="margin-bottom: 8px;">Lunar Topography Chart</h4>
+                        <div class="card-footer" style="padding-top: 15px; justify-content: center; gap: 20px;">
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">PDF (Detailed)</span>
+                            <a href="#" style="color: var(--primary); font-size: 1.2rem;"><i
+                                    class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Apps & Software -->
+            <section id="software" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Software &
+                            Mobile Apps</h2>
+                        <style>
+                            #software .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Digital tools to enhance your
+                            stargazing experience.</p>
+                    </div>
+                </div>
+                <div class="grid grid-3">
+                    <div class="app-card">
+                        <img src="../assets/images/img10.png" loading="lazy" class="app-icon">
+                        <div>
+                            <h4 style="font-size: 1.1rem;">Stellarium</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Virtual Planetarium</p>
+                            <a href="#" style="font-size: 0.75rem; color: var(--secondary); font-weight: 800;">GO TO
+                                SITE</a>
+                        </div>
+                    </div>
+                    <div class="app-card">
+                        <img src="../assets/images/img12.png" loading="lazy" class="app-icon">
+                        <div>
+                            <h4 style="font-size: 1.1rem;">SkySafari 7</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">iOS/Android App</p>
+                            <a href="#" style="font-size: 0.75rem; color: var(--secondary); font-weight: 800;">APP
+                                STORE</a>
+                        </div>
+                    </div>
+                    <div class="app-card">
+                        <img src="../assets/images/img13.png" loading="lazy" class="app-icon">
+                        <div>
+                            <h4 style="font-size: 1.1rem;">PixInsight</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Image Processing</p>
+                            <a href="#" style="font-size: 0.75rem; color: var(--secondary); font-weight: 800;">TRIAL
+                                DATA</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Library -->
+            <section id="tutorials" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Tutorials &
+                            Video Library</h2>
+                        <style>
+                            #tutorials .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Visual guides to help you
+                            master complex astronomy concepts.</p>
+                    </div>
+                </div>
+                <div class="video-grid">
+                    <div>
+                        <div class="video-thumbnail">
+                            <img src="../assets/images/img15.png" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn"><i class="fas fa-play"></i></div>
+                            </div>
+                            <span
+                                style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;">12:45</span>
+                        </div>
+                        <h4 style="margin-bottom: 5px;">Polar Alignment Explained</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">A step-by-step guide for wedge-mounted
+                            scopes.</p>
+                    </div>
+                    <div>
+                        <div class="video-thumbnail">
+                            <img src="../assets/images/img11.png" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn"><i class="fas fa-play"></i></div>
+                            </div>
+                            <span
+                                style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;">08:20</span>
+                        </div>
+                        <h4 style="margin-bottom: 5px;">Stacking Your First Galactic Image</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Using DeepSkyStacker with DSLRs.</p>
+                    </div>
+                    <div>
+                        <div class="video-thumbnail">
+                            <img src="../assets/images/img17.png" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-btn"><i class="fas fa-play"></i></div>
+                            </div>
+                            <span
+                                style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;">15:30</span>
+                        </div>
+                        <h4 style="margin-bottom: 5px;">Observing Distant Galaxies</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Visual vs Photographic techniques.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Section -->
+            <section id="advanced" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Advanced &
+                            Research</h2>
+                        <style>
+                            #advanced .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Scientific databases and
+                            professional-grade research tools.</p>
+                    </div>
+                </div>
+                <div class="resource-card" style="border: 1px dashed var(--primary);">
+                    <div class="advanced-grid">
+                        <div>
+                            <span class="badge"
+                                style="background: rgba(99,102,241,0.1); color: var(--primary); margin-bottom: 20px;">PRO
+                                DATA</span>
+                            <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Simbad Astronomical Database</h3>
+                            <p style="margin-bottom: 25px;">Access the world's most comprehensive catalog of
+                                astronomical objects outside the solar system. Includes cross-identifications,
+                                bibliography, and measurements.</p>
+                            <div class="advanced-actions">
+                                <a href="#" class="btn btn-primary">Open Research Portal</a>
+                                <a href="#" class="btn btn-outline">API Documentation</a>
+                            </div>
+                        </div>
+                        <ul style="display: flex; flex-direction: column; gap: 15px;">
+                            <li style="display: flex; gap: 15px; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--secondary); margin-top: 5px;"></i>
+                                <div>
+                                    <h5>Gaia Data Release 3</h5>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted);">Over 1.8 billion stars with
+                                        parallax and motion data.</p>
+                                </div>
+                            </li>
+                            <li style="display: flex; gap: 15px; align-items: flex-start;">
+                                <i class="fas fa-check-circle" style="color: var(--secondary); margin-top: 5px;"></i>
+                                <div>
+                                    <h5>AAVSO Light Curve Generator</h5>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted);">Professional tools for
+                                        variable star observation.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Center -->
+            <section id="downloads" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Download
+                            Center</h2>
+                        <style>
+                            #downloads .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Ready-to-use templates and
+                            logs for your field operations.</p>
+                    </div>
+                </div>
+                <div class="grid grid-3">
+                    <div class="resource-card" style="padding: 25px; border-style: dotted;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <i class="far fa-file-pdf fa-2x" style="color: #ef4444;"></i>
+                            <span style="font-size: 0.7rem; color: var(--text-muted);">PDF - 1.2MB</span>
+                        </div>
+                        <h4 style="margin-top: 15px;">Night Logbook Template</h4>
+                        <p style="font-size: 0.85rem;">Professional sheet for recording object sky conditions and gear.
+                        </p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top: 15px;">Download Sheet</a>
+                    </div>
+                    <div class="resource-card" style="padding: 25px; border-style: dotted;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <i class="far fa-file-excel fa-2x" style="color: #22c55e;"></i>
+                            <span style="font-size: 0.7rem; color: var(--text-muted);">XLSX - 450KB</span>
+                        </div>
+                        <h4 style="margin-top: 15px;">Equipment Inventory Tracker</h4>
+                        <p style="font-size: 0.85rem;">Organize your eyepieces, filters, and OTA specifications.</p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top: 15px;">Download Tracker</a>
+                    </div>
+                    <div class="resource-card" style="padding: 25px; border-style: dotted;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <i class="far fa-file-image fa-2x" style="color: var(--primary);"></i>
+                            <span style="font-size: 0.7rem; color: var(--text-muted);">JPG - 8.5MB</span>
+                        </div>
+                        <h4 style="margin-top: 15px;">Field Sketching Pad</h4>
+                        <p style="font-size: 0.85rem;">High-contrast templates for hand-sketching deep sky objects.</p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top: 15px;">Download Template</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations -->
+            <section id="recommendations" class="resource-section">
+                <div class="section-header"
+                    style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <h2 class="section-title" dir="auto" style="padding: 0; display: inline-block;">Community
+                            Recommendations</h2>
+                        <style>
+                            #recommendations .section-title::before {
+                                display: none;
+                            }
+                        </style>
+                        <p style="color: var(--text-muted); margin-top: 15px;" dir="auto">Top-rated books and forums
+                            recommended by our members.</p>
+                    </div>
+                </div>
+                <div class="grid grid-3">
+                    <div class="resource-card">
+                        <h4 style="color: var(--secondary); margin-bottom: 10px;">Recommended Books</h4>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Turn Left at Orion</strong> - Consolmagno
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>NightWatch</strong> - Terence Dickinson
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>The Backyard Astronomer's Guide</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4 style="color: var(--secondary); margin-bottom: 10px;">Favorite Forums</h4>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Cloudy Nights</strong> - Largest Astro Community
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Astrobiscuit</strong> - Gear & Humor
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Stargazers Lounge</strong> - Enthusiast Hub
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4 style="color: var(--secondary); margin-bottom: 10px;">Expert Channels</h4>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Cuiv the Lazy Geek</strong> - Astrophotography
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Deep Sky Videos</strong> - Science Context
+                            </li>
+                            <li
+                                style="font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+                                <strong>Dylan O'Donnell</strong> - Star Stuff
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="resource-cta">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;"><span dir="auto">Missing a Resource?</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem;">
+                    Contribute your own guides, tips, or field logs to help our community grow. We're always looking for
+                    cosmic wisdom.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Submit a Resource</a>
+                    <a href="observations.html" class="btn btn-outline btn-lg">View Shared Logs</a>
+                </div>
+            </section>
+
+        </div>
+    </main> <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/navigation-fix.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Resource Filter Interaction
+        const navPills = document.querySelectorAll('.nav-pill');
+        navPills.forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                navPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+            });
+        });
+
+        // Simple Search Simulation
+        const searchInput = document.querySelector('.resource-search input');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.resource-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

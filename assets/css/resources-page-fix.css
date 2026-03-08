@@ -1,0 +1,547 @@
+/* ========================================
+   RESOURCES PAGE - LAYOUT & DESIGN FIXES
+   ======================================== */
+
+/* Fix resource navigation pills - better alignment and spacing */
+.resource-nav {
+    background: rgba(var(--surface-rgb), 0.5);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 25px 0;
+    margin-bottom: 60px;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+}
+
+.container-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.nav-pill {
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: rgba(var(--white-rgb), 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-pill:hover,
+.nav-pill.active {
+    background: var(--grad-primary);
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Fix resource search bar */
+.resource-search {
+    position: relative;
+    max-width: 500px;
+}
+
+.resource-search input {
+    width: 100%;
+    padding: 18px 60px 18px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    background: rgba(var(--white-rgb), 0.05);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.resource-search input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
+    background: rgba(var(--white-rgb), 0.08);
+}
+
+.resource-search .search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--grad-primary);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.resource-search .search-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.4);
+}
+
+/* Fix resource sections spacing */
+.resource-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Section Header Centering */
+.section-header {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-inline: auto !important;
+    margin-bottom: 60px !important;
+    max-width: 800px !important;
+}
+
+.section-header .section-title {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 15px !important;
+}
+
+.section-header .section-desc {
+    margin-inline: auto !important;
+}
+
+[dir="rtl"] .section-header {
+    text-align: center !important;
+}
+
+
+.resource-section:not(:last-child) {
+    border-bottom: 1px solid rgba(var(--border-rgb, 255, 255, 255), 0.05);
+}
+
+/* Fix section headers */
+.section-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 15px;
+    padding-left: 0 !important;
+}
+
+/* Fix resource cards - BEGINNER GUIDES */
+.resource-card {
+    background: rgba(var(--surface-rgb), 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 35px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="light"] .resource-card {
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .resource-card,
+[data-theme="light"] .resource-card *:not(.badge):not(.chart-label):not([style*="color: white"]):not([style*="color:white"]) {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.chart-label {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+[data-theme="light"] .advanced-actions .btn-primary {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="light"] .advanced-actions .btn-outline {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+
+[data-theme="light"] .resource-card li {
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .resource-card .badge {
+    background: rgba(var(--primary-rgb), 0.1) !important;
+}
+
+
+
+[data-theme="light"] .resource-card .card-footer {
+    border-top: 1px solid #f1f5f9 !important;
+}
+
+[data-theme="light"] .resource-card .app-icon {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--grad-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(var(--primary-rgb), 0.15);
+}
+
+.resource-card:hover::before {
+    transform: scaleX(1);
+}
+
+.resource-card .card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.3);
+}
+
+.resource-card .card-meta {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.resource-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.resource-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.download-btn-minimal {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.download-btn-minimal:hover {
+    gap: 12px;
+    color: var(--secondary);
+}
+
+/* Fix chart grid */
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Fix video grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+.video-thumbnail {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.video-thumbnail:hover img {
+    transform: scale(1.1);
+}
+
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover .play-overlay {
+    opacity: 1;
+}
+
+.play-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--grad-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.5);
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Fix app cards */
+.app-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(var(--surface-rgb), 0.5);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.app-card:hover {
+    border-color: var(--primary);
+    background: rgba(var(--surface-rgb), 0.8);
+    transform: translateX(10px);
+}
+
+.app-card .app-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix resource CTA section */
+.resource-cta {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.05));
+    border-radius: 32px;
+    margin: 60px 0;
+}
+
+.resource-cta h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+/* Fix blog main container width */
+.blog-main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .resource-nav {
+        padding: 20px 0;
+        position: static;
+    }
+
+    .resource-section {
+        padding: 50px 0;
+    }
+
+    .chart-grid,
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .resource-card .card-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+
+/* Fix download center cards to be more visually appealing */
+.resource-card[style*="dotted"] {
+    border-style: dashed !important;
+    border-width: 2px;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.03), rgba(var(--secondary-rgb), 0.02));
+    transition: all 0.4s ease;
+}
+
+.resource-card[style*="dotted"]:hover {
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), rgba(var(--secondary-rgb), 0.05));
+}
+
+/* Light Theme Text Color Adjustments */
+[data-theme="light"] .hero-subtitle {
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .resource-cta h2 {
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .resource-cta p {
+    color: var(--text-muted) !important;
+}
+
+/* Removed white text overrides that were causing invisibility in light mode */
+
+
+/* Advanced Grid & Actions Responsiveness */
+.advanced-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.advanced-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+    .advanced-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .advanced-grid div:first-child {
+        order: 1;
+        /* Keep content first, list second */
+    }
+}
+
+@media (max-width: 576px) {
+    #advanced .resource-card h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .advanced-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .advanced-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+}
+
+/* Equipment Card Responsiveness */
+.equipment-card {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 30px;
+}
+
+.equipment-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.equipment-content {
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    .equipment-card {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 25px !important;
+    }
+
+    .equipment-img {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+    .equipment-content .btn {
+        width: 100%;
+    }
+}

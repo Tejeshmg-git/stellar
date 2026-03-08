@@ -1,0 +1,185 @@
+/* ========================================
+   ABOUT PAGE - MOBILE RESPONSIVENESS FIXES
+   ======================================== */
+
+/* Global Mobile Fixes (under 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px !important;
+        width: 100% !important;
+        overflow-x: hidden;
+    }
+
+    .section {
+        padding: 50px 0 !important;
+    }
+
+    .grid {
+        gap: 25px !important;
+    }
+
+    /* Hero Section */
+    .hero-title {
+        font-size: 2.2rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Our Story Section */
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    .image-stack {
+        height: 300px !important;
+    }
+
+    /* Vision/Mission/Values Cards */
+    .vision-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .vision-grid .glass-card {
+        padding: 30px 20px !important;
+    }
+
+    /* Arsenal of Discovery (Features) */
+    .arsenal-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .feature-card {
+        padding: 25px !important;
+        text-align: center;
+    }
+
+    /* Stats & Impact */
+    .section[style*="background: linear-gradient"] .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px 15px !important;
+    }
+
+    .section[style*="background: linear-gradient"] h2 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Timeline */
+    .timeline-container {
+        padding-left: 25px !important;
+    }
+
+    .timeline-item h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Team Cards */
+    .team-img {
+        height: 250px !important;
+    }
+
+    /* Awards & Recognition */
+    .awards-list {
+        padding: 0 !important;
+        gap: 15px !important;
+    }
+
+    .awards-list li {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
+        gap: 15px !important;
+    }
+
+    .awards-list li i {
+        margin: 0 !important;
+    }
+
+    /* Partners & Networks */
+    .partners-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .partners-grid .glass-card {
+        padding: 25px !important;
+        font-size: 1.1rem !important;
+    }
+
+    /* CTA Section */
+    .section:last-of-type .glass-card {
+        padding: 50px 20px !important;
+    }
+
+    .section:last-of-type div[style*="display: flex; gap: 20px"] {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .section:last-of-type .btn {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+/* Extra small devices (under 400px) */
+@media (max-width: 400px) {
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .glass-card {
+        padding: 25px 15px !important;
+    }
+
+    .section[style*="background: linear-gradient"] .grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Section Header Centering */
+.section-header {
+    text-align: center !important;
+    max-width: 800px !important;
+    margin: 0 auto 50px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.section-title {
+    text-align: center !important;
+}
+
+[dir="rtl"] .section-header {
+    text-align: center !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+/* Fix for Stats Section on About Page */
+.section[style*="background: linear-gradient"] {
+    color: white !important;
+    border: none !important;
+}
+
+.section[style*="background: linear-gradient"] h2,
+.section[style*="background: linear-gradient"] p,
+.section[style*="background: linear-gradient"] span,
+.section[style*="background: linear-gradient"] div {
+    color: white !important;
+    border: none !important;
+}

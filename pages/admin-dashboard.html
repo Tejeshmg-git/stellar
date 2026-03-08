@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Stellar Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+    <style>
+        /* Admin Layout Specifics */
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+            background: var(--background);
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            margin-bottom: 3rem;
+            padding-left: 0.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .menu-link:hover,
+        .menu-link.active {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .menu-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin: 1.5rem 0 0.5rem 0.5rem;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+            width: calc(100% - 280px);
+            transition: margin-left 0.3s;
+        }
+
+        /* Top Header */
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 0;
+        }
+
+        .section-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Content Sections (Tabs) */
+        .section-view {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            margin: 0.5rem 0;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .trend-indicator {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trend-up {
+            color: #10b981;
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
+
+        /* Tables */
+        .table-container {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .table-header-row {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .admin-table th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .admin-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--border);
+        }
+
+        .role-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-admin {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-mod {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--secondary);
+        }
+
+        .badge-user {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--text-muted);
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .status-active {
+            background-color: #10b981;
+        }
+
+        .status-inactive {
+            background-color: #ef4444;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--background);
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .header-left {
+                width: auto;
+                justify-content: flex-start;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .admin-header>div:last-child {
+                gap: 8px !important;
+            }
+
+            .d-md-block {
+                display: none !important;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .admin-table {
+                min-width: 600px;
+            }
+        }
+
+        /* Mobile Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="adminSidebar">
+            <a href="../index.html" class="sidebar-logo">
+                <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                <span>Stellar Panel</span>
+            </a>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="menu-link active" onclick="switchTab('overview', this); return false;">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+
+                <li class="menu-category">Management</li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('users', this); return false;">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('events', this); return false;">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('content', this); return false;">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Content</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('forum', this); return false;">
+                        <i class="fas fa-comments"></i>
+                        <span>Forum</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('gallery', this); return false;">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery</span>
+                    </a>
+                </li>
+                <li class="menu-category">Site Links</li>
+                <li>
+                    <a href="../index.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span>Main Site</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="events.html" class="menu-link">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="gallery.html" class="menu-link">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery Site</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="resources.html" class="menu-link">
+                        <i class="fas fa-book"></i>
+                        <span>Resources</span>
+                    </a>
+                </li>
+
+                <li class="menu-category">System</li>
+                <li>
+                    <a href="#" class="menu-link" onclick="switchTab('settings', this); return false;">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html" class="menu-link" style="color: var(--secondary);">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <style>
+                    .mobile-menu-btn {
+                        display: none;
+                        margin-right: 15px;
+                    }
+
+                    .mobile-brand-admin {
+                        display: none;
+                        align-items: center;
+                        gap: 8px;
+                        color: var(--text-main);
+                        text-decoration: none;
+                        font-weight: 800;
+                        font-size: 1.25rem;
+                        font-family: 'Outfit', sans-serif;
+                        margin-inline-end: auto;
+                    }
+
+                    .header-right {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        flex-shrink: 0;
+                    }
+
+                    .d-md-block {
+                        display: block !important;
+                    }
+
+                    .user-profile-nav {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        border-inline-start: 1px solid var(--border);
+                        padding-inline-start: 15px;
+                        margin-inline-start: 5px;
+                    }
+
+                    @media (max-width: 992px) {
+                        .admin-header {
+                            padding-bottom: 0.5rem;
+                            margin-bottom: 1.5rem;
+                            flex-wrap: nowrap;
+                            /* Prevent wrapping shown in ss-01 */
+                            gap: 10px;
+                        }
+
+                        .mobile-menu-btn {
+                            display: inline-flex;
+                            margin-inline-end: 10px;
+                        }
+
+                        .mobile-brand-admin {
+                            display: flex;
+                            font-size: 1.1rem;
+                        }
+
+                        .section-title {
+                            display: none;
+                        }
+
+                        .d-md-block {
+                            display: none !important;
+                        }
+
+                        .header-right {
+                            gap: 5px;
+                        }
+
+                        .icon-btn {
+                            width: 32px;
+                            height: 32px;
+                            font-size: 0.85rem;
+                        }
+
+                        .user-profile-nav {
+                            padding-inline-start: 10px;
+                            margin-inline-start: 2px;
+                        }
+
+                        .avatar {
+                            width: 32px !important;
+                            height: 32px !important;
+                        }
+                    }
+
+                    /* Light Theme Admin Polish */
+                    [data-theme="light"] .admin-layout {
+                        background-color: #f1f5f9;
+                    }
+
+                    [data-theme="light"] .sidebar {
+                        background: #ffffff;
+                        border-right: 1px solid #e2e8f0;
+                        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.02);
+                    }
+
+                    [data-theme="light"] .sidebar-logo {
+                        color: #0f172a;
+                    }
+
+                    [data-theme="light"] .menu-link {
+                        color: #64748b;
+                    }
+
+                    [data-theme="light"] .menu-link:hover,
+                    [data-theme="light"] .menu-link.active {
+                        background: rgba(99, 102, 241, 0.08);
+                        color: var(--primary);
+                    }
+
+                    [data-theme="light"] .menu-category {
+                        color: #94a3b8;
+                    }
+
+                    [data-theme="light"] .admin-header {
+                        background: #ffffff;
+                        border-bottom: 1px solid #e2e8f0;
+                        padding: 1.5rem 2.5rem;
+                        margin: -2rem -2.5rem 2.5rem -2.5rem;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+                        position: sticky;
+                        top: 0;
+                        z-index: 99;
+                    }
+
+                    [data-theme="light"] .section-title {
+                        color: #0f172a;
+                    }
+
+                    [data-theme="light"] .icon-btn {
+                        background: #f1f5f9;
+                        color: #475569;
+                        border: 1px solid #e2e8f0;
+                    }
+
+                    [data-theme="light"] .icon-btn:hover {
+                        background: #e2e8f0;
+                        color: var(--primary);
+                    }
+
+                    [data-theme="light"] .stat-card {
+                        background: #ffffff;
+                        border-color: #f1f5f9;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+                    }
+
+                    [data-theme="light"] .stat-value {
+                        color: #0f172a;
+                    }
+
+                    [data-theme="light"] .table-container {
+                        background: #ffffff;
+                        border-color: #f1f5f9;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                    }
+
+                    [data-theme="light"] .admin-table th {
+                        background: #f8fafc;
+                        color: #475569;
+                    }
+
+                    [data-theme="light"] .admin-table td {
+                        color: #334155;
+                        border-bottom-color: #f1f5f9;
+                    }
+
+                    [data-theme="light"] .form-control {
+                        background: #ffffff;
+                        border-color: #cbd5e1;
+                        color: #0f172a;
+                    }
+
+                    [data-theme="light"] .form-label {
+                        color: #475569;
+                    }
+
+                    [data-theme="light"] .mobile-brand-admin {
+                        color: #0f172a;
+                    }
+                </style>
+                <div class="header-left">
+                    <button class="icon-btn mobile-menu-btn" onclick="toggleSidebar()" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <!-- Mobile Brand -->
+                    <a href="../index.html" class="mobile-brand-admin">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span>Stellar</span>
+                    </a>
+                    <h2 class="section-title" style="margin-bottom: 0; font-size: 1.5rem;">Dashboard</h2>
+                </div>
+
+                <div class="header-right">
+                    <button id="rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+
+                    <!-- Notifications -->
+                    <button class="icon-btn" style="position: relative;">
+                        <i class="fas fa-bell"></i>
+                        <span
+                            style="position: absolute; top: 0; right: 0; width: 10px; height: 10px; background: var(--secondary); border-radius: 50%;"></span>
+                    </button>
+
+                    <!-- User Profile -->
+                    <div class="user-profile-nav">
+                        <div style="text-align: right; margin-inline-end: 5px;" class="d-md-block">
+                            <span style="display: block; font-weight: 600; font-size: 0.9rem;">Admin User</span>
+                            <span style="display: block; font-size: 0.75rem; color: var(--text-muted);">Super
+                                Admin</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100"
+                            alt="Admin" class="avatar" style="width: 40px; height: 40px; border-radius: 50%;">
+                    </div>
+                </div>
+            </header>
+
+            <!-- VIEW: OVERVIEW -->
+            <div id="overview" class="section-view active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Members</span>
+                        <span class="stat-value">2,458</span>
+                        <span class="trend-indicator trend-up"><i class="fas fa-arrow-up"></i> 12% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Active Events</span>
+                        <span class="stat-value">8</span>
+                        <span class="trend-indicator trend-up"><i class="fas fa-arrow-up"></i> 2 new this week</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Forum Posts</span>
+                        <span class="stat-value">1,890</span>
+                        <span class="trend-indicator trend-up"><i class="fas fa-arrow-up"></i> 5% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Total Revenue</span>
+                        <span class="stat-value">$14.2k</span>
+                        <span class="trend-indicator trend-down"><i class="fas fa-arrow-down"></i> 2% vs last
+                            month</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="table-container">
+                        <div class="table-header-row">
+                            <h3>Recent Registrations</h3>
+                            <button class="btn btn-outline btn-sm">View All</button>
+                        </div>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div
+                                                style="width: 30px; height: 30px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">
+                                                JD</div>
+                                            <span>John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td>Oct 24, 2026</td>
+                                    <td><span class="role-badge badge-admin">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div
+                                                style="width: 30px; height: 30px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">
+                                                AS</div>
+                                            <span>Alice Smith</span>
+                                        </div>
+                                    </td>
+                                    <td>Oct 23, 2026</td>
+                                    <td><span class="role-badge badge-user">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100"
+                                                class="avatar" style="width: 30px; height: 30px;">
+                                            <span>Robert Fox</span>
+                                        </div>
+                                    </td>
+                                    <td>Oct 22, 2026</td>
+                                    <td><span class="role-badge badge-admin">Active</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="table-header-row">
+                            <h3>Upcoming Events</h3>
+                            <button class="btn btn-outline btn-sm">Manage</button>
+                        </div>
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Date</th>
+                                    <th>RSVPs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Stargazing Night</td>
+                                    <td>Nov 12, 2026</td>
+                                    <td>45/50</td>
+                                </tr>
+                                <tr>
+                                    <td>Solar Workshop</td>
+                                    <td>Nov 15, 2026</td>
+                                    <td>12/20</td>
+                                </tr>
+                                <tr>
+                                    <td>Meteor Shower View</td>
+                                    <td>Dec 05, 2026</td>
+                                    <td>89/100</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: USERS -->
+            <div id="users" class="section-view">
+                <div class="table-container">
+                    <div class="table-header-row">
+                        <h3>User Management</h3>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" placeholder="Search users..."
+                                style="padding: 8px 15px; border-radius: 6px; border: 1px solid var(--border); background: var(--background); color: var(--text-main);">
+                            <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add User</button>
+                        </div>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Last Login</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100"
+                                            class="avatar">
+                                        <div>
+                                            <div style="font-weight: 600;">Admin User</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-muted);">@admin</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>admin@stellar.com</td>
+                                <td><span class="role-badge badge-admin">Admin</span></td>
+                                <td><span class="status-dot status-active"></span>Active</td>
+                                <td>Just now</td>
+                                <td>
+                                    <button class="icon-btn" style="width: 32px; height: 32px;"><i
+                                            class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <div
+                                            style="width: 36px; height: 36px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                                            JS</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Jane Smith</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-muted);">@janesmith</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>jane@example.com</td>
+                                <td><span class="role-badge badge-mod">Moderator</span></td>
+                                <td><span class="status-dot status-active"></span>Active</td>
+                                <td>2 hours ago</td>
+                                <td>
+                                    <button class="icon-btn" style="width: 32px; height: 32px;"><i
+                                            class="fas fa-edit"></i></button>
+                                    <button class="icon-btn"
+                                        style="width: 32px; height: 32px; color: #ef4444; border-color: #ef4444;"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: EVENTS -->
+            <div id="events" class="section-view">
+                <div class="grid grid-3">
+                    <div class="stat-card"
+                        style="border-style: dashed; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; min-height: 200px;">
+                        <div
+                            style="background: var(--primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <i class="fas fa-plus" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 5px;">Create New Event</h4>
+                        <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted);">Schedule a new
+                            observation or meeting</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <span class="role-badge badge-admin" style="font-size: 0.7rem;">UPCOMING</span>
+                            <button class="icon-btn" style="width: 25px; height: 25px;"><i class="fas fa-ellipsis-v"
+                                    style="font-size: 0.8rem;"></i></button>
+                        </div>
+                        <h3 style="margin-bottom: 0.5rem;">Perseids Meteor Shower</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;"><i
+                                class="fas fa-map-marker-alt"></i> Observatory Hill</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">85 Attending</span>
+                            </div>
+                            <span style="font-weight: 600; font-size: 0.9rem;">Aug 12</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <span class="role-badge badge-mod" style="font-size: 0.7rem;">PLANNING</span>
+                            <button class="icon-btn" style="width: 25px; height: 25px;"><i class="fas fa-ellipsis-v"
+                                    style="font-size: 0.8rem;"></i></button>
+                        </div>
+                        <h3 style="margin-bottom: 0.5rem;">Deep Space Photography</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;"><i
+                                class="fas fa-desktop"></i> Online Workshop</p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem;">
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">12 Attending</span>
+                            </div>
+                            <span style="font-weight: 600; font-size: 0.9rem;">Sep 05</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: CONTENT -->
+            <div id="content" class="section-view">
+                <div class="table-container">
+                    <div class="table-header-row">
+                        <h3>Content Management</h3>
+                        <button class="btn btn-primary btn-sm">Create Post</button>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Guide to Telescopes</td>
+                                <td>Dr. Astro</td>
+                                <td>Resources</td>
+                                <td><span style="color: #10b981;">Published</span></td>
+                                <td>Oct 10, 2026</td>
+                            </tr>
+                            <tr>
+                                <td>Mars Opposition 2026</td>
+                                <td>Admin</td>
+                                <td>News</td>
+                                <td><span style="color: #f59e0b;">Draft</span></td>
+                                <td>Oct 20, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: FORUM -->
+            <div id="forum" class="section-view">
+                <div class="table-container">
+                    <div class="table-header-row">
+                        <h3>Forum Moderation</h3>
+                    </div>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Topic</th>
+                                <th>Reported By</th>
+                                <th>Reason</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Best lens for Nebula?</td>
+                                <td>System</td>
+                                <td>Keyword Alert</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm"
+                                        style="color: #10b981; border-color: #10b981; margin-right: 5px;">Approve</button>
+                                    <button class="btn btn-outline btn-sm"
+                                        style="color: #ef4444; border-color: #ef4444;">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Selling my Telescope</td>
+                                <td>User123</td>
+                                <td>Spam</td>
+                                <td>
+                                    <button class="btn btn-outline btn-sm"
+                                        style="color: #10b981; border-color: #10b981; margin-right: 5px;">Approve</button>
+                                    <button class="btn btn-outline btn-sm"
+                                        style="color: #ef4444; border-color: #ef4444;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW: GALLERY -->
+            <div id="gallery" class="section-view">
+                <div class="grid grid-4" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+                    <div class="stat-card"
+                        style="border-style: dashed; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; height: 200px; padding: 1rem;">
+                        <i class="fas fa-cloud-upload-alt"
+                            style="font-size: 2rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                        <span>Upload Media</span>
+                    </div>
+                    <div class="stat-card" style="padding: 0; height: 200px; position: relative;">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=400&q=80"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background: rgba(0,0,0,0.7); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: white; font-size: 0.8rem;">Galaxy.jpg</span>
+                            <i class="fas fa-trash" style="color: #ef4444; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="padding: 0; height: 200px; position: relative;">
+                        <img src="https://images.unsplash.com/photo-1532009324734-20a7a5813719?auto=format&fit=crop&w=400&q=80"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; background: rgba(0,0,0,0.7); display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: white; font-size: 0.8rem;">Moon.png</span>
+                            <i class="fas fa-trash" style="color: #ef4444; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW: SETTINGS -->
+            <div id="settings" class="section-view">
+                <div class="table-container" style="max-width: 800px;">
+                    <div class="table-header-row">
+                        <h3>General Settings</h3>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Site Name</label>
+                                <input type="text" class="form-control" value="Stellar Astronomy Club">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Contact Email</label>
+                                <input type="email" class="form-control" value="contact@stellar.com">
+                            </div>
+                            <!-- Maintenance Slider -->
+                            <div class="form-group" style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="position: relative; display: inline-block; width: 50px; height: 24px;">
+                                    <input type="checkbox" id="maintenanceMode"
+                                        style="opacity: 0; width: 0; height: 0;">
+                                    <span class="slider"
+                                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border); transition: .4s; border-radius: 34px;"
+                                        onclick="this.previousElementSibling.checked = !this.previousElementSibling.checked; this.style.backgroundColor = this.previousElementSibling.checked ? 'var(--primary)' : 'var(--border)';">
+                                        <span
+                                            style="position: absolute; content: ''; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; transform: translateX(0);"></span>
+                                    </span>
+                                </div>
+                                <label for="maintenanceMode" class="form-label"
+                                    style="margin: 0; cursor: pointer;">Enable Maintenance Mode</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Default Report Period</label>
+                                <select class="form-control">
+                                    <option>Weekly</option>
+                                    <option>Monthly</option>
+                                    <option>Quarterly</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary"
+                                onclick="event.preventDefault(); alert('Settings Saved!');">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId, element) {
+            // Hide all views
+            document.querySelectorAll('.section-view').forEach(view => {
+                view.classList.remove('active');
+            });
+
+            // Show selected view
+            document.getElementById(tabId).classList.add('active');
+
+            // Update sidebar active state
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            // On mobile, close sidebar after selection
+            if (window.innerWidth <= 1024) {
+                toggleSidebar(); // Close sidebar
+            }
+        }
+
+        // Mobile Sidebar Toggle
+        const sidebar = document.getElementById('adminSidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const dashboardHamburger = document.getElementById('dash-hamburger');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Check for mobile to show toggle button
+        function checkMobile() {
+            if (window.innerWidth <= 1024) {
+                toggleBtn.style.display = 'block';
+                // Also ensure d-md-block classes behave correctly if needed
+            } else {
+                toggleBtn.style.display = 'none';
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        window.addEventListener('resize', checkMobile);
+        checkMobile(); // Initial check
+
+        // Add Simple toggle animation for maintenance mode visual
+        const modeCheckbox = document.getElementById('maintenanceMode');
+        if (modeCheckbox) {
+            modeCheckbox.addEventListener('change', function () {
+                const slider = this.nextElementSibling;
+                const dot = slider.querySelector('span');
+                if (this.checked) {
+                    slider.style.backgroundColor = 'var(--primary)';
+                    dot.style.transform = 'translateX(26px)';
+                } else {
+                    slider.style.backgroundColor = 'var(--border)';
+                    dot.style.transform = 'translateX(0)';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

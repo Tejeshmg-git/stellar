@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar V2 | Astronomy & Stargazing Club</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Experience the universe like never before. Stellar Astronomy Club Version 2 offers a fresh perspective on stargazing.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles (Header/Footer) -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- V2 Redesign Styles -->
+    <link rel="stylesheet" href="../assets/css/home-v2-redesign.css">
+
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body class="home-v2">
+
+    <!-- Header (Kept from original for consistency detailed in conversation history) -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link active">Home <i
+                                class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html">Home Version 01</a></li>
+                            <li><a href="index-v2.html">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link">Observations</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL Layout"><i
+                        class="fas fa-globe"></i></button>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Log In</a>
+                <a href="login.html" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero-v2-section">
+            <div class="container-v2">
+                <div class="hero-v2-content">
+                    <h1 class="hero-v2-title">Explore the Universe Together.</h1>
+                    <p class="hero-v2-subtitle">A community dedicated to observation, learning, and discovery.</p>
+                    <div class="hero-v2-buttons">
+                        <a href="login.html" class="btn-v2 btn-v2-outline">Join the Club</a>
+                        <a href="events.html" class="btn-v2 btn-v2-outline">View Events</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CLUB STATS - Moved here for overlap -->
+        <section class="stats-v2-section">
+            <div class="container-v2">
+                <div class="stats-flex">
+                    <div class="stat-item-v2">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <div class="stat-descriptor">Members</div>
+                    </div>
+                    <div class="stat-item-v2">
+                        <h3 class="counter" data-target="40">0</h3>
+                        <div class="stat-descriptor">Observation Nights</div>
+                    </div>
+                    <div class="stat-item-v2">
+                        <h3 class="counter" data-target="2000">0</h3>
+                        <div class="stat-descriptor">Photos Shared</div>
+                    </div>
+                    <div class="stat-item-v2">
+                        <h3 class="counter" data-target="15">0</h3>
+                        <div class="stat-descriptor">Workshops Conducted</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT THE CLUB -->
+        <section class="about-v2-section">
+            <div class="container-v2">
+                <div class="about-v2-grid">
+                    <div class="about-v2-text">
+                        <h2>About Stella</h2>
+                        <p>We are a passionate community of stargazers, astronomers, and cosmic adventurers. Our mission
+                            is to make the wonders of the universe accessible to everyone, from absolute beginners to
+                            seasoned astrophotographers.</p>
+                        <p>Through shared observation nights, workshops, and expeditions, we foster a deep connection
+                            with the cosmos and with each other.</p>
+                        <a href="about.html" class="btn-v2 btn-v2-outline" style="margin-top: 20px;">Read Our Story</a>
+                    </div>
+                    <div class="about-v2-image">
+                        <img src="../assets/images/media__1770701229289.jpg" alt="Night Sky Observation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.5 WHY JOIN US (BENEFITS) NEW SECTION -->
+        <section class="benefits-v2-section">
+            <div class="container-v2">
+                <h2 class="text-center mb-md">Why Join Stella?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-key"></i></div>
+                        <h3>Pro Equipment Access</h3>
+                        <p>Gain direct access to our 14-inch observatory telescope and high-end astrophotography rigs.
+                        </p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-user-astronaut"></i></div>
+                        <h3>Expert Mentorship</h3>
+                        <p>Learn from seasoned astronomers who can guide you from your first spotting scope to deep sky
+                            imaging.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><i class="fas fa-mountain"></i></div>
+                        <h3>Dark Sky Trips</h3>
+                        <p>Join exclusive expeditions to Bortle 1 & 2 dark sky sites for unparalleled views of the Milky
+                            Way.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. UPCOMING EVENT HIGHLIGHT -->
+        <section class="event-v2-section">
+            <div class="container-v2">
+                <h2 class="text-center mb-md">Featured Event</h2>
+                <div class="event-highlight-card">
+                    <div class="event-date-box">
+                        <span class="day">15</span>
+                        <span class="month">Nov</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Deep Sky Marathon 2026</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 20:00 - 02:00</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Summit Observatory</span>
+                        </div>
+                        <p>Join us for our annual all-night observation challenge. We'll be targeting the Messier
+                            catalogue objects visible this season with our new 16-inch Dobsonian.</p>
+                    </div>
+                    <div class="event-action">
+                        <a href="events.html" class="btn-v2 btn-v2-primary">RSVP Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. EDUCATION & RESOURCES -->
+        <section class="resources-v2-section">
+            <div class="container-v2">
+                <h2 class="text-center mb-lg">Learn Astronomy</h2>
+                <div class="resources-grid">
+                    <!-- Card 1 -->
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-book-open"></i></div>
+                        <h4>Beginner’s Guide to Stargazing</h4>
+                        <p>Start here. Understanding the night sky without a telescope.</p>
+                        <a href="resources.html" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-binoculars"></i></div>
+                        <h4>Telescope Buying Guide</h4>
+                        <p>Refractor vs. Reflector. Choosing your first instrument.</p>
+                        <a href="resources.html" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-star"></i></div>
+                        <h4>Understanding Constellations</h4>
+                        <p>Monthly guides to identifying major constellations.</p>
+                        <a href="resources.html" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="resource-card">
+                        <div class="resource-icon"><i class="fas fa-meteor"></i></div>
+                        <h4>How to Track Meteor Showers</h4>
+                        <p>Maximizing visibility and dealing with light pollution.</p>
+                        <a href="resources.html" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. COMMUNITY GALLERY PREVIEW -->
+        <section class="gallery-v2-section">
+            <div class="container-v2">
+                <h2 class="text-center mb-md">Community Captures</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770701229282.jpg" alt="Nebula">
+                        <div class="gallery-overlay">
+                            <h4>Orion Nebula</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770702374442.png" alt="Observatory">
+                        <div class="gallery-overlay">
+                            <h4>Summit View</h4>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/media__1770702374443.png" alt="Star Cluster">
+                        <div class="gallery-overlay">
+                            <h4>Pleiades</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 6.5 LATEST NEWS (NEW SECTION) -->
+        <section class="news-v2-section">
+            <div class="container-v2">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--spacing-lg);">
+                    <h2 style="margin-bottom: 0;">Latest from the Cosmos</h2>
+                    <a href="blog.html" class="btn-v2 btn-v2-outline"
+                        style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">View All News</a>
+                </div>
+                <div class="news-grid">
+                    <!-- News Item 1 -->
+                    <div class="news-card">
+                        <div class="news-img-wrapper">
+                            <img src="../assets/images/media__1770701229282.jpg" alt="Carina Nebula">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> Feb 05, 2026</span>
+                                <span><i class="far fa-user"></i> Guide</span>
+                            </div>
+                            <h3>Capturing The Carina Nebula in Narrowband</h3>
+                            <p>A comprehensive technical guide to long-exposure imaging using H-Alpha and OIII filters.
+                            </p>
+                            <a href="blog.html" class="btn-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- News Item 2 -->
+                    <div class="news-card">
+                        <div class="news-img-wrapper">
+                            <img src="../assets/images/red planet.png" alt="Mars Frontiers">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> Feb 10, 2026</span>
+                                <span><i class="far fa-user"></i> Comm. Sarah J.</span>
+                            </div>
+                            <h3>The Red Planet's Frontiers: New Findings</h3>
+                            <p>Latest imaging from the Valles Marineris region reveals unexpected seismic activity.</p>
+                            <a href="blog.html" class="btn-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TESTIMONIAL -->
+        <section class="testimonial-v2-section">
+            <div class="container-v2">
+                <div class="testimonial-wrapper">
+                    <blockquote class="testimonial-quote" dir="auto">
+                        <span dir="auto">"Stellar gave me the tools and the community to finally understand what I was
+                            looking at. It
+                            changed
+                            the way I see the night sky forever."</span>
+                    </blockquote>
+                    <div class="testimonial-author"><span dir="auto">- Sarah Jenkins, Member since 2024</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7.5 FAQ SECTION (NEW SECTION) -->
+        <section class="faq-v2-section">
+            <div class="container-v2">
+                <h2 class="text-center mb-md">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question"><span dir="auto">Do I need my own telescope to join?</span> <i
+                                    class="fas fa-chevron-down"></i></summary>
+                            <p class="faq-answer" style="margin-top: 10px;">Not at all! One of the biggest benefits of
+                                membership is access to our club equipment. We have several telescopes available for
+                                members to use at our observation nights.</p>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question"><span dir="auto">Are events suitable for children?</span> <i
+                                    class="fas fa-chevron-down"></i></summary>
+                            <p class="faq-answer" style="margin-top: 10px;">Yes! We host specific family-friendly
+                                observation nights. However, some of our deep-sky photography workshops are better
+                                suited for adults and teenagers.</p>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary class="faq-question"><span dir="auto">Where is the dark sky site located?</span> <i
+                                    class="fas fa-chevron-down"></i></summary>
+                            <p class="faq-answer" style="margin-top: 10px;">Our private observation site is located
+                                about 2 hours from the city center, away from light pollution. The exact location is
+                                shared with members upon registration.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FINAL CALL TO ACTION -->
+        <section class="cta-v2-section">
+            <div class="container-v2">
+                <div class="cta-container">
+                    <h2 class="mb-md">Join Our Next Observation Night</h2>
+                    <p class="mb-md">Don't miss out on clear skies and great company. Become a member today and start
+                        your journey.</p>
+                    <a href="contact.html#join" class="btn-v2 btn-v2-primary">Become a Member</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function toggleMobileDropdown(element, event) {
+            event.preventDefault();
+            const submenu = element.nextElementSibling;
+            submenu.classList.toggle('active');
+            element.classList.toggle('active');
+
+            // Log for debugging
+            console.log('Dropdown toggled', submenu.classList.contains('active'));
+        }
+    </script>
+</body>
+
+</html>

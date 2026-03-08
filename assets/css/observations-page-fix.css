@@ -1,0 +1,134 @@
+/* ========================================
+   OBSERVATIONS PAGE - RESPONSIVE FIXES
+   ======================================== */
+
+/* Sub-Navigation Responsive Fixes */
+@media (max-width: 768px) {
+    .obs-nav-list {
+        display: flex !important;
+        overflow-x: auto !important;
+        padding-bottom: 10px !important;
+        white-space: nowrap !important;
+        justify-content: flex-start !important;
+        gap: 20px !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .obs-nav-list li {
+        flex: 0 0 auto;
+    }
+}
+
+.obs-nav-sub {
+    overflow-x: hidden;
+}
+
+/* Challenge Cards Mobile Fix */
+.challenge-icon-box {
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.challenge-card-inner {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+}
+
+
+@media (max-width: 576px) {
+    .challenge-card-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .challenge-icon-box {
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 2rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    .challenge-card-inner .btn {
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+
+    .challenge-footer {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+}
+
+/* Sections Alignment & Spacing */
+@media (max-width: 768px) {
+    .obs-section {
+        padding: 60px 0 !important;
+    }
+
+    .obs-card {
+        padding: 25px !important;
+    }
+
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Mission Control Stats */
+    .obs-card ul li {
+        font-size: 0.85rem !important;
+    }
+
+    /* Light Pollution Card */
+    .light-pollution-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 30px 20px !important;
+    }
+
+    .light-pollution-card>div:nth-child(2) {
+        max-width: 100% !important;
+        margin: 10px 0 !important;
+    }
+
+    .light-pollution-card .btn {
+        width: 100% !important;
+    }
+}
+
+/* Hero Section Adjustments */
+@media (max-width: 576px) {
+    .hero-section.page-header {
+        padding-top: 120px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .hero-title {
+        font-size: 2.2rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+}
+
+/* Tips & Best Practices */
+@media (max-width: 991px) {
+
+    #planning.grid-2,
+    .obs-section .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+}

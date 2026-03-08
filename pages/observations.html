@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar | The Unified Observation Experience</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Monitor the night sky with Stellar's unified Mission Control. Access real-time telemetry, 3D sky labs, planning tools, and community research missions in one place.">
+    <meta name="keywords"
+        content="astronomy Mission Control, sky planning, celestial telemetry, star charts, space research">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/observations-page-fix.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo" id="main-logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-menu-list">
+                    <li class="dropdown">
+                        <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../index.html">Home Version 01</a></li>
+                            <li><a href="index-v2.html">Home Version 02</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="observations.html" class="nav-link active">Observations</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
+                    <i class="fas fa-globe"></i>
+                </button>
+                <a href="member-dashboard.html" class="btn btn-outline btn-sm">Member Login</a>
+                <a href="contact.html#join" class="btn btn-primary btn-sm">Join Club</a>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-overlay" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-meteor"></i>
+                <span>Stellar</span>
+            </a>
+            <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
+                <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
+                        class="fas fa-moon"></i></button>
+                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+            </div>
+        </div>
+        <ul class="mobile-nav-list">
+            <li class="mobile-dropdown-item">
+                <a href="#" class="mobile-dropdown-trigger" onclick="toggleMobileDropdown(this, event)">Home <i
+                        class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="../index.html">Home Version 01</a></li>
+                    <li><a href="index-v2.html">Home Version 02</a></li>
+                </ul>
+            </li>
+            <li><a href="observations.html">Observations</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="member-dashboard.html">Member Dashboard</a></li>
+            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Observations Hero -->
+    <section class="hero-section page-header">
+        <div class="container hero-content">
+            <span class="badge badge-success mb-lg" dir="auto">Mission
+                Control Active</span>
+            <h1 class="hero-title" dir="auto">The Unified <span class="gradient-text">Sky Portal</span></h1>
+            <p class="hero-subtitle mb-xl" dir="auto">Real-time telemetry, predictive planning, and professional
+                research protocols. All
+                your astronomical operations in one mission-grade interface.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#control" class="btn btn-primary btn-lg" dir="auto">Mission Control</a>
+                <a href="#planning" class="btn btn-outline btn-lg" dir="auto">Plan Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sub-Navigation for Sections -->
+    <div class="obs-nav-sub">
+        <div class="container">
+            <ul class="obs-nav-list">
+                <li><a href="#control" class="obs-nav-link">Mission Control</a></li>
+                <li><a href="#planning" class="obs-nav-link">Planning</a></li>
+                <li><a href="#weather" class="obs-nav-link">Sky & Weather</a></li>
+
+                <li><a href="#challenges" class="obs-nav-link">Challenges</a></li>
+                <li><a href="#logs" class="obs-nav-link">Logs</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Mission Control -->
+        <section id="control" class="obs-section">
+            <div class="container">
+                <div class="section-header text-center mb-2xl">
+                    <span class="section-tag">Ground Station Status</span>
+                    <h2>Mission Control Centre</h2>
+                </div>
+                <div class="grid grid-3">
+                    <div class="glass-card" style="padding: 30px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <i class="fas fa-satellite fa-2x" style="color: var(--primary);"></i>
+                            <span style="color: #22c55e; font-weight: 700;">LIVE</span>
+                        </div>
+                        <h3 dir="auto">Site Alpha (HQ)</h3>
+                        <p class="mb-lg" dir="auto" style="color: var(--text-muted);">Primary 24" Ritchey-Chretien
+                            status.</p>
+                        <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+                            <li style="display: flex; justify-content: space-between;"><span>Dome State:</span>
+                                <strong>OPEN</strong>
+                            </li>
+                            <li style="display: flex; justify-content: space-between;"><span>Current Target:</span>
+                                <strong>M42 (Orion)</strong>
+                            </li>
+                            <li style="display: flex; justify-content: space-between;"><span>Tracking:</span>
+                                <strong>STABLE</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="obs-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <i class="fas fa-broadcast-tower fa-2x" style="color: var(--secondary);"></i>
+                            <span style="color: var(--alert-warn); font-weight: 700;">STANDBY</span>
+                        </div>
+                        <h3>Remote Station Beta</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">High-altitude desert site telemetry.
+                        </p>
+                        <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem;">
+                            <li style="display: flex; justify-content: space-between;"><span>System Temp:</span>
+                                <strong>-5°C</strong>
+                            </li>
+                            <li style="display: flex; justify-content: space-between;"><span>Winds:</span> <strong>12
+                                    km/h</strong></li>
+                            <li style="display: flex; justify-content: space-between;"><span>Next Sync:</span>
+                                <strong>23:30</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="obs-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                            <i class="fas fa-microscope fa-2x" style="color: var(--alert-green);"></i>
+                            <span style="color: var(--primary); font-weight: 700;">ACTIVE</span>
+                        </div>
+                        <h3>Telemetry Lab</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Current community data ingestion.</p>
+                        <div
+                            style="height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; margin: 15px 0;">
+                            <div style="width: 78%; height: 100%; background: var(--primary); border-radius: 5px;">
+                            </div>
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">78% Channel Capacity Reached</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Planning -->
+        <section id="planning" class="obs-section">
+            <div class="container grid grid-2" style="gap: 60px; align-items: start;">
+                <div>
+                    <span class="section-tag">AI-Powered Forecasting</span>
+                    <h2>Observation Planning</h2>
+                    <p class="mb-lg" style="color: var(--text-muted);">Schedule your sessions with precision. Our AI
+                        suggests the best targets based on your equipment and local horizon masks.</p>
+
+                    <div style="position: relative; padding-left: 30px; border-left: 2px solid rgba(255,255,255,0.05);">
+                        <div style="margin-bottom: 30px; position: relative;">
+                            <div
+                                style="position: absolute; left: -37px; top: 0; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; border: 2px solid var(--void);">
+                            </div>
+                            <span style="color: var(--primary); font-weight: 700; font-size: 0.9rem;">20:30 UTC</span>
+                            <h4 style="margin: 5px 0;">Nautical Twilight Ends</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Dark sky window opens. Bortle 2
+                                conditions expected.</p>
+                        </div>
+                        <div style="margin-bottom: 30px; position: relative;">
+                            <div
+                                style="position: absolute; left: -37px; top: 0; width: 12px; height: 12px; background: var(--secondary); border-radius: 50%; border: 2px solid var(--void);">
+                            </div>
+                            <span style="color: var(--secondary); font-weight: 700; font-size: 0.9rem;">22:15 UTC</span>
+                            <h4 style="margin: 5px 0;">Jupiter Transit</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Planet reaches maximum elevation of
+                                62°. Ideal for high-res imaging.</p>
+                        </div>
+                        <div style="position: relative;">
+                            <div
+                                style="position: absolute; left: -37px; top: 0; width: 12px; height: 12px; background: var(--alert-warn); border-radius: 50%; border: 2px solid var(--void);">
+                            </div>
+                            <span style="color: var(--alert-warn); font-weight: 700; font-size: 0.9rem;">01:45
+                                UTC</span>
+                            <h4 style="margin: 5px 0;">ISS Pass</h4>
+                            <h4 style="margin: 5px 0;">ISS Pass</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-muted);">Magnitude -3.2. Pass duration: 4m
+                                12s.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="obs-card simulation-card text-center">
+                    <i class="fas fa-cube fa-3x" style="color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3 dir="auto">3D Sky Simulation Lab</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;" dir="auto">Interact with the spatial map
+                        of your
+                        current sky. Toggle constellations, satellite tracks, and DSO visibility.</p>
+                    <div class="simulation-viewer">
+                        <span style="color: var(--text-muted); font-size: 0.8rem;" dir="auto">[ Interactive View
+                            Loading...
+                            ]</span>
+                    </div>
+                    <button class="btn btn-primary mt-lg" style="width: 100%;" dir="auto">Initialize Simulation</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Sky & Weather -->
+        <section id="weather" class="obs-section">
+            <div class="container">
+                <div class="section-header text-center mb-2xl">
+                    <span class="section-tag">Atmospheric Intel</span>
+                    <h2>Sky & Weather Conditions</h2>
+                </div>
+                <div class="grid grid-4" style="gap: 20px;">
+                    <div class="obs-card text-center">
+                        <i class="fas fa-moon fa-2x" style="color: var(--alert-warn); margin-bottom: 15px;"></i>
+                        <h4>Moon Phase</h4>
+                        <span style="display: block; font-size: 1.5rem; font-weight: 800; margin: 10px 0;">72%</span>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Waxing Gibbous</p>
+                    </div>
+                    <div class="obs-card text-center">
+                        <i class="fas fa-thermometer-half fa-2x"
+                            style="color: var(--secondary); margin-bottom: 15px;"></i>
+                        <h4>Ambient Temp</h4>
+                        <span style="display: block; font-size: 1.5rem; font-weight: 800; margin: 10px 0;">12°C</span>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Dew Point: 8°C</p>
+                    </div>
+                    <div class="obs-card text-center">
+                        <i class="fas fa-wind fa-2x" style="color: var(--alert-green); margin-bottom: 15px;"></i>
+                        <h4>Wind Velocity</h4>
+                        <span style="display: block; font-size: 1.5rem; font-weight: 800; margin: 10px 0;">4.5
+                            m/s</span>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Gusts: Safe</p>
+                    </div>
+                    <div class="obs-card text-center">
+                        <i class="fas fa-eye fa-2x" style="color: var(--primary); margin-bottom: 15px;"></i>
+                        <h4>Transparency</h4>
+                        <span
+                            style="display: block; font-size: 1.5rem; font-weight: 800; margin: 10px 0;">Excellent</span>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">Magnitude Limit: 5.8</p>
+                    </div>
+                </div>
+                <div class="mt-xl light-pollution-card">
+                    <div style="flex: 1; min-width: 200px;">
+                        <h3 dir="auto">Light Pollution Map</h3>
+                        <p style="color: var(--text-muted);" dir="auto">Real-time SQM data from our sensor array. Find
+                            the darkest
+                            spot for your next expedition.</p>
+                    </div>
+                    <div
+                        style="width: 100%; max-width: 200px; height: 100px; background: radial-gradient(circle, #22c55e 0%, #064e3b 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-weight: 800;">BORTLE 2</span>
+                    </div>
+                    <button class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);"
+                        dir="auto">Open
+                        Visualizer</button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section 5: Challenges -->
+        <section id="challenges" class="obs-section">
+            <div class="container">
+                <div class="section-header text-center mb-2xl">
+                    <span class="section-tag">Level Up Your Skills</span>
+                    <h2>Observation Challenges</h2>
+                </div>
+                <div class="grid grid-2" style="gap: 30px;">
+                    <div class="obs-card"
+                        style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);">
+                        <div class="challenge-card-inner">
+                            <div class="challenge-icon-box">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h3 style="margin-bottom: 10px;">The Messier Marathon</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">Observe
+                                    and log all 110 Messier objects within a single season to earn the Elite Observer
+                                    Badge.</p>
+                                <div
+                                    style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; margin-bottom: 20px;">
+                                    <div
+                                        style="width: 45%; height: 100%; background: var(--primary); border-radius: 3px;">
+                                    </div>
+                                </div>
+                                <div class="challenge-footer">
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);">48 / 110
+                                        Completed</span>
+                                    <button class="btn btn-primary btn-sm">Update Progress</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="obs-card"
+                        style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), transparent);">
+                        <div class="challenge-card-inner">
+                            <div class="challenge-icon-box" style="background: var(--secondary);">
+                                <i class="fas fa-meteor"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <h3 style="margin-bottom: 10px;">Perseid Hunter</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">Capture 5
+                                    meteors in a single frame during the upcoming peak. Specialized data submission
+                                    required.</p>
+                                <div class="challenge-footer" style="margin-top: 30px;">
+                                    <span style="font-size: 0.85rem; color: var(--alert-warn); font-weight: 700;"><i
+                                            class="fas fa-clock"></i> Starts in 4 Days</span>
+                                    <button class="btn btn-outline btn-sm">Join Challenge</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Community Logs -->
+        <section id="logs" class="obs-section">
+            <div class="container">
+                <div class="section-header text-center mb-2xl">
+                    <span class="section-tag">Field Reports</span>
+                    <h2>Community Observation Logs</h2>
+                </div>
+                <div class="grid grid-3" style="gap: 30px;">
+                    <div class="obs-card p-0 overflow-hidden">
+                        <img src="../assets/images/img17.png" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                                <img src="../assets/images/astro1.png"
+                                    style="width: 30px; height: 30px; border-radius: 50%;">
+                                <strong style="font-size: 0.9rem;">Marcus Vane</strong>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">Solar Prominence Capture</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">"Managed to get
+                                lucky with clear skies at 10AM. Used a Lunt 60mm with ZWO174MM. The detail was insane!"
+                            </p>
+                        </div>
+                    </div>
+                    <div class="obs-card p-0 overflow-hidden">
+                        <img src="../assets/images/media__1770701229282.jpg"
+                            style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                                <img src="../assets/images/astro1.png"
+                                    style="width: 30px; height: 30px; border-radius: 50%;">
+                                <strong style="font-size: 0.9rem;">Elena Rossi</strong>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">The Core of Milky Way</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">"Site Beta lived
+                                up to expectations. 2-minute exposures revealed structures I've never seen before."</p>
+                        </div>
+                    </div>
+                    <div class="obs-card p-0 overflow-hidden">
+                        <img src="../assets/images/media__1770701229289.jpg"
+                            style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                                <img src="../assets/images/astro1.png"
+                                    style="width: 30px; height: 30px; border-radius: 50%;">
+                                <strong style="font-size: 0.9rem;">Sarah Jenkins</strong>
+                            </div>
+                            <h4 style="margin-bottom: 10px;">M31 Deep Integration</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">"40 hours of data
+                                over 5 nights. The outer halo is finally showing up. Processing is next."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-xl">
+                    <button class="btn btn-outline">Submit Your Observation Report</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Tips & Best Practices -->
+        <section class="obs-section">
+            <div class="container grid grid-2" style="gap: 60px; align-items: center;">
+                <div>
+                    <img src="../assets/images/media__1770703914817.png"
+                        style="border-radius: 32px; box-shadow: var(--shadow);">
+                </div>
+                <div>
+                    <span class="section-tag">Elite Standards</span>
+                    <h2>Tips & Best Practices</h2>
+                    <p class="mb-lg" style="color: var(--text-muted);">Maintaining scientific integrity and equipment
+                        safety starts with professional conduct at our sites.</p>
+                    <ul style="display: flex; flex-direction: column; gap: 20px;">
+                        <li style="display: flex; gap: 15px;">
+                            <i class="fas fa-lightbulb" style="color: var(--primary); font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Red Light Protocol</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Preserve night vision. Use ONLY
+                                    red light once on site. White light is strictly prohibited.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <i class="fas fa-snowflake" style="color: var(--secondary); font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Cool-Down Management</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Allow your optics at least 60
+                                    minutes to reach thermal equilibrium for sharp images.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 15px;">
+                            <i class="fas fa-shield-alt" style="color: var(--alert-green); font-size: 1.5rem;"></i>
+                            <div>
+                                <strong>Equipment Safety</strong>
+                                <p style="font-size: 0.9rem; color: var(--text-muted);">Always use safety straps for
+                                    cameras and counterweight bolts for mounts.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="container mb-3xl">
+            <div class="obs-card text-center"
+                style="background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('../assets/images/media__1770701229282.jpg'); background-size: cover; padding: 60px 20px;">
+                <h2 style="font-size: clamp(1.75rem, 5vw, 3rem); margin-bottom: 20px; color: white;" dir="auto">Join the
+                    Observation
+                    Corps</h2>
+                <p style="max-width: 600px; margin: 0 auto 40px; color: rgba(255,255,255,0.8); font-size: 1.2rem;"
+                    dir="auto">Get
+                    exclusive access to our remote observatory, high-res telemetry feeds, and professional training
+                    pipelines.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html#join" class="btn btn-primary btn-lg" dir="auto">Apply for Access</a>
+                    <a href="about.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;"
+                        dir="auto">Learn
+                        More</a>
+                </div>
+            </div>
+        </section>
+    </main>    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Highlighting active section in sub-nav on scroll
+        const sections = document.querySelectorAll('.obs-section');
+        const navLinks = document.querySelectorAll('.obs-nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

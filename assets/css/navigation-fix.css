@@ -1,0 +1,30 @@
+/* EMERGENCY NAVIGATION FIX */
+/* Add this to the END of your style.css or create a new fix.css and include it AFTER main.js */
+
+/* Ensure mobile menu doesn't interfere with desktop navigation */
+.mobile-menu {
+    pointer-events: none !important;
+}
+
+.mobile-menu.open {
+    pointer-events: auto !important;
+}
+
+/* Ensure navigation links are clickable and on top */
+.nav-link {
+    position: relative;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+
+/* Ensure nav menu is visible and functional on desktop */
+@media (min-width: 1025px) {
+    .nav-menu {
+        display: block !important;
+        pointer-events: auto !important;
+    }
+
+    .mobile-menu {
+        display: none !important;
+    }
+}

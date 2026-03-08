@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching Soon | Stellar Astronomy Club</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/img21.png" type="image/png">
+
+    <style>
+        .coming-soon-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding-top: 120px;
+            /* Fix header overlap */
+        }
+
+        .star-field {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: var(--space-xl);
+            justify-content: center;
+            margin: var(--space-3xl) 0;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-lg);
+            border-radius: 16px;
+            min-width: 100px;
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        .planet-decoration {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at 30% 30%, #4f46e5 0%, #1e1b4b 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .planet-1 {
+            top: -100px;
+            right: -100px;
+        }
+
+        .planet-2 {
+            bottom: -100px;
+            left: -100px;
+            background: radial-gradient(circle at 30% 30%, #7c3aed 0%, #1e1b4b 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo"><i class="fas fa-meteor"></i><span>Stellar</span></a>
+            <a href="../index.html" class="btn btn-outline btn-sm" dir="auto">Return Home</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="coming-soon-hero">
+            <div class="star-field"></div>
+            <div class="planet-decoration planet-1"></div>
+            <div class="planet-decoration planet-2"></div>
+
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="badge"
+                    style="background: var(--primary); color: white; padding: 8px 16px; border-radius: 100px; font-weight: 700; letter-spacing: 1px;">MISSION
+                    DEPLOYMENT IN PROGRESS</span>
+                <h1 class="hero-title" dir="auto"
+                    style="margin-top: var(--space-lg); font-size: clamp(3rem, 8vw, 5rem);">Starry Horizons <span
+                        class="gradient-text">Await</span></h1>
+                <p class="hero-subtitle" dir="auto" style="max-width: 600px; margin-inline: auto;">Our advanced booking
+                    system and RSVP modules are currently undergoing final calibration. We'll be live for the next moon
+                    cycle.</p>
+
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-value">12</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value">08</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value">45</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                </div>
+
+                <div class="newsletter-box glass-card"
+                    style="max-width: 500px; margin: 0 auto; padding: var(--space-2xl); border-radius: 24px;">
+                    <h3 dir="auto" style="margin-bottom: var(--space-md);">Get Notified on Launch</h3>
+                    <p class="mb-lg" dir="auto" style="font-size: 0.9rem; opacity: 0.8;">Be the first to secure a spot
+                        for the 2026 Meteor Gala.</p>
+                    <form class="newsletter-form" style="display: flex; gap: 10px;">
+                        <input type="email" placeholder="Astro email..." class="form-control" required dir="auto">
+                        <button type="submit" class="btn btn-primary" dir="auto"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div style="margin-top: var(--space-3xl); opacity: 0.6; font-size: 0.8rem;">
+                    <p dir="auto">Join our community on discord for real-time updates.</p>
+                    <div
+                        style="display: flex; gap: 20px; justify-content: center; margin-top: 15px; font-size: 1.25rem;">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-meteor" style="color: var(--primary);"></i>
+                        <span style="font-size: 1.5rem; font-weight: 800; font-family: 'Outfit';">Stellar</span>
+                    </a>
+                    <p class="footer-brand-desc">
+                        Exploring the universe, one star at a time. Join our community of astronomers and stargazers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li class="footer-dropdown">
+                            <details>
+                                <summary>
+                                    Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                                </summary>
+                                <ul style="padding-top: 8px; padding-inline-start: 16px;">
+                                    <li><a href="../index.html">Home Version 01</a></li>
+                                    <li><a href="index-v2.html">Home Version 02</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="observations.html">Observations</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <!-- Dashboards Column -->
+                <div class="footer-col">
+                    <h4>Dashboards</h4>
+                    <ul>
+                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        <li><a href="member-dashboard.html">Member Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-brand-desc">Subscribe to our newsletter for the latest celestial events.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Stellar Astronomy Club. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Mission</a>
+                    <a href="404.html">404 Page</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

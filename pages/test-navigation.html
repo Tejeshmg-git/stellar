@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+</head>
+
+<body>
+    <h1>Navigation Link Test</h1>
+    <p>Click these links from the Gallery page context:</p>
+    <ul>
+        <li><a href="blog.html" id="blog-link">Blog Link</a></li>
+        <li><a href="resources.html" id="resources-link">Resources Link</a></li>
+        <li><a href="admin-dashboard.html" id="admin-link">Admin Dashboard</a></li>
+    </ul>
+
+    <script>
+        // Log all link clicks to help debug
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                console.log('Link clicked:', this.href);
+                console.log('Target:', e.target);
+                console.log('Current target:', e.currentTarget);
+            });
+        });
+    </script>
+</body>
+
+</html>
