@@ -19,6 +19,7 @@
 
     <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/navigation-fix.css">
     <link rel="stylesheet" href="../assets/css/contact-page-fix.css">
     <link rel="icon" href="../assets/images/img21.png" type="image/png">
 </head>
@@ -37,22 +38,27 @@
                             <li><a href="index-v2.html">Home Version 02</a></li>
                         </ul>
                     </li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
                     <li><a href="observations.html" class="nav-link">Observations</a></li>
                     <li><a href="events.html" class="nav-link">Events</a></li>
                     <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                     <li><a href="blog.html" class="nav-link">Blog</a></li>
                     <li><a href="resources.html" class="nav-link">Resources</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    
                     <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="member-dashboard.html">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-actions">
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
-                    <i class="fas fa-globe"></i>
-                </button>
-                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <button id="rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
                 <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
                 <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
             </div>
@@ -69,7 +75,7 @@
             <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
                 <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <button id="mobile-rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
             </div>
         </div>
         <ul class="mobile-nav-list">
@@ -81,12 +87,13 @@
                     <li><a href="index-v2.html">Home Version 02</a></li>
                 </ul>
             </li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="observations.html">Observations</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About Us</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
             <li><a href="member-dashboard.html">Member Dashboard</a></li>
             <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
@@ -108,66 +115,63 @@
         <!-- Contact Section -->
         <section class="section contact-section">
             <div class="container">
-                <div class="grid grid-2">
-                    <!-- Mission HQ Info Section -->
-                    <div class="mission-hq-section">
-                        <div class="mission-hub-layout">
-                            <!-- Info Column -->
-                            <div class="contact-info-panel">
-                                <h2 class="gradient-text mb-lg" dir="auto" style="font-size: 2.25rem;">Mission HQ</h2>
-                                <p class="mb-2xl" dir="auto" style="color: var(--text-muted); line-height: 1.8;">Our
-                                    operational
-                                    hub is located at the peak of Star City, providing the best communication link to
-                                    our dark-sky reserves.</p>
+                <div class="mission-hub-layout">
+                    <!-- Info Column -->
+                    <div class="contact-info-panel">
+                        <h2 class="gradient-text mb-lg" dir="auto" style="font-size: 2.25rem;">Mission HQ</h2>
+                        <p class="mb-2xl" dir="auto" style="color: var(--text-muted); line-height: 1.8;">Our
+                            operational
+                            hub is located at the peak of Star City, providing the best communication link to
+                            our dark-sky reserves.</p>
 
-                                <div class="info-item-stack">
-                                    <!-- Phone -->
-                                    <div class="info-item glass-card p-md">
-                                        <div class="icon-box">
-                                            <i class="fas fa-phone"></i>
-                                        </div>
-                                        <div>
-                                            <h4 dir="auto">Direct Line</h4>
-                                            <a href="tel:+1234567890" class="phone-number" dir="ltr">+1 234 567 890</a>
-                                        </div>
-                                    </div>
+                        <div class="info-item-stack">
+                            <!-- Phone -->
+                            <div class="info-item glass-card p-md">
+                                <div class="icon-box">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-text-area">
+                                    <h4 dir="auto">Direct Line</h4>
+                                    <a href="tel:+1234567890" class="phone-number" dir="ltr">+1 234 567 890</a>
+                                </div>
+                            </div>
 
                                     <!-- Email -->
                                     <div class="info-item glass-card p-md">
-                                        <div class="icon-box">
-                                            <i class="fas fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <h4 dir="auto">Digital Transmission</h4>
-                                            <a href="mailto:mission-control@stellarclub.com" dir="ltr"
-                                                class="ltr-content">mission-control@stellarclub.com</a>
-                                        </div>
-                                    </div>
+                                         <div class="icon-box">
+                                             <i class="fas fa-envelope"></i>
+                                         </div>
+                                         <div class="info-text-area">
+                                             <h4 dir="auto">Digital Transmission</h4>
+                                             <a href="mailto:mission-control@stellarclub.com" dir="ltr"
+                                                 class="ltr-content">mission-control@stellarclub.com</a>
+                                         </div>
+                                     </div>
 
-                                    <!-- Address -->
-                                    <div class="info-item glass-card p-md">
-                                        <div class="icon-box">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                        </div>
-                                        <div>
-                                            <h4 dir="auto">Observatory HQ</h4>
-                                            <address>Mount Wilson, California, US</address>
-                                        </div>
-                                    </div>
+                                     <!-- Address -->
+                                     <div class="info-item glass-card p-md">
+                                         <div class="icon-box">
+                                             <i class="fas fa-map-marker-alt"></i>
+                                         </div>
+                                         <div class="info-text-area">
+                                             <h4 dir="auto">Observatory HQ</h4>
+                                             <address>Mount Wilson, California, US</address>
+                                         </div>
+                                     </div>
 
-                                    <!-- Office Hours -->
-                                    <div class="info-item glass-card p-md">
-                                        <div class="icon-box icon-box-alt">
-                                            <i class="fas fa-clock"></i>
-                                        </div>
-                                        <div>
-                                            <h4 dir="auto">Office Hours</h4>
-                                            <div dir="auto" class="hours-data">
-                                                <div>Mon-Fri: 09:00 - 17:00</div>
-                                                <div class="night-hours">Night Sky: 19:00 - 02:00</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                     <!-- Office Hours -->
+                                     <div class="info-item glass-card p-md">
+                                         <div class="icon-box icon-box-alt">
+                                             <i class="fas fa-clock"></i>
+                                         </div>
+                                         <div class="info-text-area">
+                                             <h4 dir="auto">Office Hours</h4>
+                                             <div dir="auto" class="hours-data">
+                                                 <div>Mon-Fri: 09:00 - 17:00</div>
+                                                 <div class="night-hours">Night Sky: 19:00 - 02:00</div>
+                                             </div>
+                                         </div>
+                                     </div>
                                 </div>
 
                                 <!-- Social Links -->
@@ -191,7 +195,6 @@
                                         title="Mission HQ Location"></iframe>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
 
@@ -253,7 +256,6 @@
                     </div>
                 </div>
             </div>
-            </div>
         </section>
 
         <!-- Map / Booking CTA -->
@@ -314,12 +316,13 @@
                                 </ul>
                             </details>
                         </li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="observations.html">Observations</a></li>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="resources.html">Resources</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>
@@ -357,7 +360,8 @@
             </div>
         </div>
     </footer>
-
+    <!-- Scripts -->
+    <script src="../assets/js/navigation-fix.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
 

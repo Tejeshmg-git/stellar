@@ -160,9 +160,7 @@
     align-items: center !important;
 }
 
-.section-title {
-    text-align: center !important;
-}
+
 
 [dir="rtl"] .section-header {
     text-align: center !important;

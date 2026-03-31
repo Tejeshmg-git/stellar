@@ -38,22 +38,28 @@
                             <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
                         </ul>
                     </li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
                     <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
                     <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
                     <li><a href="gallery.html" class="nav-link active" dir="auto">Gallery</a></li>
                     <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
                     <li><a href="resources.html" class="nav-link" dir="auto">Resources</a></li>
-                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    
                     <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                                    <li class="dropdown">
+                        <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="member-dashboard.html">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-actions">
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
-                    <i class="fas fa-globe"></i>
-                </button>
-                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <button id="rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
+                
                 <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
                 <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
             </div>
@@ -70,7 +76,7 @@
             <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
                 <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <button id="mobile-rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
             </div>
         </div>
         <ul class="mobile-nav-list">
@@ -82,12 +88,13 @@
                     <li><a href="index-v2.html">Home Version 02</a></li>
                 </ul>
             </li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="observations.html">Observations</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About Us</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
             <li><a href="member-dashboard.html">Member Dashboard</a></li>
             <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
@@ -149,15 +156,14 @@
                         </div>
                     </div>
                     <div style="padding: 40px;">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div class="featured-header-meta">
                             <div class="pulse-badge"
                                 style="display: flex; align-items: center; gap: 8px; color: var(--secondary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">
                                 <span
                                     style="display: block; width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 10px var(--secondary);"></span>
                                 Photo of the Month
                             </div>
-                            <div style="font-size: 1.1rem; color: var(--text-muted); display: flex; gap: 15px;">
+                            <div class="stats-group">
                                 <span><i class="far fa-eye"></i> 1.2k</span>
                                 <span style="color: var(--primary);"><i class="fas fa-heart"></i> 245</span>
                             </div>
@@ -189,39 +195,39 @@
                                     Technical Details</h4>
                             </div>
 
-                            <div class="tech-specs-grid" style="display: grid; gap: 15px 40px;">
+                            <div class="tech-specs-grid">
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-binoculars" style="color: var(--primary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Optics</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">Celestron C11</strong>
                                 </div>
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-history" style="color: var(--secondary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Integration</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">18.5 Hours</strong>
                                 </div>
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-camera" style="color: var(--primary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Camera</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">ASI2600MM</strong>
                                 </div>
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-laptop" style="color: var(--secondary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Soft</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">PixInsight</strong>
                                 </div>
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-cog" style="color: var(--primary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Mount</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">EQ6-R Pro</strong>
                                 </div>
                                 <div
-                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+                                    style="display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-light);">
                                     <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>
                                     <span style="color: var(--text-muted); font-size: 0.9rem;">Location</span>
                                     <strong dir="auto" style="font-size: 0.9rem;">Bortle 2</strong>
@@ -543,12 +549,13 @@
                                 </ul>
                             </details>
                         </li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="observations.html">Observations</a></li>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="resources.html">Resources</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>

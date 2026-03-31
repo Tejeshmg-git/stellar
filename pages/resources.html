@@ -41,22 +41,28 @@
                             <li><a href="index-v2.html" dir="auto">Home Version 02</a></li>
                         </ul>
                     </li>
+                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
                     <li><a href="observations.html" class="nav-link" dir="auto">Observations</a></li>
                     <li><a href="events.html" class="nav-link" dir="auto">Events</a></li>
                     <li><a href="gallery.html" class="nav-link" dir="auto">Gallery</a></li>
                     <li><a href="blog.html" class="nav-link" dir="auto">Blog</a></li>
                     <li><a href="resources.html" class="nav-link active" dir="auto">Resources</a></li>
-                    <li><a href="about.html" class="nav-link" dir="auto">About Us</a></li>
+                    
                     <li><a href="contact.html" class="nav-link" dir="auto">Contact</a></li>
+                                    <li class="dropdown">
+                        <a href="#" class="nav-link">Dashboard <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="member-dashboard.html">User Dashboard</a></li>
+                            <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-actions">
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="rtl-toggle" class="icon-btn" aria-label="Toggle Layout Direction">
-                    <i class="fas fa-globe"></i>
-                </button>
-                <a href="member-dashboard.html" class="btn btn-outline btn-sm" dir="auto">Member Login</a>
+                <button id="rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
+                
                 <a href="contact.html#join" class="btn btn-primary btn-sm" dir="auto">Join Club</a>
                 <div class="hamburger" aria-label="Open Mobile Menu"><span></span><span></span><span></span></div>
             </div>
@@ -73,7 +79,7 @@
             <div class="mobile-settings" style="display: flex; gap: 10px; margin-left: auto;">
                 <button id="mobile-theme-toggle" class="icon-btn" title="Toggle Theme"><i
                         class="fas fa-moon"></i></button>
-                <button id="mobile-rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                <button id="mobile-rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
             </div>
         </div>
         <ul class="mobile-nav-list">
@@ -85,12 +91,13 @@
                     <li><a href="index-v2.html">Home Version 02</a></li>
                 </ul>
             </li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="observations.html">Observations</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="about.html">About Us</a></li>
+            
             <li><a href="contact.html">Contact</a></li>
             <li><a href="member-dashboard.html">Member Dashboard</a></li>
             <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
@@ -100,7 +107,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section page-header">
+        <section class="hero-section page-header" style="padding: 100px 0 50px !important; display: flex; align-items: center; justify-content: center;">
             <div class="container hero-content">
                 <span class="badge mb-lg"
                     style="background: rgba(var(--primary-rgb), 0.1); color: var(--primary); padding: 8px 16px; border-radius: 100px; font-weight: 700; display: inline-block;">LEARNING
@@ -109,9 +116,16 @@
                 <p class="hero-subtitle mb-xl" dir="auto" style="max-width: 650px; margin-inline: auto;">A comprehensive
                     collection of guides, tools, and research materials to elevate your journey through the stars.</p>
 
-                <div class="resource-search" style="max-width: 500px; margin-inline: auto;">
+
+            </div>
+        </section>
+
+        <!-- Search Bar Relocated -->
+        <section style="padding-top: 40px; padding-bottom: 5px;">
+            <div class="container" style="display: flex; justify-content: center;">
+                <div class="resource-search" style="max-width: 500px; width: 100%; margin: 0 auto; position: relative;">
                     <input type="text" placeholder="Search guides, tools, or charts..." dir="auto">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="search-btn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </section>
@@ -202,7 +216,7 @@
                             your observation rig.</p>
                     </div>
                 </div>
-                <div class="grid grid-2">
+                <div class="grid grid-2 equipment-grid-layout">
                     <div class="resource-card equipment-card">
                         <img src="../assets/images/media__1770703914823.png" loading="lazy" class="equipment-img">
                         <div class="equipment-content">
@@ -636,12 +650,13 @@
                                 </ul>
                             </details>
                         </li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="observations.html">Observations</a></li>
                         <li><a href="events.html">Events</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="resources.html">Resources</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>

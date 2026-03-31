@@ -512,8 +512,8 @@
 
 /* Equipment Card Responsiveness */
 .equipment-card {
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: row;
+    align-items: center;
     gap: 30px;
 }
 
@@ -529,19 +529,28 @@
     flex: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 991px) {
+    .equipment-grid-layout {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
     .equipment-card {
         flex-direction: column !important;
         text-align: center;
-        padding: 25px !important;
+        padding: 30px !important;
     }
 
     .equipment-img {
         width: 100% !important;
-        height: 200px !important;
+        height: 250px !important;
+        max-width: 400px;
+        margin-bottom: 20px;
     }
 
     .equipment-content .btn {
-        width: 100%;
+        width: auto !important;
+        min-width: 200px;
+        justify-content: center;
     }
 }

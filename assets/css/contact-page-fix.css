@@ -9,7 +9,7 @@
 
 /* Main Contact Section Fix */
 .contact-section {
-    padding-top: 50px;
+    padding-top: 80px;
 }
 
 .contact-section>.container>.grid-2 {
@@ -117,6 +117,8 @@
     overflow: hidden;
     border: 1px solid var(--border) !important;
     padding: 10px !important;
+    background: var(--surface) !important; /* Fallback background for loading */
+    position: relative;
 }
 
 .map-wrapper iframe {
@@ -410,18 +412,80 @@
     }
 }
 
-/* Light Theme Adjustments */
+@media (max-width: 400px) {
+    .contact-info-panel {
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-info-panel h2, 
+    .contact-info-panel p {
+        text-align: center;
+    }
+
+    .info-item {
+        flex-direction: column !important;
+        padding: 25px 15px !important;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .info-item .info-text-area {
+        width: 100%;
+    }
+
+    .info-item .phone-number,
+    .info-item a[href^="mailto:"],
+    .info-item address {
+        word-break: break-all;
+        font-size: 0.95rem;
+    }
+
+    .social-links-row {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+/* Light Theme Adjustments - Premium Contrast */
 [data-theme="light"] .info-item {
     background: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.15) !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .info-item:hover {
+    border-color: var(--primary) !important;
+    background: rgba(99, 102, 241, 0.02) !important;
 }
 
 [data-theme="light"] .contact-form-card {
     background: #ffffff !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="light"] .form-control {
-    background: #f8fafc !important;
-    border-color: #e2e8f0 !important;
+    background: #fdfdfd !important;
+    border: 1.5px solid #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .form-control:focus {
+    background: #ffffff !important;
+    border-color: var(--primary) !important;
+}
+
+[data-theme="light"] .form-group label {
+    color: #475569 !important;
+}
+
+[data-theme="light"] .booking-widget {
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .hero-section .hero-subtitle {
+    color: #475569 !important;
+    font-weight: 500;
 }

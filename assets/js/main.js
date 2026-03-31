@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update Toggle Text if it's text-based, or handle specific RTL icons if needed
         rtlToggles.forEach(toggle => {
-            const label = toggle.querySelector('.toggle-label');
+            const label = toggle.querySelector('.rtl-btn-text') || toggle.querySelector('.toggle-label');
             if (label) {
                 label.innerText = dir === 'ltr' ? 'RTL' : 'LTR';
             }

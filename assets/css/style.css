@@ -1576,7 +1576,7 @@ p {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer – Redesigned */
+/* Footer Ã¢â‚¬â€œ Redesigned */
 .footer {
     padding: 80px 0 0;
     background: linear-gradient(180deg, var(--surface) 0%, rgba(0, 0, 0, 0.4) 100%);
@@ -2725,7 +2725,7 @@ p {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  RTL Centering Overrides – elements that must remain centered in RTL        */
+/*  RTL Centering Overrides Ã¢â‚¬â€œ elements that must remain centered in RTL        */
 /* -------------------------------------------------------------------------- */
 
 /* Force center on any element marked text-center */
@@ -2739,7 +2739,7 @@ p {
     text-align: center !important;
 }
 
-/* Observation page – weather cards */
+/* Observation page Ã¢â‚¬â€œ weather cards */
 [dir="rtl"] .obs-card.text-center,
 [dir="rtl"] .obs-card.text-center h4,
 [dir="rtl"] .obs-card.text-center span,
@@ -2747,21 +2747,21 @@ p {
     text-align: center !important;
 }
 
-/* About page – glass cards (Mission / Vision / Values) */
+/* About page Ã¢â‚¬â€œ glass cards (Mission / Vision / Values) */
 [dir="rtl"] .glass-card,
 [dir="rtl"] .glass-card h3,
 [dir="rtl"] .glass-card p {
     text-align: center !important;
 }
 
-/* Home V2 – Stats items */
+/* Home V2 Ã¢â‚¬â€œ Stats items */
 [dir="rtl"] .stat-item-v2,
 [dir="rtl"] .stat-item-v2 h3,
 [dir="rtl"] .stat-item-v2 .stat-descriptor {
     text-align: center !important;
 }
 
-/* Home V2 – Event highlight card */
+/* Home V2 Ã¢â‚¬â€œ Event highlight card */
 [dir="rtl"] .event-highlight-card,
 [dir="rtl"] .event-date-box,
 [dir="rtl"] .event-date-box .day,
@@ -2769,14 +2769,14 @@ p {
     text-align: center !important;
 }
 
-/* Home V2 – Benefit cards */
+/* Home V2 Ã¢â‚¬â€œ Benefit cards */
 [dir="rtl"] .benefit-card,
 [dir="rtl"] .benefit-card h3,
 [dir="rtl"] .benefit-card p {
     text-align: center !important;
 }
 
-/* Home V2 – FAQ: fix punctuation placement */
+/* Home V2 Ã¢â‚¬â€œ FAQ: fix punctuation placement */
 [dir="rtl"] .faq-question {
     text-align: right !important;
     direction: rtl;
@@ -2808,7 +2808,7 @@ p {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Hero title/description center fix – RTL & LTR all screen sizes            */
+/*  Hero title/description center fix Ã¢â‚¬â€œ RTL & LTR all screen sizes            */
 /* -------------------------------------------------------------------------- */
 [dir="rtl"] .hero-content,
 [dir="ltr"] .hero-content {
@@ -2957,7 +2957,7 @@ p {
 }
 
 /* -----------------------------------------------------------------------
-   Member Dashboard – RTL centering on mobile
+   Member Dashboard Ã¢â‚¬â€œ RTL centering on mobile
    ----------------------------------------------------------------------- */
 @media (max-width: 900px) {
 
@@ -2990,7 +2990,25 @@ p {
     }
 }
 
-/* Resource CTA buttons – prevent overflow on mobile */
+.membership-cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .membership-cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .membership-cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Resource CTA buttons Ã¢â‚¬â€œ prevent overflow on mobile */
 @media (max-width: 576px) {
     .resource-cta div[style*="display: flex"] {
         flex-wrap: wrap !important;
@@ -3001,3 +3019,46 @@ p {
         text-align: center;
     }
 }
+/* Premium RTL Toggle */
+.rtl-premium-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    outline: none;
+    font-family: inherit;
+}
+.rtl-premium-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.rtl-btn-divider {
+    color: rgba(255, 255, 255, 0.15);
+    font-weight: 300;
+}
+.rtl-btn-text {
+    letter-spacing: 0.5px;
+}
+[dir="rtl"] .rtl-premium-btn {
+    flex-direction: row-reverse;
+}
+
+/* Global Section Titles Standard */
+.section-title {
+    font-size: clamp(2.2rem, 5vw, 2.75rem) !important;
+    margin-bottom: var(--space-lg);
+    line-height: 1.2;
+}
+

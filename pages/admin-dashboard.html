@@ -12,12 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" href="../assets/images/img21.png" type="image/png">
-    <style>
-        /* Admin Layout Specifics */
+    <style>        body {
+            overflow-x: hidden;
+        }
+
         .admin-layout {
             display: flex;
             min-height: 100vh;
             background: var(--background);
+            overflow-x: hidden;
+            width: 100%;
         }
 
         /* Sidebar Styles */
@@ -97,17 +101,12 @@
             padding: 2rem;
             width: calc(100% - 280px);
             transition: margin-left 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Top Header */
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
+        /* Header logic is handled by specialized premium block in main content section */
 
         .header-left {
             display: flex;
@@ -148,7 +147,7 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1rem;
             margin-bottom: 2.5rem;
         }
 
@@ -161,16 +160,6 @@
             overflow: hidden;
         }
 
-        .stat-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            border-radius: 0 0 0 100%;
-        }
 
         .stat-value {
             font-size: 2rem;
@@ -206,21 +195,24 @@
             background: var(--surface);
             border-radius: 16px;
             border: 1px solid var(--border);
-            overflow-x: auto;
+            overflow-x: hidden; /* Prevent horizontal scroll */
             margin-bottom: 2rem;
         }
 
         .table-header-row {
-            padding: 1.5rem;
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
+            flex-wrap: wrap; 
         }
 
         .admin-table {
             width: 100%;
             border-collapse: collapse;
+            table-layout: auto;
         }
 
         .admin-table th,
@@ -294,6 +286,80 @@
             background-color: #ef4444;
         }
 
+        /* Grid Utilities */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        @media (max-width: 1024px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 500px) {
+            .grid-4, .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        /* Footer Styles */
+        .admin-footer {
+            margin-top: auto;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 1024px) {
+            .admin-footer {
+                padding: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .admin-footer {
+                font-size: 0.75rem;
+            }
+            .footer-links {
+                gap: 0.75rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
         /* Forms */
         .form-group {
             margin-bottom: 1.5rem;
@@ -349,38 +415,78 @@
             }
 
             .admin-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+                flex-direction: row; /* Match the SS-02 header */
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem !important;
             }
 
-            .header-left {
-                width: auto;
-                justify-content: flex-start;
-            }
-
-            .stat-card {
+            .main-content {
                 padding: 1rem;
             }
 
-            .stat-value {
-                font-size: 1.5rem;
+            .table-header-row {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
             }
 
-            .admin-header>div:last-child {
-                gap: 8px !important;
+            .table-header-row > div {
+                flex-direction: column;
+                width: 100%;
             }
 
-            .d-md-block {
-                display: none !important;
-            }
-
-            .table-container {
-                overflow-x: auto;
+            .table-header-row input {
+                width: 100% !important;
             }
 
             .admin-table {
-                min-width: 600px;
+                display: block;
+                width: 100%;
+            }
+
+            .admin-table thead {
+                display: none; /* Hide headers on mobile 카드 view */
+            }
+
+            .admin-table tbody, .admin-table tr, .admin-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .admin-table tr {
+                border-bottom: 2px solid var(--border);
+                padding: 1rem 0;
+            }
+
+            .admin-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                border-bottom: none;
+                text-align: right;
+            }
+
+            .admin-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                margin-right: 15px;
+                text-align: left;
+            }
+
+            .admin-table td:last-child {
+                justify-content: center;
+                border-top: 1px dashed var(--border);
+                margin-top: 5px;
+                padding-top: 10px;
+            }
+
+            .user-cell {
+                justify-content: flex-end;
             }
         }
 
@@ -458,31 +564,6 @@
                         <span>Gallery</span>
                     </a>
                 </li>
-                <li class="menu-category">Site Links</li>
-                <li>
-                    <a href="../index.html" class="menu-link">
-                        <i class="fas fa-home"></i>
-                        <span>Main Site</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="events.html" class="menu-link">
-                        <i class="fas fa-calendar-day"></i>
-                        <span>Events</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="gallery.html" class="menu-link">
-                        <i class="fas fa-images"></i>
-                        <span>Gallery Site</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="resources.html" class="menu-link">
-                        <i class="fas fa-book"></i>
-                        <span>Resources</span>
-                    </a>
-                </li>
 
                 <li class="menu-category">System</li>
                 <li>
@@ -505,9 +586,35 @@
             <!-- Header -->
             <header class="admin-header">
                 <style>
+                    /* Premium Sticky Admin Header */
+                    .admin-header {
+                        background: var(--surface);
+                        border-bottom: 1px solid var(--border);
+                        padding: 1.5rem 2.5rem;
+                        margin: -2rem -2rem 2.5rem -2rem;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                        position: sticky;
+                        top: 0;
+                        z-index: 99;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                    [data-theme="light"] .admin-header {
+                        background: #ffffff;
+                        border-bottom: 1px solid #e2e8f0;
+                    }
+
                     .mobile-menu-btn {
                         display: none;
-                        margin-right: 15px;
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        color: var(--text-main);
+                        padding: 8px;
+                        border-radius: 8px;
+                        transition: 0.2s;
                     }
 
                     .mobile-brand-admin {
@@ -525,8 +632,54 @@
                     .header-right {
                         display: flex;
                         align-items: center;
-                        gap: 10px;
+                        gap: 12px;
                         flex-shrink: 0;
+                    }
+
+                    .icon-btn {
+                        background: rgba(var(--white-rgb), 0.05);
+                        border: 1px solid var(--border);
+                        color: var(--text-main);
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    }
+
+                    [data-theme="light"] .icon-btn {
+                        background: #f1f5f9;
+                        color: #475569;
+                    }
+
+                    .icon-btn:hover, .rtl-premium-btn:hover {
+                        background: var(--primary);
+                        color: white !important;
+                    }
+
+                    .rtl-premium-btn {
+                        background: rgba(var(--white-rgb), 0.05);
+                        border: 1px solid var(--border);
+                        color: var(--text-main);
+                        padding: 0 16px;
+                        height: 36px;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                        font-weight: 600;
+                        font-family: 'Outfit', sans-serif;
+                        font-size: 0.85rem;
+                    }
+
+                    [data-theme="light"] .rtl-premium-btn {
+                        background: #f1f5f9;
+                        color: #475569;
                     }
 
                     .d-md-block {
@@ -542,18 +695,23 @@
                         margin-inline-start: 5px;
                     }
 
+                    .avatar {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
                     @media (max-width: 992px) {
                         .admin-header {
-                            padding-bottom: 0.5rem;
-                            margin-bottom: 1.5rem;
-                            flex-wrap: nowrap;
-                            /* Prevent wrapping shown in ss-01 */
+                            padding: 0.75rem 1rem !important;
+                            margin: -1.5rem -1rem 1.5rem -1rem; /* Adjust for smaller padding on mobile */
+                            flex-wrap: wrap; 
                             gap: 10px;
                         }
 
                         .mobile-menu-btn {
                             display: inline-flex;
-                            margin-inline-end: 10px;
                         }
 
                         .mobile-brand-admin {
@@ -565,28 +723,19 @@
                             display: none;
                         }
 
-                        .d-md-block {
-                            display: none !important;
-                        }
-
                         .header-right {
-                            gap: 5px;
+                            width: 100%;
+                            justify-content: space-between;
+                            border-top: 1px solid var(--border);
+                            padding-top: 10px;
+                            margin-top: 5px;
+                            gap: 8px;
                         }
 
                         .icon-btn {
                             width: 32px;
                             height: 32px;
                             font-size: 0.85rem;
-                        }
-
-                        .user-profile-nav {
-                            padding-inline-start: 10px;
-                            margin-inline-start: 2px;
-                        }
-
-                        .avatar {
-                            width: 32px !important;
-                            height: 32px !important;
                         }
                     }
 
@@ -617,32 +766,6 @@
 
                     [data-theme="light"] .menu-category {
                         color: #94a3b8;
-                    }
-
-                    [data-theme="light"] .admin-header {
-                        background: #ffffff;
-                        border-bottom: 1px solid #e2e8f0;
-                        padding: 1.5rem 2.5rem;
-                        margin: -2rem -2.5rem 2.5rem -2.5rem;
-                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
-                        position: sticky;
-                        top: 0;
-                        z-index: 99;
-                    }
-
-                    [data-theme="light"] .section-title {
-                        color: #0f172a;
-                    }
-
-                    [data-theme="light"] .icon-btn {
-                        background: #f1f5f9;
-                        color: #475569;
-                        border: 1px solid #e2e8f0;
-                    }
-
-                    [data-theme="light"] .icon-btn:hover {
-                        background: #e2e8f0;
-                        color: var(--primary);
                     }
 
                     [data-theme="light"] .stat-card {
@@ -698,7 +821,7 @@
                 </div>
 
                 <div class="header-right">
-                    <button id="rtl-toggle" class="icon-btn" title="Toggle RTL"><i class="fas fa-globe"></i></button>
+                    <button id="rtl-toggle" class="rtl-premium-btn" title="Toggle Layout Direction"><span class="rtl-btn-text" style="min-width: 32px; text-align: center;">RTL</span></button>
                     <button id="theme-toggle" class="icon-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
 
                     <!-- Notifications -->
@@ -762,8 +885,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
+                                <tr style="display: flex; flex-direction: column;">
+                                    <td data-label="User">
                                         <div class="user-cell">
                                             <div
                                                 style="width: 30px; height: 30px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">
@@ -771,11 +894,11 @@
                                             <span>John Doe</span>
                                         </div>
                                     </td>
-                                    <td>Oct 24, 2026</td>
-                                    <td><span class="role-badge badge-admin">Active</span></td>
+                                    <td data-label="Date">Oct 24, 2026</td>
+                                    <td data-label="Status"><span class="role-badge badge-admin">Active</span></td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td data-label="User">
                                         <div class="user-cell">
                                             <div
                                                 style="width: 30px; height: 30px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">
@@ -783,19 +906,19 @@
                                             <span>Alice Smith</span>
                                         </div>
                                     </td>
-                                    <td>Oct 23, 2026</td>
-                                    <td><span class="role-badge badge-user">Pending</span></td>
+                                    <td data-label="Date">Oct 23, 2026</td>
+                                    <td data-label="Status"><span class="role-badge badge-user">Pending</span></td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td data-label="User">
                                         <div class="user-cell">
                                             <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=100"
                                                 class="avatar" style="width: 30px; height: 30px;">
                                             <span>Robert Fox</span>
                                         </div>
                                     </td>
-                                    <td>Oct 22, 2026</td>
-                                    <td><span class="role-badge badge-admin">Active</span></td>
+                                    <td data-label="Date">Oct 22, 2026</td>
+                                    <td data-label="Status"><span class="role-badge badge-admin">Active</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -816,19 +939,19 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Stargazing Night</td>
-                                    <td>Nov 12, 2026</td>
-                                    <td>45/50</td>
+                                    <td data-label="Event">Stargazing Night</td>
+                                    <td data-label="Date">Nov 12, 2026</td>
+                                    <td data-label="RSVPs">45/50</td>
                                 </tr>
                                 <tr>
-                                    <td>Solar Workshop</td>
-                                    <td>Nov 15, 2026</td>
-                                    <td>12/20</td>
+                                    <td data-label="Event">Solar Workshop</td>
+                                    <td data-label="Date">Nov 15, 2026</td>
+                                    <td data-label="RSVPs">12/20</td>
                                 </tr>
                                 <tr>
-                                    <td>Meteor Shower View</td>
-                                    <td>Dec 05, 2026</td>
-                                    <td>89/100</td>
+                                    <td data-label="Event">Meteor Shower View</td>
+                                    <td data-label="Date">Dec 05, 2026</td>
+                                    <td data-label="RSVPs">89/100</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -860,7 +983,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
+                                <td data-label="Name">
                                     <div class="user-cell">
                                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100"
                                             class="avatar">
@@ -870,17 +993,17 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>admin@stellar.com</td>
-                                <td><span class="role-badge badge-admin">Admin</span></td>
-                                <td><span class="status-dot status-active"></span>Active</td>
-                                <td>Just now</td>
-                                <td>
+                                <td data-label="Email">admin@stellar.com</td>
+                                <td data-label="Role"><span class="role-badge badge-admin">Admin</span></td>
+                                <td data-label="Status"><span class="status-dot status-active"></span>Active</td>
+                                <td data-label="Last Login">Just now</td>
+                                <td data-label="Actions">
                                     <button class="icon-btn" style="width: 32px; height: 32px;"><i
                                             class="fas fa-edit"></i></button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td data-label="Name">
                                     <div class="user-cell">
                                         <div
                                             style="width: 36px; height: 36px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
@@ -891,11 +1014,11 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>jane@example.com</td>
-                                <td><span class="role-badge badge-mod">Moderator</span></td>
-                                <td><span class="status-dot status-active"></span>Active</td>
-                                <td>2 hours ago</td>
-                                <td>
+                                <td data-label="Email">jane@example.com</td>
+                                <td data-label="Role"><span class="role-badge badge-mod">Moderator</span></td>
+                                <td data-label="Status"><span class="status-dot status-active"></span>Active</td>
+                                <td data-label="Last Login">2 hours ago</td>
+                                <td data-label="Actions">
                                     <button class="icon-btn" style="width: 32px; height: 32px;"><i
                                             class="fas fa-edit"></i></button>
                                     <button class="icon-btn"
@@ -979,18 +1102,18 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Guide to Telescopes</td>
-                                <td>Dr. Astro</td>
-                                <td>Resources</td>
-                                <td><span style="color: #10b981;">Published</span></td>
-                                <td>Oct 10, 2026</td>
+                                <td data-label="Title">Guide to Telescopes</td>
+                                <td data-label="Author">Dr. Astro</td>
+                                <td data-label="Category">Resources</td>
+                                <td data-label="Status"><span style="color: #10b981;">Published</span></td>
+                                <td data-label="Date">Oct 10, 2026</td>
                             </tr>
                             <tr>
-                                <td>Mars Opposition 2026</td>
-                                <td>Admin</td>
-                                <td>News</td>
-                                <td><span style="color: #f59e0b;">Draft</span></td>
-                                <td>Oct 20, 2026</td>
+                                <td data-label="Title">Mars Opposition 2026</td>
+                                <td data-label="Author">Admin</td>
+                                <td data-label="Category">News</td>
+                                <td data-label="Status"><span style="color: #f59e0b;">Draft</span></td>
+                                <td data-label="Date">Oct 20, 2026</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1014,10 +1137,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Best lens for Nebula?</td>
-                                <td>System</td>
-                                <td>Keyword Alert</td>
-                                <td>
+                                <td data-label="Topic">Best lens for Nebula?</td>
+                                <td data-label="Reported By">System</td>
+                                <td data-label="Reason">Keyword Alert</td>
+                                <td data-label="Actions">
                                     <button class="btn btn-outline btn-sm"
                                         style="color: #10b981; border-color: #10b981; margin-right: 5px;">Approve</button>
                                     <button class="btn btn-outline btn-sm"
@@ -1025,10 +1148,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Selling my Telescope</td>
-                                <td>User123</td>
-                                <td>Spam</td>
-                                <td>
+                                <td data-label="Topic">Selling my Telescope</td>
+                                <td data-label="Reported By">User123</td>
+                                <td data-label="Reason">Spam</td>
+                                <td data-label="Actions">
                                     <button class="btn btn-outline btn-sm"
                                         style="color: #10b981; border-color: #10b981; margin-right: 5px;">Approve</button>
                                     <button class="btn btn-outline btn-sm"
@@ -1070,53 +1193,20 @@
                 </div>
             </div>
 
-            <!-- VIEW: SETTINGS -->
-            <div id="settings" class="section-view">
-                <div class="table-container" style="max-width: 800px;">
-                    <div class="table-header-row">
-                        <h3>General Settings</h3>
-                    </div>
-                    <div style="padding: 2rem;">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label">Site Name</label>
-                                <input type="text" class="form-control" value="Stellar Astronomy Club">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Contact Email</label>
-                                <input type="email" class="form-control" value="contact@stellar.com">
-                            </div>
-                            <!-- Maintenance Slider -->
-                            <div class="form-group" style="display: flex; align-items: center; gap: 1rem;">
-                                <div style="position: relative; display: inline-block; width: 50px; height: 24px;">
-                                    <input type="checkbox" id="maintenanceMode"
-                                        style="opacity: 0; width: 0; height: 0;">
-                                    <span class="slider"
-                                        style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border); transition: .4s; border-radius: 34px;"
-                                        onclick="this.previousElementSibling.checked = !this.previousElementSibling.checked; this.style.backgroundColor = this.previousElementSibling.checked ? 'var(--primary)' : 'var(--border)';">
-                                        <span
-                                            style="position: absolute; content: ''; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; transform: translateX(0);"></span>
-                                    </span>
-                                </div>
-                                <label for="maintenanceMode" class="form-label"
-                                    style="margin: 0; cursor: pointer;">Enable Maintenance Mode</label>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Default Report Period</label>
-                                <select class="form-control">
-                                    <option>Weekly</option>
-                                    <option>Monthly</option>
-                                    <option>Quarterly</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary"
-                                onclick="event.preventDefault(); alert('Settings Saved!');">Save Changes</button>
-                        </form>
                     </div>
                 </div>
             </div>
+
+            <!-- Dashboard Footer -->
+            <footer class="admin-footer">
+                <p dir="auto">&copy; 2026 Stellar Astronomy Club. Crafted for the Cosmos.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Support</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </footer>
 
         </main>
     </div>
